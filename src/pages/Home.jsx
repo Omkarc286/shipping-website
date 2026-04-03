@@ -102,6 +102,7 @@ const Home = () => {
               src={ship} 
               alt="Cargo Ship" 
               className='w-full h-full object-contain' 
+              decoding="async"     
             />
           </div>
         </div>
