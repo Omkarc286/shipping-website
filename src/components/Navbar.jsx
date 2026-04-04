@@ -21,7 +21,7 @@ const Navbar = () => {
     }
 
     const handleResize = () => {
-      setIsMobile(window.innerWidth < 1024)
+      setIsMobile(window.innerWidth < 1080)
     }
 
     const handleClickOutside = (event) => {
@@ -61,7 +61,7 @@ const Navbar = () => {
           {/* Left - Logo */}
           <div className="flex items-center justify-start gap-3">
               <img src={Logo} className="w-9 h-9" alt="Reflect logo"/>
-              <div className="brand-text">Reflect</div>
+              <div className="brand-text">Fleetonic</div>
           </div>
           
           {/* Middle - Menu (centered) - Only show on desktop */}

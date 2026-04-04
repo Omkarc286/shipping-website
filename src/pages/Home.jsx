@@ -19,7 +19,7 @@ const Home = () => {
     if (!shipCanvas || !homeSection) return;
 
     // Initialize ship position off-screen to the left
-    gsap.set(shipCanvas, { x: -1000, opacity: 1, scale: 1, rotation: 0 });
+    gsap.set(shipCanvas, { x: -1750, opacity: 1, scale: 1, rotation: 0 });
 
     // Create a timeline with multiple animations
     const timeline = gsap.timeline({
@@ -40,11 +40,11 @@ const Home = () => {
     }, 0)
     // Exit: Ship shrinks, rotates and fades out
     .to(shipCanvas, {
-      scale: 0.05,
-      rotation: 720,
+      scale: 0,
+      rotation: 0,
       opacity: 0,
-      duration: 1
-    }, 0.5);
+      duration: 5
+    }, 1);
 
     return () => {
       timeline.kill();
@@ -55,7 +55,7 @@ const Home = () => {
   return (
     <>
       <section ref={homeSectionRef} className='home-section' style={{ position: 'relative', minHeight: '400vh' }}>
-        <div className='light-rays-container'>
+        <div className='light-rays-container' style={{ position: 'relative', top: 0, left: 0, right: 0, height: '100vh', width: '100%' }}>
           <LightRays
             raysOrigin="top-center"
             raysColor="#ffffff"
