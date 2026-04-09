@@ -105,25 +105,46 @@ h2 {
 }
 p.logistics-p {
   font-family: Rubik;
-  font-weight: 300;
-  font-style: Light;
   font-size: 1rem;
   line-height: 27px;
   letter-spacing: 2%;
   text-align: center;
   color: rgba(220, 220, 220, 1);
+}
 
+.about-p {
+  white-space: pre-wrap;
+  word-wrap: break-word;
+  color: #FFF;
+  font-family: Rubik;
+  font-size: 0.8rem;
+  font-style: normal;
+  font-weight: 400;
+  line-height: 28px; /* 200% */
+}
+.about-head-text{
+  color: #C2BCFF;
+  font-family: "Source Serif Pro";
+  font-size: 3rem;
+  font-style: normal;
+  font-weight: 600;
+  line-height: 61px; /* 122% */
+}
+.about-subhead-text {
+  color: #FFF;
+  font-family: Rubik;
+  font-size: 1.5rem;
+  font-style: normal;
+  font-weight: 700;
+  line-height: 1.5rem; /* 100% */
 }
 .logistics-span {
   font-family: Rubik;
-  font-weight: 500;
-  font-style: Italic;
   font-size: 1rem;
   line-height: 27px;
   letter-spacing: 2%;
   text-align: center;
   color: rgba(220, 220, 220, 1);
-
 }
 /* Navbar - Glass effect (initial state) */
 .navbar-glass {
@@ -494,17 +515,53 @@ p.logistics-p {
   line-height: 20px; /* 142.857% */
 }
 
+.lg-card-desc {
+  font-family: 'Inter', sans-serif;
+  font-weight: 400;
+  font-size: 0.75rem;
+  line-height: 125%;
+  letter-spacing: 0%;
+  color: rgba(43, 43, 43, 1);
+}
 
 /* Responsive Design */
-@media (max-width: 1280px) {
+@media (max-width: 1560px) {
+  .lg-card-desc {
+  font-family: 'Inter', sans-serif;
+  font-weight: 400;
+  font-size: 0.625rem;
+  line-height: 125%;
+  letter-spacing: 0%;
+  color: rgba(43, 43, 43, 1);
+}
+}
+@media (max-width: 1378px) {
+  .lg-card-desc {
+  font-family: 'Inter', sans-serif;
+  font-weight: 400;
+  font-size: 0.5625rem;
+  line-height: 125%;
+  letter-spacing: 0%;
+  color: rgba(43, 43, 43, 1);
+}
+}
+@media (max-width: 1288px) {
   .ship-canvas {
     width: 800px !important;
     height: 467px !important;
     bottom: -150px !important;
   }
+  .lg-card-desc {
+    font-family: 'Inter', sans-serif;
+    font-weight: 400;
+    font-size: 0.5rem;
+    line-height: 125%;
+    letter-spacing: 0%;
+    color: rgba(43, 43, 43, 1);
+  }
 }
 
-@media (max-width: 1050px) {
+@media (max-width: 1110px) {
   .hero-text {
     font-size: 4rem;
   }
@@ -646,4 +703,83 @@ code {
   line-height: 135%;
   padding: 4px 8px;
   background: var(--code-bg);
+}
+
+/* SLCard Grid Layout */
+.slcard-grid {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+}
+
+.slcard-grid > :nth-child(3) {
+  grid-column: 1 / -1;
+  justify-self: center;
+  width: 100%;
+  max-width: 50%;
+}
+.about-tag-head {
+  color: #E6F9AF;
+  font-family: "Source Serif Pro";
+  font-size: 28px;
+  font-style: normal;
+  font-weight: 700;
+  line-height: 24px; /* 85.714% */
+  text-align: left;
+}
+.about-tag-desc {
+  color: #FFF;
+  font-family: "Source Serif Pro";
+  font-size: 20px;
+  font-style: normal;
+  font-weight: 300;
+  line-height: 24px;
+  text-align: left;
+}
+.home-services-header-text {
+  color: #5846FB;
+  text-align: center;
+  font-family: "Source Serif Pro";
+  font-size: 3rem;
+  font-style: normal;
+  font-weight: 700;
+  line-height: 64px; /* 128% */
+}
+@media (max-width: 700px) {
+  .slcard-grid {
+    grid-template-columns: 1fr;
+  }
+  
+  .slcard-grid > :nth-child(3) {
+    grid-column: auto;
+    justify-self: auto;
+    width: 100%;
+    max-width: 100%;
+  }
+}
+
+@media (min-width: 1110px) {
+  .slcard-grid {
+    grid-template-columns: repeat(3, 1fr);
+    padding-left: 4.5rem;
+    padding-right: 4.5rem;
+  }
+  
+  .slcard-grid > :nth-child(3) {
+    grid-column: auto;
+    justify-self: auto;
+    width: 100%;
+    max-width: 100%;
+  }
+}
+
+/* SLCard Fixed Height */
+.custom-spotlight-card {
+  display: flex;
+}
+
+.line-clamp-3 {
+  display: -webkit-box;
+  -webkit-line-clamp: 3;
+  -webkit-box-orient: vertical;
+  overflow: hidden;
 }

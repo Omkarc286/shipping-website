@@ -8,6 +8,15 @@ import NavigateNextRoundedIcon from '@mui/icons-material/NavigateNextRounded';
 import ship from '../assets/cargo-ship-sea.png'
 import bgImage from '../assets/bg-image.png'
 import Badge from '../components/Badge';
+import SLCard from '../components/SLCard';
+import seafreightImage from '../assets/seafreight.png'
+import landtransportImage from '../assets/landtransport.png'
+import airfreightImage from '../assets/airfreight.png'
+import rw_bg_image from '../assets/rw-bg-image.png'
+import contact_bg from '../assets/contact-bg.png'
+import { home_aboutus } from '../content/home_aboutus';
+import test_icon from '../assets/test_icon.png'
+import { home_services } from '../content/home_services';
 
 gsap.registerPlugin(ScrollTrigger);
 
@@ -21,24 +30,12 @@ const Home2 = () => {
 
   useEffect(() => {
     const shipCanvas = shipCanvasRef.current;
-    const homeSection = homeSectionRef.current;
+    const exitSection = exitSectionRef.current;
     
-    if (!shipCanvas || !homeSection) return;
+    if (!shipCanvas || !exitSection) return;
 
-    // Initialize all elements off-screen/hidden
-    gsap.set(shipCanvas, { x: -1750, opacity: 0, scale: 0.8 });
-
-    // Create entrance timeline on page load
-    const entranceTimeline = gsap.timeline();
-
-    // Ship entrance animation
-    entranceTimeline.to(shipCanvas, {
-      x: 0,
-      opacity: 1,
-      scale: 1,
-      duration: 1.5,
-      ease: 'power2.out'
-    }, 0);
+    // Set ship to visible initially
+    gsap.set(shipCanvas, { x: 0, opacity: 1, scale: 1 });
 
     // Exit animation on scroll - reversible
     gsap.fromTo(shipCanvas, 
@@ -48,7 +45,7 @@ const Home2 = () => {
         opacity: 0,
         scale: 0.8,
         scrollTrigger: {
-          trigger: exitSectionRef.current,
+          trigger: exitSection,
           start: 'top 80%',
           end: 'top 20%',
           scrub: 1.5,
@@ -65,7 +62,7 @@ const Home2 = () => {
         y: -100,
         opacity: 0,
         scrollTrigger: {
-          trigger: exitSectionRef.current,
+          trigger: exitSection,
           start: 'top 80%',
           end: 'top 20%',
           scrub: 1.5,
@@ -157,10 +154,11 @@ const Home2 = () => {
               width: '1200px',
               height: '700px',
               position: 'absolute',
-              bottom: '-300px',
+              bottom: '-350px',
               left: '50%',
               transform: 'translate(-50%, -25%)',
-              zIndex: 5
+              zIndex: 5,
+              pointerEvents: 'none'
             }}
           >
             <img 
@@ -175,7 +173,7 @@ const Home2 = () => {
       {/* Exit Section - Ship and content will fade out and exit as user scrolls */}
       <section 
         ref={exitSectionRef}
-        className='min-h-screen flex items-center justify-center'
+        className='min-h-screen flex items-center justify-center px-18'
         style={{ 
           backgroundImage: `url(${bgImage})`,
           backgroundSize: 'cover',
@@ -185,19 +183,146 @@ const Home2 = () => {
           zIndex: 1 
         }}
       >
-        <div className='text-center items-center flex flex-col'>
+        <div className='text-center items-center flex flex-col py-18'>
           <div>
             <Badge text='Logistics' />
           </div>
           <div><h1 className='hero2'>Freight Solutions Built to Deliver</h1></div>
-          <div><p className='logistics-p'>From <span className='logistics-span'>Ports</span> to <span className='logistics-span'>Highways</span> to <span className='logistics-span'>Airways</span>, our logistics services ensure reliable cargo movement across every transport channel.</p></div>
+          <p className='logistics-p' style={{ fontWeight: '300', fontStyle: 'normal' }}>From <span className='logistics-span' style={{ fontWeight: '500', fontStyle: 'italic' }}>Ports</span> to <span className='logistics-span' style={{ fontWeight: '500', fontStyle: 'italic' }}>Highways</span> to <span className='logistics-span' style={{ fontWeight: '500', fontStyle: 'italic' }}>Airways</span>, our logistics services ensure reliable cargo movement across every transport channel.</p>
+          <div className='slcard-grid grid grid-cols-1 md:grid-cols-2 px-12 py-12 gap-6 md:gap-8 w-full'>
+            <SLCard
+              title="Sea Freight"
+              image={seafreightImage}
+              description="Reliable global shipping through major sea routes."
+              spotlightColor="rgba(255, 255, 255, 0.25)"
+            />
+            <SLCard
+              title="Land Freight"
+              image={landtransportImage}
+              description="Reliable ground transportation for your cargo."
+              spotlightColor="rgba(255, 255, 255, 0.25)"
+            />
+            <SLCard
+              title="Air Freight"
+              image={airfreightImage}
+              description="Air cargo solutions for time-sensitive shipments."
+              spotlightColor="rgba(255, 255, 255, 0.25)"
+            />
+          </div>
         </div>
+
+        
       </section>
 
       {/* Next Section */}
-      <section className='min-h-screen flex items-center justify-center bg-gray-100'>
+      <section className='flex flex-col p-18 bg-[#0A0118]'>
+        <div className='flex flex-col lg:flex-row gap-10 lg:gap-20 w-full'>
+          <div className='flex flex-col items-center lg:items-start w-full lg:w-1/2 px-0 lg:px-10'>
+            <Badge text='About us' />
+            <h1 className='about-head-text text-center lg:text-left pt-1.5'>{home_aboutus.header_text}</h1>
+            <p className='about-p text-center lg:text-left pr-0 lg:pr-6'>{home_aboutus.description}</p>
+          </div>
+          <div className='flex flex-col lg:flex-row w-full lg:w-1/2 pt-0 lg:pt-10 gap-7'>
+            <div className='flex flex-col items-center lg:items-start w-full lg:w-1/2'>
+              <h2 className='about-subhead-text text-center lg:text-left'>{home_aboutus.subhead1}</h2>
+              <p className='about-p text-center lg:text-left'>{home_aboutus.subdesc1}</p>
+            </div>
+            <div className='flex flex-col items-center lg:items-start w-full lg:w-1/2'>
+              <h2 className='about-subhead-text text-center lg:text-left'>{home_aboutus.subhead2}</h2>
+              <p className='about-p text-center lg:text-left'>{home_aboutus.subdesc2}</p>
+            </div>
+          </div>
+          
+        </div>
+        <div className='grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 mt-14 gap-2.5 px-6 md:px-8 py-5 rounded-[1.25rem] bg-[#221A2F] w-full auto-rows-max'>
+          <div className='flex flex-col justify-center md:justify-start items-center md:items-start w-full'>
+            <div className='flex items-start w-full'>
+              <div className='pr-4 shrink-0'>
+                <img src={test_icon} alt="" className='w-9 h-9' />
+              </div>
+              <div className='flex flex-col flex-1'>
+                <div className='about-tag-head'>{home_aboutus.about_tag1_head}</div>
+                <div className='about-tag-desc'>{home_aboutus.about_tag1_desc}</div>
+              </div>
+            </div>
+          </div>
+          <div className='flex flex-col justify-center md:justify-start items-center md:items-start w-full'>
+            <div className='flex items-start w-full'>
+              <div className='pr-4 shrink-0'>
+                <img src={test_icon} alt="" className='w-9 h-9' />
+              </div>
+              <div className='flex flex-col flex-1'>
+                <div className='about-tag-head'>{home_aboutus.about_tag2_head}</div>
+                <div className='about-tag-desc'>{home_aboutus.about_tag2_desc}</div>
+              </div>
+            </div>
+          </div>
+          <div className='flex flex-col justify-center md:justify-start items-center md:items-start w-full'>
+            <div className='flex items-start w-full'>
+              <div className='pr-4 shrink-0'>
+                <img src={test_icon} alt="" className='w-9 h-9' />
+              </div>
+              <div className='flex flex-col flex-1'>
+                <div className='about-tag-head'>{home_aboutus.about_tag3_head}</div>
+                <div className='about-tag-desc'>{home_aboutus.about_tag3_desc}</div>
+              </div>
+            </div>
+          </div>
+          <div className='flex flex-col justify-center md:justify-start items-center md:items-start w-full'>
+            <div className='flex items-start w-full'>
+              <div className='pr-4 shrink-0'>
+                <img src={test_icon} alt="" className='w-9 h-9' />
+              </div>
+              <div className='flex flex-col flex-1'>
+                <div className='about-tag-head'>{home_aboutus.about_tag4_head}</div>
+                <div className='about-tag-desc'>{home_aboutus.about_tag4_desc}</div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <section className='min-h-screen p-18 flex items-center justify-center' style={{ background: 'linear-gradient(180deg, #FBFAF4 0%, #E0EBF7 100%)' }}>
+        <div className='text-center items-center flex flex-col gap-4'>
+          <Badge text={home_services.badge_text} />
+          <h2 className='home-services-header-text'>{home_services.header_text}</h2>
+          <p className='text-lg text-gray-600'>Explore what we can do for your business</p>
+        </div>
+      </section>
+
+      <section className='min-h-screen flex items-center justify-center' style={{ background: 'radial-gradient(113.16% 93.38% at 66.33% 33.28%, #EBDEFB 0%, #FBFAF4 48.99%, #FAF9F3 72.94%, #F2F0EC 100%)' }}>
         <div className='text-center'>
           <h2 className='text-4xl font-bold mb-4'>Welcome to Our Services</h2>
+          <p className='text-lg text-gray-600'>Explore what we can do for your business</p>
+        </div>
+      </section>
+      <section className='min-h-screen flex items-center justify-center' style={{ background: `url(${rw_bg_image}) lightgray 0px -198.327px / 100% 139.886% no-repeat` }}>
+        <div className='text-center'>
+          <h2 className='text-4xl font-bold mb-4'>Our Recent Completed Projects Showcase</h2>
+          <p className='text-lg text-gray-600'>Explore what we can do for your business</p>
+        </div>
+      </section>
+      <section className='min-h-screen flex items-center justify-center' style={{ background: 'rgba(29, 28, 32, 1)' }}>
+        <div className='text-center'>
+          <h2 className='text-4xl font-bold mb-4'>Featured Works</h2>
+          <p className='text-lg text-gray-600'>Explore what we can do for your business</p>
+        </div>
+      </section>
+      <section className='min-h-screen flex items-center justify-center' style={{ background: 'rgba(29, 28, 32, 1)' }}>
+        <div className='text-center'>
+          <h2 className='text-4xl font-bold mb-4'>What Our Clients Say</h2>
+          <p className='text-lg text-gray-600'>Explore what we can do for your business</p>
+        </div>
+      </section>
+      <section className='min-h-screen flex items-center justify-center' style={{ background: 'rgba(255, 255, 255, 1)' }}>
+        <div className='text-center'>
+          <h2 className='text-4xl font-bold mb-4'>Frequently Asked Questions</h2>
+          <p className='text-lg text-gray-600'>Explore what we can do for your business</p>
+        </div>
+      </section>
+      <section className='min-h-screen flex items-center justify-center' style={{ background: `url(${contact_bg}) lightgray 50% / cover no-repeat` }}>
+        <div className='text-center'>
+          <h2 className='text-4xl font-bold mb-4'>Reach out Today</h2>
           <p className='text-lg text-gray-600'>Explore what we can do for your business</p>
         </div>
       </section>
