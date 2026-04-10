@@ -9,30 +9,30 @@ export const home_services = {
     header_text: 'Logistics Solutions We Offer',
     cards:[
         {
-            card1_header: 'General Contracting',
-            card1_desc: 'A trusted international freight forwarding and project cargo partner in the UAE for over 50 years.',
-            card1_image: gc_services
+            header: 'General Contracting',
+            desc: 'A trusted international freight forwarding and project cargo partner in the UAE for over 50 years.',
+            image: gc_services
         },
         {
-            card2_header: 'Logistics',
-            card2_desc: 'Specialized project logistics solutions for complex and oversized cargo, providing end-to-end management and execution for successful project delivery.',
-            card2_image: lg_services
+            header: 'Logistics',
+            desc: 'Specialized project logistics solutions for complex and oversized cargo, providing end-to-end management and execution for successful project delivery.',
+            image: lg_services
         },
         {
-            card3_header: 'Marine Transport',
-            card3_desc: 'Comprehensive marine transport services, ensuring safe and efficient movement of goods across waterways, tailored to meet your specific shipping needs.',
-            card3_image: ms_services
+            header: 'Marine Transport',
+            desc: 'Comprehensive marine transport services, ensuring safe and efficient movement of goods across waterways, tailored to meet your specific shipping needs.',
+            image: ms_services
         
         },
         {
-            card4_header: 'Material Supply',
-            card4_desc: 'Reliable material supply services, ensuring timely delivery of high-quality materials to support your projects and operations.',
-            card4_image: er_sevices
+            header: 'Material Supply',
+            desc: 'Reliable material supply services, ensuring timely delivery of high-quality materials to support your projects and operations.',
+            image: er_sevices
         },
         {
-            card5_header: 'Equipment Rental',
-            card5_desc: 'Comprehensive equipment rental services, providing high-quality machinery and tools to support your projects and operations efficiently.',
-            card5_image: mt_services
+            header: 'Equipment Rental',
+            desc: 'Comprehensive equipment rental services, providing high-quality machinery and tools to support your projects and operations efficiently.',
+            image: mt_services
         }
     ]
     

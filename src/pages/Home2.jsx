@@ -17,6 +17,9 @@ import contact_bg from '../assets/contact-bg.png'
 import { home_aboutus } from '../content/home_aboutus';
 import test_icon from '../assets/test_icon.png'
 import { home_services } from '../content/home_services';
+import ServiceCard from '../components/ServiceCard';
+import { home_industries } from '../content/home_industries';
+import IndustriesCard from '../components/IndustriesCard';
 
 gsap.registerPlugin(ScrollTrigger);
 
@@ -215,7 +218,7 @@ const Home2 = () => {
       </section>
 
       {/* Next Section */}
-      <section className='flex flex-col p-18 bg-[#0A0118]'>
+      <section className='flex flex-col p-20 bg-[#0A0118]'>
         <div className='flex flex-col lg:flex-row gap-10 lg:gap-20 w-full'>
           <div className='flex flex-col items-center lg:items-start w-full lg:w-1/2 px-0 lg:px-10'>
             <Badge text='About us' />
@@ -282,21 +285,60 @@ const Home2 = () => {
         </div>
       </section>
 
-      <section className='min-h-screen p-18 flex items-center justify-center' style={{ background: 'linear-gradient(180deg, #FBFAF4 0%, #E0EBF7 100%)' }}>
-        <div className='text-center items-center flex flex-col gap-4'>
+      <section className='min-h-screen p-12 md:p-20 flex items-center justify-center' style={{ background: 'linear-gradient(180deg, #FBFAF4 0%, #E0EBF7 100%)' }}>
+        <div className='text-center items-center flex flex-col gap-4 w-full'>
           <Badge text={home_services.badge_text} />
           <h2 className='home-services-header-text'>{home_services.header_text}</h2>
-          <p className='text-lg text-gray-600'>Explore what we can do for your business</p>
+          <div className='services-grid grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-5 gap-6 w-full max-w-7xl mx-auto justify-items-center'>
+            {home_services.cards.map((card, index) => (
+              <ServiceCard
+                key={index}
+                header={card.header}
+                desc={card.desc}
+                image={card.image}
+              />
+            ))}
+          </div>
         </div>
       </section>
 
-      <section className='min-h-screen flex items-center justify-center' style={{ background: 'radial-gradient(113.16% 93.38% at 66.33% 33.28%, #EBDEFB 0%, #FBFAF4 48.99%, #FAF9F3 72.94%, #F2F0EC 100%)' }}>
-        <div className='text-center'>
-          <h2 className='text-4xl font-bold mb-4'>Welcome to Our Services</h2>
-          <p className='text-lg text-gray-600'>Explore what we can do for your business</p>
+      <section className='min-h-screen p-3 md:p-12 lg:p-20 flex items-center justify-center' style={{ background: 'radial-gradient(113.16% 93.38% at 66.33% 33.28%, #EBDEFB 0%, #FBFAF4 48.99%, #FAF9F3 72.94%, #F2F0EC 100%)' }}>
+        <div className='text-center items-center flex flex-col gap-2 md:gap-4 w-full'>
+          <Badge text={home_industries.badge_text} />
+          <h2 className='home-services-header-text'>{home_industries.header_text}</h2>
+          <div className='industries-layout flex flex-col sm:flex-row items-center justify-center gap-3 md:gap-6 lg:gap-8 w-full'>
+            <div className='industries-cards-left flex flex-col gap-3 md:gap-6 lg:gap-13 w-full sm:w-auto'>
+              {
+                home_industries.cards_left.map((card, index) => (
+                  <IndustriesCard key={index} icon={card.icon} title={card.title} />
+                ))
+              }
+              <div className='sm:hidden flex flex-col gap-3'>
+                {
+                  home_industries.cards_right.map((card, index) => (
+                    <IndustriesCard key={`right-${index}`} icon={card.icon} title={card.title} />
+                  ))
+                }
+              </div>
+            </div>
+            <div className='hidden sm:block shrink-0'>
+              <img src={home_industries.bg_image} alt="" className='industries_image' />
+            </div>
+            <div className='industries-cards-right hidden sm:flex flex-col gap-3 md:gap-6 lg:gap-13 w-full sm:w-auto'>
+              {
+                home_industries.cards_right.map((card, index) => (
+                  <IndustriesCard key={index} icon={card.icon} title={card.title} />
+                ))
+              }
+            </div>
+            <div className='sm:hidden shrink-0 order-first'>
+              <img src={home_industries.bg_image} alt="" className='industries_image' />
+            </div>
+          </div>
         </div>
       </section>
       <section className='min-h-screen flex items-center justify-center' style={{ background: `url(${rw_bg_image}) lightgray 0px -198.327px / 100% 139.886% no-repeat` }}>
+        {/* Masonry */}
         <div className='text-center'>
           <h2 className='text-4xl font-bold mb-4'>Our Recent Completed Projects Showcase</h2>
           <p className='text-lg text-gray-600'>Explore what we can do for your business</p>

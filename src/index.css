@@ -404,7 +404,7 @@ p.logistics-p {
   font-size: 5rem;
   font-style: normal;
   font-weight: 900;
-  line-height: 100%; /* 80px */
+  line-height: 5.5rem; /* 80px */
 }
 .hero-header-badge {
   display: flex;
@@ -611,6 +611,9 @@ p.logistics-p {
     min-height: 100vh;
     padding: 50px 12px;
   }
+  .hero-text{
+    line-height: 4.5rem; /* 80px */
+  }
 }
 
 @media (max-width: 480px) {
@@ -618,6 +621,10 @@ p.logistics-p {
     min-height: 100vh;
     padding: 40px 10px;
   }
+  .hero-text{
+    line-height: 4rem; /* 80px */
+  }
+  
 }
 
 .menuholder {
@@ -779,7 +786,352 @@ code {
 
 .line-clamp-3 {
   display: -webkit-box;
-  -webkit-line-clamp: 3;
   -webkit-box-orient: vertical;
   overflow: hidden;
+}
+
+.industries_image {
+  width: 24rem;
+  aspect-ratio: 37/54;
+}
+
+.industries-layout {
+  max-width: 100%;
+}
+
+.industries-card {
+  border-radius: 10px;
+  background: #FFF;
+  box-shadow: 0 7px 28px 1px rgba(98, 158, 253, 0.40);
+  padding: 14px;
+  transition: all 0.3s ease;
+}
+
+.industries-card-title {
+  color: #111116;
+  font-family: Rubik;
+  font-size: 1.5rem;
+  font-style: normal;
+  font-weight: 400;
+  line-height: 34px; /* 141.667% */
+  margin: 0;
+}
+
+.industries-card-icon {
+  width: 2.25rem;
+  height: 2.25rem;
+  flex-shrink: 0;
+}
+
+/* Responsive Industries Layout */
+@media (max-width: 1330px) {
+  .industries-layout {
+    max-width: 95%;
+    margin: 0 auto;
+  }
+  
+  .industries_image {
+    width: 16rem;
+  }
+  
+  .industries-card {
+    padding: 12px;
+    border-radius: 8px;
+  }
+  
+  .industries-card-title {
+    font-size: 1.125rem;
+    line-height: 28px;
+  }
+  
+  .industries-card-icon {
+    width: 1.75rem;
+    height: 1.75rem;
+  }
+}
+
+@media (max-width: 1024px) {
+  .industries-layout {
+    max-width: 90%;
+    margin: 0 auto;
+  }
+  
+  .industries-cards-left {
+    transform: translateY(-50px);
+  }
+  
+  .industries-cards-right {
+    transform: translateY(50px);
+  }
+  
+  .industries_image {
+    width: 14rem;
+  }
+  
+  .industries-card {
+    padding: 10px;
+  }
+  
+  .industries-card-title {
+    font-size: 1rem;
+    line-height: 24px;
+  }
+  
+  .industries-card-icon {
+    width: 1.5rem;
+    height: 1.5rem;
+  }
+}
+
+@media (max-width: 768px) {
+  .industries-layout {
+    max-width: 85%;
+    margin: 0 auto;
+  }
+  
+  .industries-cards-left {
+    transform: translateY(-40px);
+  }
+  
+  .industries-cards-right {
+    transform: translateY(40px);
+  }
+  
+  .industries_image {
+    width: 12rem;
+  }
+  
+  .industries-card {
+    padding: 8px;
+  }
+  
+  .industries-card-title {
+    font-size: 0.875rem;
+    line-height: 20px;
+  }
+  
+  .industries-card-icon {
+    width: 1.25rem;
+    height: 1.25rem;
+  }
+}
+
+@media (max-width: 640px) {
+  .industries-layout {
+    max-width: 80%;
+    margin: 0 auto;
+  }
+  
+  .industries-cards-left {
+    transform: translateY(-20px);
+  }
+  
+  .industries-cards-right {
+    transform: translateY(20px);
+  }
+  
+  .industries_image {
+    width: 9rem;
+  }
+  
+  .industries-card {
+    padding: 5px;
+    border-radius: 6px;
+  }
+  
+  .industries-card-title {
+    font-size: 0.7rem;
+    line-height: 14px;
+  }
+  
+  .industries-card-icon {
+    width: 0.9rem;
+    height: 0.9rem;
+  }
+}
+
+@media (max-width: 749px) and (min-width: 641px) {
+  .industries-layout {
+    max-width: 85%;
+    margin: 0 auto;
+  }
+  
+  .industries-cards-left {
+    transform: translateY(-25px);
+  }
+  
+  .industries-cards-right {
+    transform: translateY(25px);
+  }
+  
+  .industries_image {
+    width: 13rem;
+  }
+  
+  .industries-card {
+    padding: 7px;
+    border-radius: 6px;
+  }
+  
+  .industries-card-title {
+    font-size: 0.8rem;
+    line-height: 18px;
+  }
+  
+  .industries-card-icon {
+    width: 1.1rem;
+    height: 1.1rem;
+  }
+}
+
+@media (max-width: 480px) {
+  .industries-layout {
+    max-width: 95%;
+    margin: 0 auto;
+    flex-direction: column;
+    gap: 1.5rem;
+  }
+  
+  .industries-cards-left {
+    transform: none;
+    width: 100%;
+    order: 2;
+  }
+  
+  .industries-cards-right {
+    display: none;
+  }
+  
+  .industries_image {
+    width: 12rem;
+    order: 1;
+  }
+  
+  .industries-card {
+    padding: 6px;
+    border-radius: 6px;
+  }
+  
+  .industries-card-title {
+    font-size: 0.75rem;
+    line-height: 14px;
+  }
+  
+  .industries-card-icon {
+    width: 0.95rem;
+    height: 0.95rem;
+  }
+}
+
+/* Service Card Grid Styles */
+.services-grid {
+  overflow: visible;
+  align-content: start;
+}
+
+/* Service Card Styles */
+.service-card {
+  display: flex;
+  flex-direction: column;
+  padding: 0.33rem;
+  gap: 0.33rem;
+  border-radius: 1.25rem;
+  background: radial-gradient(97.51% 117.05% at 79.11% 89.76%, #ECF6DD 0%, #F2F1ED 30.41%, #F2F1ED 100%);
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+  height: 100%;
+  width: 100%;
+  cursor: pointer;
+}
+
+.service-card:hover {
+  transform: translateY(-15px);
+  box-shadow: 0 16px 32px rgba(0, 0, 0, 0.25);
+}
+
+.service-card-image {
+  width: 100%;
+  height: 12rem;
+  object-fit: cover;
+  aspect-ratio: 4 / 3;
+  border-radius: 1.25rem 1.25rem 0 0;
+  padding-bottom: 10px;
+}
+
+.service-card-header {
+  color: #111116;
+  font-family: Rubik;
+  font-size: 1rem;
+  font-style: normal;
+  font-weight: 500;
+  line-height: 24px; /* 150% */
+  letter-spacing: -0.36px;
+  
+}
+
+.service-card-desc {
+  color: #22232C;
+  font-family: Rubik;
+  font-size: 0.9375rem;
+  font-style: normal;
+  font-weight: 400;
+  line-height: 20px; /* 142.857% */
+  flex: 1;
+  padding-bottom: 2.8125rem; /* ~45px */
+}
+
+/* Responsive text sizing for service cards */
+@media (max-width: 1024px) {
+  .service-card-header {
+    font-size: 0.875rem;
+    line-height: 20px;
+  }
+  
+  .service-card-desc {
+    font-size: 0.8125rem;
+    line-height: 18px;
+  }
+  
+  .service-card-image {
+    height: 10rem;
+    aspect-ratio: 4 / 3;
+  }
+}
+
+@media (max-width: 768px) {
+  .service-card-header {
+    font-size: 0.8125rem;
+    line-height: 18px;
+  }
+  
+  .service-card-desc {
+    font-size: 0.75rem;
+    line-height: 16px;
+  }
+  
+  .service-card-image {
+    height: 8rem;
+    aspect-ratio: 4 / 3;
+  }
+}
+
+@media (max-width: 640px) {
+  .service-card {
+    max-width: 280px;
+  }
+  
+  .service-card-header {
+    font-size: 0.75rem;
+    line-height: 16px;
+  }
+  
+  .service-card-desc {
+    font-size: 0.6875rem;
+    line-height: 14px;
+  }
+  
+  .service-card-image {
+    height: 7rem;
+    aspect-ratio: 4 / 3;
+  }
 }
