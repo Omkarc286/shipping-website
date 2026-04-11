@@ -20,6 +20,8 @@ import { home_services } from '../content/home_services';
 import ServiceCard from '../components/ServiceCard';
 import { home_industries } from '../content/home_industries';
 import IndustriesCard from '../components/IndustriesCard';
+import { gallery } from '../content/home_rw';
+import Masonry from '../effects/Masonry';
 
 gsap.registerPlugin(ScrollTrigger);
 
@@ -338,10 +340,21 @@ const Home2 = () => {
         </div>
       </section>
       <section className='min-h-screen flex items-center justify-center' style={{ background: `url(${rw_bg_image}) lightgray 0px -198.327px / 100% 139.886% no-repeat` }}>
-        {/* Masonry */}
+        
         <div className='text-center'>
           <h2 className='text-4xl font-bold mb-4'>Our Recent Completed Projects Showcase</h2>
           <p className='text-lg text-gray-600'>Explore what we can do for your business</p>
+          <Masonry
+            items={gallery}
+            ease="power3.out"
+            duration={0.6}
+            stagger={0.05}
+            animateFrom="bottom"
+            scaleOnHover
+            hoverScale={0.95}
+            blurToFocus
+            colorShiftOnHover={false}
+          />
         </div>
       </section>
       <section className='min-h-screen flex items-center justify-center' style={{ background: 'rgba(29, 28, 32, 1)' }}>
