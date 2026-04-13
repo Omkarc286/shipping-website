@@ -339,22 +339,25 @@ const Home2 = () => {
           </div>
         </div>
       </section>
-      <section className='min-h-screen flex items-center justify-center' style={{ background: `url(${rw_bg_image}) lightgray 0px -198.327px / 100% 139.886% no-repeat` }}>
+      <section className='min-h-screen p-6 md:p-12 lg:p-20 flex items-center justify-center' style={{ background: `url(${rw_bg_image}) lightgray 0px -198.327px / 100% 139.886% no-repeat` }}>
         
-        <div className='text-center'>
-          <h2 className='text-4xl font-bold mb-4'>Our Recent Completed Projects Showcase</h2>
-          <p className='text-lg text-gray-600'>Explore what we can do for your business</p>
-          <Masonry
-            items={gallery}
-            ease="power3.out"
-            duration={0.6}
-            stagger={0.05}
-            animateFrom="bottom"
-            scaleOnHover
-            hoverScale={0.95}
-            blurToFocus
-            colorShiftOnHover={false}
-          />
+        <div className='text-center items-center flex flex-col gap-2 md:gap-4 w-full'>
+          <Badge text='Recent Works' />
+          <h2 className='recent-works-header-text text-4xl font-bold mb-4'>Our Recent Completed Projects Showcase</h2>
+        
+          <div className='w-full max-w-7xl mx-auto p-3 md:p-6 lg:p-8 overflow-hidden z-40'>
+            <Masonry
+              items={gallery}
+              ease="power3.out"
+              duration={0.6}
+              stagger={0.05}
+              animateFrom="bottom"
+              scaleOnHover={true}
+              hoverScale={0.95}
+              blurToFocus={true}
+              colorShiftOnHover={true}
+            />
+          </div>
         </div>
       </section>
       <section className='min-h-screen flex items-center justify-center' style={{ background: 'rgba(29, 28, 32, 1)' }}>

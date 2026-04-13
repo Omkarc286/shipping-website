@@ -822,6 +822,18 @@ code {
   height: 2.25rem;
   flex-shrink: 0;
 }
+.recent-works-header-text {
+  font-family: Source Serif Pro;
+  font-weight: 700;
+  font-style: Bold;
+  font-size: 3.125rem;
+  line-height: 64px;
+  letter-spacing: 0%;
+  text-align: center;
+  vertical-align: middle;
+  color: #111116;
+
+}
 
 /* Responsive Industries Layout */
 @media (max-width: 1330px) {
@@ -1133,5 +1145,24 @@ code {
   .service-card-image {
     height: 7rem;
     aspect-ratio: 4 / 3;
+  }
+}
+
+/* Masonry Gallery Responsive Styles */
+@media (max-width: 1024px) {
+  [data-key] {
+    box-shadow: 0px 8px 40px -8px rgba(0, 0, 0, 0.15) !important;
+  }
+}
+
+@media (max-width: 768px) {
+  [data-key] {
+    border-radius: 8px !important;
+  }
+}
+
+@media (max-width: 640px) {
+  [data-key] {
+    border-radius: 6px !important;
   }
 }

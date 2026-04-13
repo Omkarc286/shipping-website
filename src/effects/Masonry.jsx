@@ -65,35 +65,7 @@ const Masonry = ({
 
   const [containerRef, { width }] = useMeasure();
   const [imagesReady, setImagesReady] = useState(false);
-
-  const getInitialPosition = item => {
-    const containerRect = containerRef.current?.getBoundingClientRect();
-    if (!containerRect) return { x: item.x, y: item.y };
-
-    let direction = animateFrom;
-    if (animateFrom === 'random') {
-      const dirs = ['top', 'bottom', 'left', 'right'];
-      direction = dirs[Math.floor(Math.random() * dirs.length)];
-    }
-
-    switch (direction) {
-      case 'top':
-        return { x: item.x, y: -200 };
-      case 'bottom':
-        return { x: item.x, y: window.innerHeight + 200 };
-      case 'left':
-        return { x: -200, y: item.y };
-      case 'right':
-        return { x: window.innerWidth + 200, y: item.y };
-      case 'center':
-        return {
-          x: containerRect.width / 2 - item.w / 2,
-          y: containerRect.height / 2 - item.h / 2
-        };
-      default:
-        return { x: item.x, y: item.y + 100 };
-    }
-  };
+  const [hasAnimated, setHasAnimated] = useState(false);
 
   useEffect(() => {
     preloadImages(items.map(i => i.img)).then(() => setImagesReady(true));
@@ -109,7 +81,11 @@ const Masonry = ({
     return items.map(child => {
       const col = colHeights.indexOf(Math.min(...colHeights));
       const x = col * (columnWidth + gap);
-      const height = child.height / 2;
+      // Scale height responsively based on column width and maintain aspect ratio
+      // Original ratio: height/width = (child.height/2) / columnWidth
+      // New height = columnWidth * (child.height / (2 * 400)) to scale down on small screens
+      const baseHeight = Math.max(columnWidth * 0.5, child.height / 3);
+      const height = baseHeight;
       const y = colHeights[col];
 
       colHeights[col] += height + gap;
@@ -119,35 +95,87 @@ const Masonry = ({
 
   const hasMounted = useRef(false);
 
-  useLayoutEffect(() => {
-    if (!imagesReady) return;
+  useEffect(() => {
+    if (!containerRef.current) return;
 
-    grid.forEach((item, index) => {
+    const getInitialPosition = item => {
+      const containerRect = containerRef.current?.getBoundingClientRect();
+      if (!containerRect) return { x: item.x, y: item.y };
+
+      let direction = animateFrom;
+      if (animateFrom === 'random') {
+        const dirs = ['top', 'bottom', 'left', 'right'];
+        direction = dirs[Math.floor(Math.random() * dirs.length)];
+      }
+
+      switch (direction) {
+        case 'top':
+          return { x: item.x, y: -200 };
+        case 'bottom':
+          return { x: item.x, y: window.innerHeight + 200 };
+        case 'left':
+          return { x: -200, y: item.y };
+        case 'right':
+          return { x: window.innerWidth + 200, y: item.y };
+        case 'center':
+          return {
+            x: containerRect.width / 2 - item.w / 2,
+            y: containerRect.height / 2 - item.h / 2
+          };
+        default:
+          return { x: item.x, y: item.y + 100 };
+      }
+    };
+
+    // Create Intersection Observer to trigger animation when section comes into view
+    const observer = new IntersectionObserver(
+      ([entry]) => {
+        if (entry.isIntersecting && !hasAnimated && imagesReady && grid.length > 0) {
+          setHasAnimated(true);
+          
+          // Trigger animations for all items
+          grid.forEach((item, index) => {
+            const selector = `[data-key="${item.id}"]`;
+            const animProps = { x: item.x, y: item.y, width: item.w, height: item.h };
+            const start = getInitialPosition(item);
+
+            gsap.fromTo(
+              selector,
+              {
+                opacity: 0,
+                x: start.x,
+                y: start.y,
+                width: item.w,
+                height: item.h,
+                ...(blurToFocus && { filter: 'blur(10px)' })
+              },
+              {
+                opacity: 1,
+                ...animProps,
+                ...(blurToFocus && { filter: 'blur(0px)' }),
+                duration: 0.8,
+                ease: 'power3.out',
+                delay: index * stagger
+              }
+            );
+          });
+        }
+      },
+      { threshold: 0.1 }
+    );
+
+    observer.observe(containerRef.current);
+    return () => observer.disconnect();
+  }, [imagesReady, grid, stagger, blurToFocus, hasAnimated, animateFrom, containerRef]);
+
+  useLayoutEffect(() => {
+    if (!imagesReady || !grid.length) return;
+
+    grid.forEach((item) => {
       const selector = `[data-key="${item.id}"]`;
       const animProps = { x: item.x, y: item.y, width: item.w, height: item.h };
 
-      if (!hasMounted.current) {
-        const start = getInitialPosition(item);
-        gsap.fromTo(
-          selector,
-          {
-            opacity: 0,
-            x: start.x,
-            y: start.y,
-            width: item.w,
-            height: item.h,
-            ...(blurToFocus && { filter: 'blur(10px)' })
-          },
-          {
-            opacity: 1,
-            ...animProps,
-            ...(blurToFocus && { filter: 'blur(0px)' }),
-            duration: 0.8,
-            ease: 'power3.out',
-            delay: index * stagger
-          }
-        );
-      } else {
+      if (hasMounted.current) {
         gsap.to(selector, {
           ...animProps,
           duration,
@@ -158,8 +186,7 @@ const Masonry = ({
     });
 
     hasMounted.current = true;
-    // eslint-disable-next-line react-hooks/exhaustive-deps
-  }, [grid, imagesReady, stagger, animateFrom, blurToFocus, duration, ease]);
+  }, [grid, imagesReady, duration, ease]);
 
   const handleMouseEnter = (id, element) => {
     if (scaleOnHover) {
@@ -190,23 +217,34 @@ const Masonry = ({
   };
 
   return (
-    <div ref={containerRef} className="relative w-full h-full">
+    <div 
+      ref={containerRef} 
+      className="relative w-full overflow-hidden"
+      style={{
+        height: grid.length > 0 ? `${Math.max(...grid.map(item => item.y + item.h))}px` : '400px'
+      }}
+    >
       {grid.map(item => (
         <div
           key={item.id}
           data-key={item.id}
-          className="absolute box-content"
+          className="absolute box-content cursor-pointer"
           style={{ willChange: 'transform, width, height, opacity' }}
           onClick={() => window.open(item.url, '_blank', 'noopener')}
           onMouseEnter={e => handleMouseEnter(item.id, e.currentTarget)}
           onMouseLeave={e => handleMouseLeave(item.id, e.currentTarget)}
         >
           <div
-            className="relative w-full h-full bg-cover bg-center rounded-[10px] shadow-[0px_10px_50px_-10px_rgba(0,0,0,0.2)] uppercase text-[10px] leading-2.5"
+            className="relative w-full h-full bg-cover bg-center rounded-[10px] shadow-[0px_10px_50px_-10px_rgba(0,0,0,0.2)]"
             style={{ backgroundImage: `url(${item.img})` }}
           >
             {colorShiftOnHover && (
-              <div className="color-overlay absolute inset-0 rounded-[10px] bg-linear-to-tr from-pink-500/50 to-sky-500/50 opacity-0 pointer-events-none" />
+              <div 
+                className="color-overlay absolute inset-0 rounded-[10px] opacity-0 pointer-events-none" 
+                style={{
+                  background: 'linear-gradient(135deg, rgba(236, 72, 153, 0.4) 0%, rgba(14, 165, 233, 0.4) 100%)'
+                }}
+              />
             )}
           </div>
         </div>

@@ -15,75 +15,75 @@ export const gallery = [
     {
       id: "1",
       img: image_1,
-      url: "https://example.com/one",
+      url: "https://google.com/one",
       height: 400,
     },
     {
       id: "2",
       img: image_2,
-      url: "https://example.com/two",
+      url: "https://google.com/two",
       height: 250,
     },
     {
       id: "3",
       img: image_3,
-      url: "https://example.com/three",
+      url: "https://google.com/three",
       height: 600,
     },
     {
       id: "4",
       img: image_4,
-      url: "https://example.com/four",
+      url: "https://google.com/four",
       height: 350,
     },
     {
         id: "5",
         img: image_5,
-        url: "https://example.com/five",
+        url: "https://google.com/five",
         height: 450,
     },
     {
         id: "6",
         img: image_6,
-        url: "https://example.com/six",
+        url: "https://google.com/six",
         height: 300,
     },
     {
         id: "7",
         img: image_7,
-        url: "https://example.com/seven",
+        url: "https://google.com/seven",
         height: 400,
 
     },
     {
         id: "8",
         img: image_8,
-        url: "https://example.com/eight",
+        url: "https://google.com/eight",
         height: 350,
 
     },
     {
         id: "9",
         img: image_9,
-        url: "https://example.com/nine",
+        url: "https://google.com/nine",
         height: 500,
     },
     {
         id: "10",
         img: image_10,
-        url: "https://example.com/ten",
+        url: "https://google.com/ten",
         height: 400,
     },
     {
         id: "11",
         img: image_11,
-        url: "https://example.com/eleven",
+        url: "https://google.com/eleven",
         height: 450,
     },
     {
         id: "12",
         img: image_12,
-        url: "https://example.com/twelve",
+        url: "https://google.com/twelve",
         height: 300,
     }
 ];
