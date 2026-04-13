@@ -343,7 +343,7 @@ const Home2 = () => {
         
         <div className='text-center items-center flex flex-col gap-2 md:gap-4 w-full'>
           <Badge text='Recent Works' />
-          <h2 className='recent-works-header-text text-4xl font-bold mb-4'>Our Recent Completed Projects Showcase</h2>
+          <h2 className='recent-works-header-text mb-4'>Our Recent Completed Projects Showcase</h2>
         
           <div className='w-full max-w-7xl mx-auto p-3 md:p-6 lg:p-8 overflow-hidden z-40'>
             <Masonry
@@ -360,10 +360,11 @@ const Home2 = () => {
           </div>
         </div>
       </section>
-      <section className='min-h-screen flex items-center justify-center' style={{ background: 'rgba(29, 28, 32, 1)' }}>
-        <div className='text-center'>
-          <h2 className='text-4xl font-bold mb-4'>Featured Works</h2>
-          <p className='text-lg text-gray-600'>Explore what we can do for your business</p>
+      <section className='min-h-screen p-6 md:p-12 lg:p-20 flex items-center justify-centerr' style={{ background: 'rgba(29, 28, 32, 1)' }}>
+        <div className='text-center items-center flex flex-col gap-2 md:gap-4 w-full'>
+          <Badge text="Industries"/>
+          <h2 className='featured-works-header-text'>Featured Works</h2>
+          
         </div>
       </section>
       <section className='min-h-screen flex items-center justify-center' style={{ background: 'rgba(29, 28, 32, 1)' }}>
