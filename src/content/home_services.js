@@ -11,28 +11,33 @@ export const home_services = {
         {
             header: 'General Contracting',
             desc: 'A trusted international freight forwarding and project cargo partner in the UAE for over 50 years.',
-            image: gc_services
+            image: gc_services,
+            url: 'https://www.google.com/general-contracting'
         },
         {
             header: 'Logistics',
             desc: 'Specialized project logistics solutions for complex and oversized cargo, providing end-to-end management and execution for successful project delivery.',
-            image: lg_services
+            image: lg_services,
+            url: 'https://www.google.com/logistics'
         },
         {
             header: 'Marine Transport',
             desc: 'Comprehensive marine transport services, ensuring safe and efficient movement of goods across waterways, tailored to meet your specific shipping needs.',
-            image: ms_services
+            image: ms_services,
+            url: 'https://www.google.com/marine-transport'
         
         },
         {
             header: 'Material Supply',
             desc: 'Reliable material supply services, ensuring timely delivery of high-quality materials to support your projects and operations.',
-            image: er_sevices
+            image: er_sevices,
+            url: 'https://www.google.com/material-supply'
         },
         {
             header: 'Equipment Rental',
             desc: 'Comprehensive equipment rental services, providing high-quality machinery and tools to support your projects and operations efficiently.',
-            image: mt_services
+            image: mt_services,
+            url: 'https://www.google.com/equipment-rental'
         }
     ]
     
