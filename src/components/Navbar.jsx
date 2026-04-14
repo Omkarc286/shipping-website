@@ -1,13 +1,6 @@
 import React, { useState, useEffect } from 'react'
 import Logo from '../assets/reflect.png'
-
-const menuItems = [
-  { id: 'corporate', label: 'Corporate'},
-  { id: 'services', label: 'Our Services'},
-  { id: 'portfolio', label: 'Portfolio'},
-  { id: 'blogs', label: 'Blogs'},
-  { id: 'contact', label: 'Contact Us'}
-]
+import { menuItems } from '../content/navbar_content'
 
 const Navbar = () => {
   const [isScrolled, setIsScrolled] = useState(false)
