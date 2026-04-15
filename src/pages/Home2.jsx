@@ -22,6 +22,8 @@ import { home_industries } from '../content/home_industries';
 import IndustriesCard from '../components/IndustriesCard';
 import { gallery } from '../content/home_rw';
 import Masonry from '../effects/Masonry';
+import FWCard from '../components/FWCard';
+import { featured_works } from '../content/home_fw';
 
 gsap.registerPlugin(ScrollTrigger);
 
@@ -361,11 +363,19 @@ const Home2 = () => {
           </div>
         </div>
       </section>
-      <section className='min-h-screen p-6 md:p-12 lg:p-20 flex items-center justify-centerr' style={{ background: 'rgba(29, 28, 32, 1)' }}>
+      <section className='min-h-screen p-6 md:p-12 lg:p-20 flex items-center justify-center' style={{ background: '#0F0B15' }}>
         <div className='text-center items-center flex flex-col gap-2 md:gap-4 w-full'>
           <Badge text="Industries"/>
           <h2 className='featured-works-header-text'>Featured Works</h2>
-          
+          <div className='featured-works-grid grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-6 w-full justify-items-center z-50'>
+            {featured_works.cards.map((card, index) => (
+              <FWCard
+                key={index}
+                header={card.header}
+                image={card.img}
+              />
+            ))}
+          </div>
         </div>
       </section>
       <section className='min-h-screen flex items-center justify-center' style={{ background: 'rgba(29, 28, 32, 1)' }}>
