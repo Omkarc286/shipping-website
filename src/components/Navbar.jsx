@@ -48,7 +48,7 @@ const Navbar = () => {
 
   return (
     <>
-      <nav className={`navbar-grid w-vw px-18 py-4 items-center fixed top-0 left-0 right-0 z-50 ${
+      <nav className={`navbar-grid w-vw px-18 py-4 items-center fixed top-0 left-0 right-0 z-70 ${
         isScrolled ? 'navbar-solid' : 'navbar-glass'
       }`}>
           {/* Left - Logo */}

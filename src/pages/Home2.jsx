@@ -348,7 +348,7 @@ const Home2 = () => {
           <Badge text='Recent Works' />
           <h2 className='recent-works-header-text mb-4'>Our Recent Completed Projects Showcase</h2>
         
-          <div className='w-full max-w-7xl mx-auto p-3 md:p-6 lg:p-8 overflow-hidden z-40'>
+          <div className='w-full max-w-7xl mx-auto p-3 md:p-6 lg:p-8 overflow-hidden z-30'>
             <Masonry
               items={gallery}
               ease="power3.out"
