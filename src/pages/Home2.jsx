@@ -14,6 +14,7 @@ import landtransportImage from '../assets/landtransport.png'
 import airfreightImage from '../assets/airfreight.png'
 import rw_bg_image from '../assets/rw-bg-image.png'
 import contact_bg from '../assets/contact-bg.png'
+import testimonial_bg from '../assets/testimonials/testimonial_bg.png'
 import { home_aboutus } from '../content/home_aboutus';
 import test_icon from '../assets/test_icon.png'
 import { home_services } from '../content/home_services';
@@ -378,10 +379,14 @@ const Home2 = () => {
           </div>
         </div>
       </section>
-      <section className='min-h-screen flex items-center justify-center' style={{ background: 'rgba(29, 28, 32, 1)' }}>
-        <div className='text-center'>
-          <h2 className='text-4xl font-bold mb-4'>What Our Clients Say</h2>
-          <p className='text-lg text-gray-600'>Explore what we can do for your business</p>
+      <section className='min-h-screen flex items-center justify-center' style={{ backgroundImage: `url(${testimonial_bg})`, backgroundPosition: '50% 7.25rem', backgroundSize: 'min(640px, 80vw) auto', backgroundRepeat: 'no-repeat', backgroundColor: '#0F0B15' }}>
+        <div className='text-center items-center flex flex-col'>
+          <Badge text='Wall of Love' />
+          <h2 className='testimonial-header-text text-4xl font-bold mb-4'>What Our Clients Say</h2>
+          <p className='testimonial-desc-text'>Testimonials From Clients</p>
+        </div>
+        <div>
+          
         </div>
       </section>
       <section className='min-h-screen flex items-center justify-center' style={{ background: 'rgba(255, 255, 255, 1)' }}>
