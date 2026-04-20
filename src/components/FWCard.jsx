@@ -8,7 +8,7 @@ const springValues = {
   mass: 2
 }
 
-const FWCard = ({header, image}) => {
+const FWCard = ({ header, image }) => {
   const cardRef = useRef(null)
   const x = useMotionValue(0)
   const y = useMotionValue(0)
@@ -59,7 +59,7 @@ const FWCard = ({header, image}) => {
   }
 
   return (
-    <motion.div 
+    <motion.div
       ref={cardRef}
       className="fw-card"
       onMouseMove={handleMouse}
@@ -71,14 +71,15 @@ const FWCard = ({header, image}) => {
         rotateY,
         scale,
         transformStyle: 'preserve-3d',
-        transformOrigin: 'center center'
+        transformOrigin: 'center center',
+        margin: 'auto'
       }}
     >
       <h3 className="fw-card-header text-left">{header}</h3>
-      
-      <img 
-        src={image} 
-        alt={header} 
+
+      <img
+        src={image}
+        alt={header}
         className="fw-card-image"
       />
 

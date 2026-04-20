@@ -25,6 +25,16 @@ import { gallery } from '../content/home_rw';
 import Masonry from '../effects/Masonry';
 import FWCard from '../components/FWCard';
 import { featured_works } from '../content/home_fw';
+import TestimonialsSection from './HomeComponents/TestimonialsSection.jsx';
+import FAQSection from './HomeComponents/FAQSection.jsx';
+import ReachOutSection from './HomeComponents/ReachOutSection.jsx';
+import Footer from './HomeComponents/Footer.jsx';
+import FeaturedWorksSection from './HomeComponents/FeaturedWorksSection.jsx';
+import RecentWorksSection from './HomeComponents/RecentWorksSection.jsx';
+import IndustriesSection from './HomeComponents/IndustriesSection.jsx';
+import LogisticSolutionsSection from './HomeComponents/LogisticSolutionsSection.jsx';
+import AwardsSection from './HomeComponents/AwardsSection.jsx';
+import TrustedBySection from './HomeComponents/TrustedBySection.jsx';
 
 gsap.registerPlugin(ScrollTrigger);
 
@@ -39,14 +49,14 @@ const Home2 = () => {
   useEffect(() => {
     const shipCanvas = shipCanvasRef.current;
     const exitSection = exitSectionRef.current;
-    
+
     if (!shipCanvas || !exitSection) return;
 
     // Set ship to visible initially
     gsap.set(shipCanvas, { x: 0, opacity: 1, scale: 1 });
 
     // Exit animation on scroll - reversible
-    gsap.fromTo(shipCanvas, 
+    gsap.fromTo(shipCanvas,
       { x: 0, opacity: 1, scale: 1 },
       {
         x: 1750,
@@ -146,7 +156,7 @@ const Home2 = () => {
 
           {/* CTA Button */}
           <div ref={buttonRef} style={{ margin: '16px' }}>
-            <ClickForMore 
+            <ClickForMore
               text="Get a Free Quote"
               icon={<NavigateNextRoundedIcon style={{ fontSize: '20px', marginLeft: '1px', color: '#FFF' }} />}
               classContainer="get-free-quote-button"
@@ -155,7 +165,7 @@ const Home2 = () => {
           </div>
 
           {/* Ship entrance animation */}
-          <div 
+          <div
             ref={shipCanvasRef}
             className='ship-canvas'
             style={{
@@ -169,26 +179,26 @@ const Home2 = () => {
               pointerEvents: 'none'
             }}
           >
-            <img 
-              src={ship} 
-              alt="Cargo Ship" 
-              className='w-full h-full object-contain' 
+            <img
+              src={ship}
+              alt="Cargo Ship"
+              className='w-full h-full object-contain'
             />
           </div>
         </div>
       </section>
 
       {/* Exit Section - Ship and content will fade out and exit as user scrolls */}
-      <section 
+      <section
         ref={exitSectionRef}
         className='min-h-screen flex items-center justify-center px-18'
-        style={{ 
+        style={{
           backgroundImage: `url(${bgImage})`,
           backgroundSize: 'cover',
           backgroundPosition: 'center',
           backgroundAttachment: 'fixed',
-          position: 'relative', 
-          zIndex: 1 
+          position: 'relative',
+          zIndex: 1
         }}
       >
         <div className='text-center items-center flex flex-col py-18'>
@@ -219,7 +229,7 @@ const Home2 = () => {
           </div>
         </div>
 
-        
+
       </section>
 
       {/* Next Section */}
@@ -240,7 +250,7 @@ const Home2 = () => {
               <p className='about-p text-center lg:text-left'>{home_aboutus.subdesc2}</p>
             </div>
           </div>
-          
+
         </div>
         <div className='grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 mt-14 gap-2.5 px-6 md:px-8 py-5 rounded-[1.25rem] bg-[#221A2F] w-full auto-rows-max'>
           <div className='flex flex-col justify-center md:justify-start items-center md:items-start w-full'>
@@ -289,8 +299,8 @@ const Home2 = () => {
           </div>
         </div>
       </section>
-
-      <section className='min-h-screen p-12 md:p-20 flex items-center justify-center' style={{ background: 'linear-gradient(180deg, #FBFAF4 0%, #E0EBF7 100%)' }}>
+      <AwardsSection />
+      {/* <section className='min-h-screen p-12 md:p-20 flex items-center justify-center' style={{ background: 'linear-gradient(180deg, #FBFAF4 0%, #E0EBF7 100%)' }}>
         <div className='text-center items-center flex flex-col gap-4 w-full'>
           <Badge text={home_services.badge_text} />
           <h2 className='home-services-header-text'>{home_services.header_text}</h2>
@@ -306,9 +316,10 @@ const Home2 = () => {
             ))}
           </div>
         </div>
-      </section>
+      </section> */}
+      <LogisticSolutionsSection />
 
-      <section className='min-h-screen p-3 md:p-12 lg:p-20 flex items-center justify-center' style={{ background: 'radial-gradient(113.16% 93.38% at 66.33% 33.28%, #EBDEFB 0%, #FBFAF4 48.99%, #FAF9F3 72.94%, #F2F0EC 100%)' }}>
+      {/* <section className='min-h-screen p-3 md:p-12 lg:p-20 flex items-center justify-center' style={{ background: 'radial-gradient(113.16% 93.38% at 66.33% 33.28%, #EBDEFB 0%, #FBFAF4 48.99%, #FAF9F3 72.94%, #F2F0EC 100%)' }}>
         <div className='text-center items-center flex flex-col gap-2 md:gap-4 w-full'>
           <Badge text={home_industries.badge_text} />
           <h2 className='home-services-header-text'>{home_industries.header_text}</h2>
@@ -342,13 +353,16 @@ const Home2 = () => {
             </div>
           </div>
         </div>
-      </section>
-      <section className='min-h-screen p-6 md:p-12 lg:p-20 flex items-center justify-center' style={{ background: `url(${rw_bg_image}) lightgray 0px -198.327px / 100% 139.886% no-repeat` }}>
-        
+      </section> */}
+      <IndustriesSection />
+      <TrustedBySection />
+
+      {/* <section className='min-h-screen p-6 md:p-12 lg:p-20 flex items-center justify-center' style={{ background: `url(${rw_bg_image}) lightgray 0px -198.327px / 100% 139.886% no-repeat` }}>
+
         <div className='text-center items-center flex flex-col gap-2 md:gap-4 w-full'>
           <Badge text='Recent Works' />
           <h2 className='recent-works-header-text mb-4'>Our Recent Completed Projects Showcase</h2>
-        
+
           <div className='w-full max-w-7xl mx-auto p-3 md:p-6 lg:p-8 overflow-hidden z-30'>
             <Masonry
               items={gallery}
@@ -363,10 +377,11 @@ const Home2 = () => {
             />
           </div>
         </div>
-      </section>
-      <section className='min-h-screen p-6 md:p-12 lg:p-20 flex items-center justify-center' style={{ background: '#0F0B15' }}>
+      </section> */}
+      <RecentWorksSection />
+      {/* <section className='min-h-screen p-6 md:p-12 lg:p-20 flex items-center justify-center' style={{ background: '#0F0B15' }}>
         <div className='text-center items-center flex flex-col gap-2 md:gap-4 w-full'>
-          <Badge text="Industries"/>
+          <Badge text="Industries" />
           <h2 className='featured-works-header-text'>Featured Works</h2>
           <div className='featured-works-grid grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-6 w-full justify-items-center z-50'>
             {featured_works.cards.map((card, index) => (
@@ -378,29 +393,13 @@ const Home2 = () => {
             ))}
           </div>
         </div>
-      </section>
-      <section className='min-h-screen flex items-center justify-center' style={{ backgroundImage: `url(${testimonial_bg})`, backgroundPosition: '50% 7.25rem', backgroundSize: 'min(640px, 80vw) auto', backgroundRepeat: 'no-repeat', backgroundColor: '#0F0B15' }}>
-        <div className='text-center items-center flex flex-col'>
-          <Badge text='Wall of Love' />
-          <h2 className='testimonial-header-text text-4xl font-bold mb-4'>What Our Clients Say</h2>
-          <p className='testimonial-desc-text'>Testimonials From Clients</p>
-        </div>
-        <div>
-          
-        </div>
-      </section>
-      <section className='min-h-screen flex items-center justify-center' style={{ background: 'rgba(255, 255, 255, 1)' }}>
-        <div className='text-center'>
-          <h2 className='text-4xl font-bold mb-4'>Frequently Asked Questions</h2>
-          <p className='text-lg text-gray-600'>Explore what we can do for your business</p>
-        </div>
-      </section>
-      <section className='min-h-screen flex items-center justify-center' style={{ background: `url(${contact_bg}) lightgray 50% / cover no-repeat` }}>
-        <div className='text-center'>
-          <h2 className='text-4xl font-bold mb-4'>Reach out Today</h2>
-          <p className='text-lg text-gray-600'>Explore what we can do for your business</p>
-        </div>
-      </section>
+      </section> */}
+      <FeaturedWorksSection />
+
+      <TestimonialsSection backgroundImage={testimonial_bg} />
+      <FAQSection />
+      <ReachOutSection backgroundImage={contact_bg} />
+      <Footer />
     </>
   )
 }
