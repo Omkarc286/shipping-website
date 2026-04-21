@@ -1,5 +1,5 @@
 import React, { useState, useEffect, useRef } from 'react'
-import { useNavigate } from 'react-router-dom'
+import { useNavigate, useLocation } from 'react-router-dom'
 
 import Logo from '../assets/reflect.png'
 import { menuItems } from '../content/navbar_content'
@@ -9,14 +9,30 @@ import ServicesDropdown from './ServicesDropdown'
 
 const Navbar = () => {
   const navigate = useNavigate()
+  const location = useLocation()
 
   const [isScrolled, setIsScrolled] = useState(false)
-  const [activeMenu, setActiveMenu] = useState('aboutus')
+  const [activeMenu, setActiveMenu] = useState(() => {
+    if (location.pathname === '/services') {
+      return 'services'
+    } else if (location.pathname === '/') {
+      return 'aboutus'
+    }
+    return 'aboutus'
+  })
   const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false)
   const [isMobile, setIsMobile] = useState(false)
 
   const [hoveredMenu, setHoveredMenu] = useState(null)
   const hoverTimeout = useRef(null)
+
+  useEffect(() => {
+    if (location.pathname === '/services') {
+      setActiveMenu('services')
+    } else if (location.pathname === '/') {
+      setActiveMenu('aboutus')
+    }
+  }, [location.pathname])
 
   useEffect(() => {
     const handleScroll = () => {
@@ -54,7 +70,8 @@ const Navbar = () => {
     setActiveMenu(item.id)
     setIsMobileMenuOpen(false)
 
-    // 🔥 Routing logic
+    window.scrollTo(0, 0)
+
     if (item.id === 'services') {
       navigate('/services')
     } else if (item.id === 'aboutus') {
@@ -105,8 +122,8 @@ const Navbar = () => {
                 <div
                   onClick={() => handleMenuClick(item)}
                   className={`menu-item-element transition-all ${activeMenu === item.id
-                      ? 'menu-item-active'
-                      : 'menu-item'
+                    ? 'menu-item-active'
+                    : 'menu-item'
                     }`}
                 >
                   {item.label}
