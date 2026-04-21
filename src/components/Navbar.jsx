@@ -1,4 +1,6 @@
 import React, { useState, useEffect, useRef } from 'react'
+import { useNavigate } from 'react-router-dom'
+
 import Logo from '../assets/reflect.png'
 import { menuItems } from '../content/navbar_content'
 
@@ -6,6 +8,8 @@ import AboutDropdown from './AboutDropdown'
 import ServicesDropdown from './ServicesDropdown'
 
 const Navbar = () => {
+  const navigate = useNavigate()
+
   const [isScrolled, setIsScrolled] = useState(false)
   const [activeMenu, setActiveMenu] = useState('aboutus')
   const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false)
@@ -46,9 +50,16 @@ const Navbar = () => {
     }
   }, [isMobileMenuOpen])
 
-  const handleMenuClick = (id) => {
-    setActiveMenu(id)
+  const handleMenuClick = (item) => {
+    setActiveMenu(item.id)
     setIsMobileMenuOpen(false)
+
+    // 🔥 Routing logic
+    if (item.id === 'services') {
+      navigate('/services')
+    } else if (item.id === 'aboutus') {
+      navigate('/')
+    }
   }
 
   const toggleMobileMenu = () => {
@@ -73,7 +84,10 @@ const Navbar = () => {
           }`}
       >
         {/* Logo */}
-        <div className="flex items-center justify-start gap-3">
+        <div
+          className="flex items-center justify-start gap-3 cursor-pointer"
+          onClick={() => navigate('/')}
+        >
           <img src={Logo} className="w-9 h-9" alt="Reflect logo" />
           <div className="brand-text">Fleetonic</div>
         </div>
@@ -89,10 +103,10 @@ const Navbar = () => {
                 onMouseLeave={handleMouseLeave}
               >
                 <div
-                  onClick={() => handleMenuClick(item.id)}
+                  onClick={() => handleMenuClick(item)}
                   className={`menu-item-element transition-all ${activeMenu === item.id
-                    ? 'menu-item-active'
-                    : 'menu-item'
+                      ? 'menu-item-active'
+                      : 'menu-item'
                     }`}
                 >
                   {item.label}
@@ -124,10 +138,7 @@ const Navbar = () => {
         {/* Mobile Hamburger */}
         {isMobile && (
           <div className="mobile-menu-button" onClick={toggleMobileMenu}>
-            <div
-              className={`hamburger ${isMobileMenuOpen ? 'open' : ''
-                }`}
-            >
+            <div className={`hamburger ${isMobileMenuOpen ? 'open' : ''}`}>
               <span></span>
               <span></span>
               <span></span>
@@ -146,7 +157,7 @@ const Navbar = () => {
             {menuItems.map((item) => (
               <div
                 key={item.id}
-                onClick={() => handleMenuClick(item.id)}
+                onClick={() => handleMenuClick(item)}
                 className={`mobile-menu-item ${activeMenu === item.id ? 'active' : ''
                   }`}
               >

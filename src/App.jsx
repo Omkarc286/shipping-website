@@ -1,17 +1,13 @@
 import Navbar from './components/Navbar'
-import Home2 from './pages/Home2'
+import AppRoutes from './routes/AppRoutes'
+import { BrowserRouter } from 'react-router-dom'
 
 function App() {
-  
-
   return (
-    <>
-      <div>
-        <Navbar />
-        <Home2 />
-      </div>
-      
-    </>
+    <BrowserRouter>
+      <Navbar />
+      <AppRoutes />
+    </BrowserRouter>
   )
 }
 
