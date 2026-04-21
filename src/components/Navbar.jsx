@@ -7,7 +7,7 @@ import ServicesDropdown from './ServicesDropdown'
 
 const Navbar = () => {
   const [isScrolled, setIsScrolled] = useState(false)
-  const [activeMenu, setActiveMenu] = useState('services')
+  const [activeMenu, setActiveMenu] = useState('aboutus')
   const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false)
   const [isMobile, setIsMobile] = useState(false)
 
@@ -91,8 +91,8 @@ const Navbar = () => {
                 <div
                   onClick={() => handleMenuClick(item.id)}
                   className={`menu-item-element transition-all ${activeMenu === item.id
-                      ? 'menu-item-active'
-                      : 'menu-item'
+                    ? 'menu-item-active'
+                    : 'menu-item'
                     }`}
                 >
                   {item.label}
