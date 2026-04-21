@@ -8,7 +8,7 @@ import profile2 from '../../assets/testimonials/profile2.png'
 const TestimonialsSection = ({ backgroundImage }) => {
     return (
         <section
-            className='min-h-screen flex items-center justify-center py-20'
+            className='min-h-screen flex items-center justify-center py-20 px-6 relative z-10'
             style={{
                 backgroundImage: `url(${backgroundImage})`,
                 backgroundPosition: '50% 7.25rem',

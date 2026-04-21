@@ -25,7 +25,7 @@ const ReachOutSection = ({ backgroundImage = '' }) => {
 
     return (
         <section
-            className="min-h-screen flex items-center justify-center py-20 px-6 relative overflow-hidden"
+            className="min-h-screen flex items-center justify-center py-20 px-6 relative overflow-hidden z-10"
             style={{
                 backgroundImage: backgroundImage ? `url(${backgroundImage})` : '',
                 backgroundSize: 'cover',

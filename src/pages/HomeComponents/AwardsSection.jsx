@@ -8,7 +8,7 @@ import swissCert2 from '../../assets/awards/swiss-cert2.png';
 
 const AwardsSection = () => {
     return (
-        <section className="py-16 md:py-24 bg-[#F4EDF8]">
+        <section className="py-16 md:py-24 bg-[#F4EDF8] z-10 relative">
             <div className="max-w-7xl mx-auto px-6 md:px-12">
                 <div className="text-center mb-12">
                     <h2 className='home-services-header-text mt-3'>

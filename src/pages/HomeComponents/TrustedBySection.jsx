@@ -17,7 +17,7 @@ const TrustedBySection = () => {
     ];
 
     return (
-        <section className="py-12 md:py-16 bg-white">
+        <section className="py-12 md:py-16 bg-white z-10 relative">
             <div className="max-w-7xl mx-auto px-6 md:px-12">
                 {/* Heading */}
                 <div className="flex items-center justify-center gap-4 mb-10">

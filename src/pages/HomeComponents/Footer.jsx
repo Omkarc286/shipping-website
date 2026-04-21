@@ -13,7 +13,7 @@ import { FiPhone } from "react-icons/fi";
 
 const Footer = () => {
     return (
-        <footer className="bg-[#0A0714] text-white py-16 px-6 md:px-12">
+        <footer className="bg-[#0A0714] text-white py-16 px-6 md:px-12 z-10 relative">
             <div className="max-w-7xl mx-auto grid grid-cols-1 md:grid-cols-12 gap-10">
 
                 {/* Left Column - Company Info */}
