@@ -7,7 +7,7 @@ import { featured_works } from '../../content/home_fw';
 const FeaturedWorksSection = () => {
     return (
         <section
-            className="min-h-screen p-6 md:p-12 lg:p-20 flex items-center justify-center bg-[#0F0B15]"
+            className="min-h-screen p-6 md:p-12 lg:p-20 flex items-center justify-center bg-[#0F0B15] z-10 relative"
         >
             <div className="w-full max-w-7xl mx-auto">
 
