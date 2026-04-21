@@ -62,7 +62,7 @@ const FAQSection = () => {
                                 <span className="text-xl font-medium text-gray-900 pr-8">
                                     {faq.question}
                                 </span>
-                                <span className={`text-3xl font-light text-gray-400 transition-transform duration-300 flex-shrink-0 ${openIndex === index ? 'rotate-45' : ''}`}>
+                                <span className={`text-3xl font-light text-gray-400 transition-transform duration-300 shrink-0 ${openIndex === index ? 'rotate-45' : ''}`}>
                                     +
                                 </span>
                             </button>

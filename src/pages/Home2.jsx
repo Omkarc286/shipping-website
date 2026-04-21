@@ -12,19 +12,14 @@ import SLCard from '../components/SLCard';
 import seafreightImage from '../assets/seafreight.png'
 import landtransportImage from '../assets/landtransport.png'
 import airfreightImage from '../assets/airfreight.png'
-import rw_bg_image from '../assets/rw-bg-image.png'
 import contact_bg from '../assets/contact-bg.png'
 import testimonial_bg from '../assets/testimonials/testimonial_bg.png'
 import { home_aboutus } from '../content/home_aboutus';
 import test_icon from '../assets/test_icon.png'
-import { home_services } from '../content/home_services';
 import ServiceCard from '../components/ServiceCard';
-import { home_industries } from '../content/home_industries';
 import IndustriesCard from '../components/IndustriesCard';
-import { gallery } from '../content/home_rw';
 import Masonry from '../effects/Masonry';
 import FWCard from '../components/FWCard';
-import { featured_works } from '../content/home_fw';
 import TestimonialsSection from './HomeComponents/TestimonialsSection.jsx';
 import FAQSection from './HomeComponents/FAQSection.jsx';
 import ReachOutSection from './HomeComponents/ReachOutSection.jsx';
