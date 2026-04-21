@@ -444,6 +444,81 @@ p.logistics-p {
   -webkit-text-fill-color: transparent;
 }
 
+/* Responsive Hero Header Badge */
+@media (max-width: 1024px) {
+  .hero-header-badge {
+    padding: 4px 11px 6px 12px;
+    gap: 8px;
+    font-size: 13px;
+    line-height: 18px;
+  }
+
+  .hero-badge-text {
+    font-size: 13px;
+    line-height: 18px;
+  }
+}
+
+@media (max-width: 768px) {
+  .hero-header-badge {
+    padding: 3px 9px 5px 10px;
+    gap: 6px;
+    font-size: 12px;
+    line-height: 16px;
+    border-radius: 28px;
+  }
+
+  .hero-badge-text {
+    font-size: 12px;
+    line-height: 16px;
+  }
+}
+
+@media (max-width: 640px) {
+  .hero-header-badge {
+    padding: 2px 8px 4px 8px;
+    gap: 5px;
+    font-size: 11px;
+    line-height: 15px;
+    border-radius: 24px;
+  }
+
+  .hero-badge-text {
+    font-size: 11px;
+    line-height: 15px;
+  }
+}
+
+@media (max-width: 480px) {
+  .hero-header-badge {
+    padding: 2px 6px 3px 6px;
+    gap: 4px;
+    font-size: 10px;
+    line-height: 14px;
+    border-radius: 20px;
+  }
+
+  .hero-badge-text {
+    font-size: 10px;
+    line-height: 14px;
+  }
+}
+
+@media (max-width: 360px) {
+  .hero-header-badge {
+    padding: 1px 5px 2px 5px;
+    gap: 3px;
+    font-size: 9px;
+    line-height: 12px;
+    border-radius: 18px;
+  }
+
+  .hero-badge-text {
+    font-size: 9px;
+    line-height: 12px;
+  }
+}
+
 .badge-wrapper {
   display: flex;
   width: 97px;
@@ -622,7 +697,20 @@ p.logistics-p {
     padding: 40px 10px;
   }
   .hero-text{
+    font-size: 2.5rem;
     line-height: 4rem; /* 80px */
+  }
+  
+}
+
+@media (max-width: 360px) {
+  .home-section {
+    min-height: 100vh;
+    padding: 40px 10px;
+  }
+  .hero-text{
+    font-size: 2rem;
+    line-height: 3rem; /* 80px */
   }
   
 }
