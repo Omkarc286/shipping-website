@@ -16,7 +16,7 @@ const FreightForwarders = ({ backgroundImage }) => {
                 relative z-10 flex flex-col justify-center h-full
                 items-center text-center px-6 py-12
 
-                md:items-end md:text-right 
+                md:items-end md:text-right md:py-[130px]
             ">
                     <div>
                         <div className="
