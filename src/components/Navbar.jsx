@@ -1,8 +1,10 @@
+/* eslint-disable react-hooks/set-state-in-effect */
 import React, { useState, useEffect, useRef } from 'react'
 import { useNavigate, useLocation } from 'react-router-dom'
 
 import Logo from '../assets/reflect.png'
 import { menuItems } from '../content/navbar_content'
+import brochurePDF from '../assets/brochure/freight_forwarding_brochure_sample.pdf'
 
 import AboutDropdown from './AboutDropdown'
 import ServicesDropdown from './ServicesDropdown'
@@ -94,6 +96,15 @@ const Navbar = () => {
     }, 150)
   }
 
+  const handleDownloadBrochure = () => {
+    const link = document.createElement('a')
+    link.href = brochurePDF
+    link.download = 'Fleetonic_Freight_Forwarding_Brochure.pdf'
+    document.body.appendChild(link)
+    link.click()
+    document.body.removeChild(link)
+  }
+
   return (
     <>
       <nav
@@ -144,7 +155,10 @@ const Navbar = () => {
         {/* Right Button */}
         {!isMobile && (
           <div className="flex justify-end">
-            <div className="flex px-2 py-2 items-center justify-center rounded-lg bg-gradient-to-r from-blue-500 to-purple-500">
+            <div 
+              className="flex px-2 py-2 items-center justify-center rounded-lg bg-linear-to-r from-blue-500 to-purple-500 cursor-pointer"
+              onClick={handleDownloadBrochure}
+            >
               <div className="font-medium text-base text-white">
                 Company Brochure
               </div>
@@ -184,7 +198,10 @@ const Navbar = () => {
           </div>
 
           <div className="mobile-menu-button-container">
-            <div className="flex px-4 py-3 items-center justify-center rounded-lg bg-gradient-to-r from-blue-500 to-purple-500">
+            <div 
+              className="flex px-4 py-3 items-center justify-center rounded-lg bg-linear-to-r from-blue-500 to-purple-500 cursor-pointer"
+              onClick={handleDownloadBrochure}
+            >
               <div className="font-medium text-base text-white">
                 Company Brochure
               </div>
