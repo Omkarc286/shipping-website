@@ -7,7 +7,7 @@ import {
     FaTwitter,
     FaDiscord
 } from 'react-icons/fa';
-import Logo from '../../assets/reflect.png';
+import Logo from '../assets/reflect.png';
 import { FiPhone } from "react-icons/fi";
 
 

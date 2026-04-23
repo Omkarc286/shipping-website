@@ -9,15 +9,46 @@ import brochurePDF from '../assets/brochure/freight_forwarding_brochure_sample.p
 import AboutDropdown from './AboutDropdown'
 import ServicesDropdown from './ServicesDropdown'
 
+// Add this helper function to check if a path is a service route
+const isServiceRoute = (pathname) => {
+  const serviceRoutes = [
+    '/services',
+    '/general-contracting',
+    '/general-contracting/infrastructure',
+    '/general-contracting/marine',
+    '/logistics/land-freight',
+    '/logistics/air-freight',
+    '/logistics/sea-freight',
+    '/logistics/open-yard-storage',
+    '/marine/ship-management',
+    '/marine/commercial-management',
+    '/marine/docking-management',
+    '/marine/crew-management',
+    '/marine/procurement-services',
+    '/marine/our-fleets',
+    '/material-supply',
+    '/equipment-rental',
+    '/custom-clearance'
+  ];
+
+  return serviceRoutes.includes(pathname) || pathname.startsWith('/logistics/') || pathname.startsWith('/marine/');
+};
+
+// Add this helper function to check if a path is an about route
+const isAboutRoute = (pathname) => {
+  const aboutRoutes = ['/', '/about-company', '/career'];
+  return aboutRoutes.includes(pathname);
+};
+
 const Navbar = () => {
   const navigate = useNavigate()
   const location = useLocation()
 
   const [isScrolled, setIsScrolled] = useState(false)
   const [activeMenu, setActiveMenu] = useState(() => {
-    if (location.pathname === '/services') {
+    if (isServiceRoute(location.pathname)) {
       return 'services'
-    } else if (location.pathname === '/') {
+    } else if (isAboutRoute(location.pathname)) {
       return 'aboutus'
     }
     return 'aboutus'
@@ -29,9 +60,9 @@ const Navbar = () => {
   const hoverTimeout = useRef(null)
 
   useEffect(() => {
-    if (location.pathname === '/services') {
+    if (isServiceRoute(location.pathname)) {
       setActiveMenu('services')
-    } else if (location.pathname === '/') {
+    } else if (isAboutRoute(location.pathname)) {
       setActiveMenu('aboutus')
     }
   }, [location.pathname])
@@ -155,7 +186,7 @@ const Navbar = () => {
         {/* Right Button */}
         {!isMobile && (
           <div className="flex justify-end">
-            <div 
+            <div
               className="flex px-2 py-2 items-center justify-center rounded-lg bg-linear-to-r from-blue-500 to-purple-500 cursor-pointer"
               onClick={handleDownloadBrochure}
             >
@@ -198,7 +229,7 @@ const Navbar = () => {
           </div>
 
           <div className="mobile-menu-button-container">
-            <div 
+            <div
               className="flex px-4 py-3 items-center justify-center rounded-lg bg-linear-to-r from-blue-500 to-purple-500 cursor-pointer"
               onClick={handleDownloadBrochure}
             >

@@ -23,7 +23,7 @@ import FWCard from '../components/FWCard';
 import TestimonialsSection from './HomeComponents/TestimonialsSection.jsx';
 import FAQSection from './HomeComponents/FAQSection.jsx';
 import ReachOutSection from './HomeComponents/ReachOutSection.jsx';
-import Footer from './HomeComponents/Footer.jsx';
+import Footer from '../components/Footer.jsx';
 import FeaturedWorksSection from './HomeComponents/FeaturedWorksSection.jsx';
 import RecentWorksSection from './HomeComponents/RecentWorksSection.jsx';
 import IndustriesSection from './HomeComponents/IndustriesSection.jsx';
