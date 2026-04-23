@@ -127,7 +127,7 @@ const ReachOutSection = ({ backgroundImage = '' }) => {
 
                         <button
                             type="submit"
-                            className="w-full bg-[#8B00FF] hover:bg-[#7A00E6] text-white font-semibold py-4 rounded-md transition-all flex items-center justify-center gap-3 text-lg shadow-md"
+                            className="w-full bg-[#8B00FF] cursor-pointer hover:bg-[#7A00E6] text-white font-semibold py-4 rounded-md transition-all flex items-center justify-center gap-3 text-lg shadow-md"
                         >
                             Submit Message
                             <span className="text-xl">→</span>
