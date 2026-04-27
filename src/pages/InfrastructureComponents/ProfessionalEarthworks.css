@@ -1,0 +1,162 @@
+.freight-section-wrapper {
+    padding-left: 1rem !important;
+    padding-right: 1rem !important;
+}
+
+@media (min-width: 640px) {
+    .freight-section-wrapper {
+        padding-left: 2rem !important;
+        padding-right: 2rem !important;
+    }
+}
+
+@media (min-width: 1024px) {
+    .freight-section-wrapper {
+        padding-left: 4.5rem !important;
+        padding-right: 4.5rem !important;
+    }
+}
+
+.freight-forwarding-section {
+    color: #ffffff;
+    padding: 60px 0;
+    position: relative;
+    overflow: hidden;
+    width: 100%;
+}
+
+@media (min-width: 768px) {
+    .freight-forwarding-section {
+        padding: 100px 0;
+    }
+}
+
+.freight-container {
+    max-width: 1400px;
+    margin: 0 auto;
+    display: flex;
+    align-items: flex-start;
+    gap: 2rem;
+    flex-wrap: wrap;
+}
+
+/* ==================== DEFAULT LAYOUT (Content Left | Image Right) ==================== */
+.freight-content {
+    flex: 1;
+    min-width: 300px;
+    text-align: left;
+}
+
+.freight-title {
+    font-size: 28px;
+    font-weight: 700;
+    color: #C2BCFF;
+    margin-bottom: 1.25rem;
+    line-height: 1.3;
+    font-family: 'Source Serif Pro', serif;
+}
+
+@media (min-width: 768px) {
+    .freight-title {
+        font-size: 32px;
+        line-height: 40px;
+        margin-bottom: 1.5rem;
+    }
+}
+
+.freight-description {
+    font-size: 15px;
+    line-height: 1.6;
+    color: #FFFFFF;
+    font-weight: 400;
+    font-family: 'Rubik', sans-serif;
+    word-wrap: break-word;
+    overflow-wrap: break-word;
+}
+
+@media (min-width: 768px) {
+    .freight-description {
+        font-size: 16px;
+        line-height: 1.7;
+    }
+}
+
+.freight-image-container {
+    flex: 0 0 100%;
+    border-radius: 16px;
+    overflow: hidden;
+    margin: 0;
+}
+
+@media (min-width: 968px) {
+    .freight-image-container {
+        flex: 0 0 33%;
+    }
+}
+
+.freight-image {
+    width: 100%;
+    height: auto;
+    display: block;
+    object-fit: cover;
+}
+
+/* ==================== NEW LAYOUT (Image Left | Content Right) ==================== */
+.freight-container.reverse {
+    flex-direction: row;
+}
+
+/* Subtitle styling for the second section */
+.freight-subtitle {
+    font-size: 22px;
+    font-weight: 600;
+    color: #FFFFFF;
+    margin: 1.5rem 0 0.75rem 0;
+    line-height: 1.3;
+}
+
+@media (min-width: 768px) {
+    .freight-subtitle {
+        font-size: 24px;
+        margin: 2rem 0 1rem 0;
+    }
+}
+
+/* ==================== RESPONSIVE ==================== */
+@media (max-width: 967px) {
+
+    .freight-container,
+    .freight-container.reverse {
+        flex-direction: column !important;
+        gap: 2rem;
+    }
+
+    .freight-content {
+        text-align: left;
+        width: 100%;
+    }
+
+    .freight-image-container {
+        width: 100%;
+        max-width: 100%;
+        margin: 0;
+    }
+}
+
+/* Spacing between the two sections */
+.freight-container+.freight-container {
+    margin-top: 60px;
+}
+
+@media (min-width: 768px) {
+    .freight-container+.freight-container {
+        margin-top: 80px;
+    }
+}
+
+/* Optional padding for better alignment on large screens */
+@media (min-width: 969px) {
+    .freight-container.reverse .freight-content {
+        padding-left: 2rem;
+    }
+}

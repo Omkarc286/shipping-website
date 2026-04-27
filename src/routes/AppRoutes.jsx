@@ -4,6 +4,7 @@ import { Routes, Route } from 'react-router-dom'
 import Home2 from '../pages/Home2'
 import Services from '../pages/Services'
 import GeneralContracting from '../pages/GeneralContracting'
+import Infrastructure from '../pages/Infrastructure'
 
 const AppRoutes = () => {
     return (
@@ -11,6 +12,7 @@ const AppRoutes = () => {
             <Route path="/" element={<Home2 />} />
             <Route path="/services" element={<Services />} />
             <Route path="/general-contracting" element={<GeneralContracting />} />
+            <Route path="/general-contracting/infrastructure" element={<Infrastructure />} />
         </Routes>
     )
 }
