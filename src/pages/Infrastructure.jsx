@@ -4,6 +4,13 @@ import ProfessionalEarthworks from './InfrastructureComponents/ProfessionalEarth
 import UtilitiesStructural from './InfrastructureComponents/UtilitiesStructural';
 import MarineContractingServices from './InfrastructureComponents/MarineContractingServices';
 import WhyChooseADSO from './InfrastructureComponents/WhyChooseADSO';
+import TrustedBySection from './InfrastructureComponents/TrustedBySection';
+import RecentWorksSection from './InfrastructureComponents/RecentWorksSection';
+import contact_bg from '../assets/contact-bg.png'
+import ReachOutSection from './InfrastructureComponents/ReachOutSection';
+import FAQSection from './InfrastructureComponents/FAQSection';
+import Footer from '../components/Footer';
+
 
 
 function Infrastructure() {
@@ -15,6 +22,11 @@ function Infrastructure() {
                 <UtilitiesStructural />
                 <MarineContractingServices />
                 <WhyChooseADSO />
+                <TrustedBySection />
+                <RecentWorksSection />
+                <ReachOutSection backgroundImage={contact_bg} />
+                <FAQSection />
+                <Footer />
             </div>
         </>
     );
