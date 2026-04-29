@@ -35,7 +35,7 @@ const RecentArticles = () => {
         <div className="bg-[#F6F8FB] px-6 md:px-16 py-14">
             <div className="max-w-6xl mx-auto">
                 <div className="flex justify-between items-center mb-5">
-                    <h2 className="!text-[56px] md:!text-[56px] font-semibold font-['Source_Serif_Pro'] text-black">
+                    <h2 className="!text-[56px] md:!text-[56px] font-semibold !font-['Source_Serif_Pro'] !text-black">
                         Recent articles
                     </h2>
                     <span className="text-sm md:text-base cursor-pointer text-black hover:underline">
