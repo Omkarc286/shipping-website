@@ -37,7 +37,7 @@ const MaterialSupplyTable = () => {
                         {/* HEADER */}
                         <div className="flex flex-col sm:flex-row sm:justify-between sm:items-center gap-4 mb-6">
 
-                            <h2 className="!text-[20px] font-semibold text-black">
+                            <h2 className="!text-[20px] font-semibold !text-black !font-['Rubik']">
                                 {material_supply.header.title}
                                 <span className="block sm:inline text-gray-500 text-sm sm:ml-2">
                                     {filteredData.length} Total

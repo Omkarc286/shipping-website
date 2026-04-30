@@ -1,8 +1,8 @@
 import React, { useState } from 'react';
 import { FiPhone, FiFacebook, FiInstagram, FiLinkedin } from "react-icons/fi";
-import { reachout_content } from '../../content/infrastructure/infrastructure_reachout';
+import { reachout_content } from '../../content/blog/blog_reachout';
 
-const ReachOutSection = ({ backgroundImage = '' }) => {
+const ReachOutSection = ({ backgroundImage = '', id = 'reach-out' }) => {
     const [formData, setFormData] = useState({
         firstName: '',
         lastName: '',
@@ -31,6 +31,7 @@ const ReachOutSection = ({ backgroundImage = '' }) => {
 
     return (
         <section
+            id={id}
             className="min-h-screen flex items-center justify-center py-20 px-6 relative overflow-hidden z-10"
             style={{
                 backgroundImage: backgroundImage ? `url(${backgroundImage})` : '',

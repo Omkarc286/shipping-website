@@ -46,6 +46,33 @@ const isAboutRoute = (pathname) => {
   return aboutRoutes.includes(pathname)
 }
 
+const pagesWithReachOut = [
+  '/',
+  '/about-company',
+  '/career',
+  '/services',
+  '/general-contracting',
+  '/general-contracting/infrastructure',
+  '/general-contracting/marine',
+  '/blog',
+  '/portfolio',
+  '/logistics',
+  '/logistics/land-freight',
+  '/logistics/air-freight',
+  '/logistics/sea-freight',
+  '/logistics/open-yard-storage',
+  '/marine',
+  '/marine/ship-management',
+  '/marine/commercial-management',
+  '/marine/docking-management',
+  '/marine/crew-management',
+  '/marine/procurement-services',
+  '/marine/our-fleets',
+  '/material-supply',
+  '/equipment-rental',
+  '/custom-clearance'
+]
+
 const Navbar = () => {
   const navigate = useNavigate()
   const location = useLocation()
@@ -105,6 +132,31 @@ const Navbar = () => {
     }
   }, [isMobileMenuOpen])
 
+  const scrollToReachOut = () => {
+    const isOnValidPage = pagesWithReachOut.includes(location.pathname) ||
+      location.pathname.startsWith('/logistics/') ||
+      location.pathname.startsWith('/marine/')
+
+    if (isOnValidPage) {
+      // We're already on a page with reach-out section, just scroll
+      setTimeout(() => {
+        const reachOutSection = document.getElementById('reach-out')
+        if (reachOutSection) {
+          reachOutSection.scrollIntoView({ behavior: 'smooth' })
+        }
+      }, 100)
+    } else {
+      // Navigate to home first, then scroll
+      navigate('/')
+      setTimeout(() => {
+        const reachOutSection = document.getElementById('reach-out')
+        if (reachOutSection) {
+          reachOutSection.scrollIntoView({ behavior: 'smooth' })
+        }
+      }, 300)
+    }
+  }
+
   const handleMenuClick = (item) => {
     setActiveMenu(item.id)
     setIsMobileMenuOpen(false)
@@ -112,6 +164,12 @@ const Navbar = () => {
     setGeneralContractingOpen(false)
     setLogisticsOpen(false)
     setMarineTransportOpen(false)
+
+    if (item.id === 'contact') {
+      scrollToReachOut()
+      return
+    }
+
     window.scrollTo(0, 0)
 
     if (item.id === 'services') navigate('/services')
@@ -461,6 +519,19 @@ const Navbar = () => {
                         </div>
                       </div>
                     )}
+                  </div>
+                )
+              }
+
+              // Handle Contact Us menu item
+              if (item.id === 'contact') {
+                return (
+                  <div
+                    key={item.id}
+                    onClick={() => handleMenuClick(item)}
+                    className={`mobile-menu-item ${activeMenu === item.id ? 'active' : ''}`}
+                  >
+                    {item.label}
                   </div>
                 )
               }
