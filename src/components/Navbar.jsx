@@ -72,6 +72,7 @@ const Navbar = () => {
     if (isServiceRoute(location.pathname)) setActiveMenu('services')
     else if (isAboutRoute(location.pathname)) setActiveMenu('aboutus')
     else if (location.pathname === '/blog') setActiveMenu('blogs')
+    else if (location.pathname === '/portfolio') setActiveMenu('portfolio')
   }, [location.pathname])
 
   useEffect(() => {
@@ -116,6 +117,7 @@ const Navbar = () => {
     if (item.id === 'services') navigate('/services')
     else if (item.id === 'aboutus') navigate('/')
     else if (item.id === 'blogs') navigate('/blog')
+    else if (item.id === 'portfolio') navigate('/portfolio')
   }
 
   const handleServiceSubItemClick = (path) => {
