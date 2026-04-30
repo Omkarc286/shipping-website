@@ -1,10 +1,12 @@
-import React, { useRef, useEffect } from 'react'
+import React, { useRef, useEffect } from 'react';
 import NavigateNextRoundedIcon from '@mui/icons-material/NavigateNextRounded';
 import SplitText from '../../effects/SplitText';
 import ClickForMore from '../../components/ClickForMore';
 
 import gsap from 'gsap';
 import { ScrollTrigger } from 'gsap/ScrollTrigger';
+
+import { infrastructurehero_content } from '../../content/infrastructure/infrastructure_infrastructurehero';
 
 gsap.registerPlugin(ScrollTrigger);
 
@@ -68,7 +70,7 @@ const InfrastructureHero = () => {
                 {/* Badge */}
                 <div ref={badgeRef} className="hero-header-badge">
                     <SplitText
-                        text="Infrastructure"
+                        text={infrastructurehero_content.badge}
                         tag="span"
                         className="hero-badge-text"
                         delay={20}
@@ -90,32 +92,29 @@ const InfrastructureHero = () => {
                         alignItems: 'center'
                     }}
                 >
-                    <SplitText
-                        text="ADSO Infrastructure Services in UAE"
-                        tag="div"
-                        className="hero-text"
-                        delay={60}
-                        duration={1}
-                        splitType="words"
-                        from={{ opacity: 0, y: 30 }}
-                        to={{ opacity: 1, y: 0 }}
-                    />
+                    {infrastructurehero_content.heading.map((line, index) => (
+                        <SplitText
+                            key={index}
+                            text={line}
+                            tag="div"
+                            className="hero-text"
+                            delay={60}
+                            duration={1}
+                            splitType="words"
+                            from={{ opacity: 0, y: 30 }}
+                            to={{ opacity: 1, y: 0 }}
+                        />
+                    ))}
 
-
-                    <p className="text-gray-300 text-center mt-6 max-w-6xl !text-[18px] md:text-base">
-                        Looking for the best construction companies in UAE? ADSO delivers advanced civil infrastructure services in UAE. Our company has expertise in general contracting services, including dredging, land restoration, coastal protection, breakwater construction, jetty & quay wall building, and offshore development.
-                        <br />
-                        We provide commercial infrastructure construction services in UAE. Our trained, talented professionals guarantee quality-engineered structures for port & marine, oil & gas facilities built or in process, and waterfront projects. Through our resolute commitment to each client’s project safety, sustainability, and completed projects on time, we are proud to promote the continued growth of government and private developments in Abu Dhabi, UAE. If you need a trusted partner that delivers on quality, large-scale infrastructural development, contact the best infrastructure contractors in Abu Dhabi ADSO.
+                    <p className="text-gray-300 text-center mt-6 max-w-6xl !text-[18px] md:text-base whitespace-pre-line">
+                        {infrastructurehero_content.description}
                     </p>
                 </div>
-
-                {/* Subtitle */}
-
 
                 {/* CTA */}
                 <div ref={buttonRef} style={{ margin: '16px' }}>
                     <ClickForMore
-                        text="Get a Free Quote"
+                        text={infrastructurehero_content.cta.text}
                         icon={
                             <NavigateNextRoundedIcon
                                 style={{ fontSize: '20px', marginLeft: '1px', color: '#FFF' }}
@@ -125,9 +124,10 @@ const InfrastructureHero = () => {
                         classTypography="get-free-quote-typography"
                     />
                 </div>
+
             </div>
         </section>
-    )
-}
+    );
+};
 
-export default InfrastructureHero
+export default InfrastructureHero;

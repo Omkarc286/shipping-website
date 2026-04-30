@@ -1,7 +1,7 @@
 import React from 'react';
 import Badge from '../../components/Badge';
 import IndustriesCard from '../../components/IndustriesCard';
-import { home_industries } from '../../content/home_industries';
+import { home_industries } from '../../content/home/home_industries';
 
 const IndustriesSection = () => {
     return (

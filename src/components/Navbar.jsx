@@ -3,7 +3,7 @@ import React, { useState, useEffect, useRef } from 'react'
 import { useNavigate, useLocation } from 'react-router-dom'
 
 import Logo from '../assets/reflect.png'
-import { menuItems } from '../content/navbar_content'
+import { menuItems } from '../content/common/navbar_content'
 import brochurePDF from '../assets/brochure/freight_forwarding_brochure_sample.pdf'
 
 import AboutDropdown from './AboutDropdown'

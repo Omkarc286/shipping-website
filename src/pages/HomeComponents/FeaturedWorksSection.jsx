@@ -2,7 +2,7 @@
 import React from 'react';
 import Badge from '../../components/Badge';
 import FWCard from '../../components/FWCard';
-import { featured_works } from '../../content/home_fw';
+import { featured_works } from '../../content/home/home_fw';
 
 const FeaturedWorksSection = () => {
     return (

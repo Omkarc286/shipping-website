@@ -1,5 +1,5 @@
-import industries_bg from '../assets/industries-bg.png';
-import test_icon from '../assets/test_icon_blue.png'
+import industries_bg from '../../assets/industries-bg.png';
+import test_icon from '../../assets/test_icon_blue.png'
 export const home_industries = {
     badge_text: 'Industries',
     header_text: 'Industries We Support',
@@ -7,26 +7,26 @@ export const home_industries = {
     cards_left: [
         {
             icon: test_icon,
-            title:'Oil & Gas'
+            title: 'Oil & Gas'
         },
         {
             icon: test_icon,
-            title:'Petrochemical'
+            title: 'Petrochemical'
         },
         {
             icon: test_icon,
-            title:'Telecommunications'
+            title: 'Telecommunications'
         }
-        
+
     ],
     cards_right: [
         {
             icon: test_icon,
-            title:'Power & Energy'
+            title: 'Power & Energy'
         },
         {
             icon: test_icon,
-            title:'Infrastructure'
+            title: 'Infrastructure'
         }
     ]
 };

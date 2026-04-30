@@ -2,6 +2,7 @@ import React, { useRef, useEffect } from 'react'
 import NavigateNextRoundedIcon from '@mui/icons-material/NavigateNextRounded';
 import SplitText from '../../effects/SplitText';
 import ClickForMore from '../../components/ClickForMore';
+import { serviceshero_content } from '../../content/ourservices/ourservices_servicesHero';
 
 import gsap from 'gsap';
 import { ScrollTrigger } from 'gsap/ScrollTrigger';
@@ -68,7 +69,7 @@ const ServicesHero = () => {
                 {/* Badge */}
                 <div ref={badgeRef} className="hero-header-badge">
                     <SplitText
-                        text="Our Services"
+                        text={serviceshero_content.badge_text}
                         tag="span"
                         className="hero-badge-text"
                         delay={20}
@@ -90,41 +91,29 @@ const ServicesHero = () => {
                         alignItems: 'center'
                     }}
                 >
-                    <SplitText
-                        text="Freight Forwarding & Heavy Transport"
-                        tag="div"
-                        className="hero-text"
-                        delay={60}
-                        duration={1}
-                        splitType="words"
-                        from={{ opacity: 0, y: 30 }}
-                        to={{ opacity: 1, y: 0 }}
-                    />
+                    {serviceshero_content.headings.map((line, index) => (
+                        <SplitText
+                            key={index}
+                            text={line}
+                            tag="div"
+                            className="hero-text"
+                            delay={60}
+                            duration={1}
+                            splitType="words"
+                            from={{ opacity: 0, y: 30 }}
+                            to={{ opacity: 1, y: 0 }}
+                        />
+                    ))}
 
-                    <SplitText
-                        text="Across UAE & GCC"
-                        tag="div"
-                        className="hero-text"
-                        delay={60}
-                        duration={1}
-                        splitType="words"
-                        from={{ opacity: 0, y: 30 }}
-                        to={{ opacity: 1, y: 0 }}
-                    />
-                    <p className="text-gray-300 text-center mt-6 max-w-xl !text-[18px] md:text-base">
-                        Safe, fast, and reliable logistics solutions for all cargo types.
-                        <br />
-                        From planning to delivery, we handle everything.
+                    <p className="text-gray-300 text-center mt-6 max-w-xl !text-[18px] md:text-base whitespace-pre-line">
+                        {serviceshero_content.description}
                     </p>
                 </div>
-
-                {/* Subtitle */}
-
 
                 {/* CTA */}
                 <div ref={buttonRef} style={{ margin: '16px' }}>
                     <ClickForMore
-                        text="Get a Free Quote"
+                        text={serviceshero_content.cta.text}
                         icon={
                             <NavigateNextRoundedIcon
                                 style={{ fontSize: '20px', marginLeft: '1px', color: '#FFF' }}
@@ -134,9 +123,10 @@ const ServicesHero = () => {
                         classTypography="get-free-quote-typography"
                     />
                 </div>
+
             </div>
         </section>
     )
 }
 
-export default ServicesHero
+export default ServicesHero;

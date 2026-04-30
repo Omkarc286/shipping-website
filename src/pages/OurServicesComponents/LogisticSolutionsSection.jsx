@@ -1,7 +1,7 @@
 import React from 'react';
 import Badge from '../../components/Badge';
 import ServiceCard from '../../components/ServiceCard';
-import { home_services } from '../../content/home_services';
+import { home_services } from '../../content/ourservices/ourservices_services';
 
 const LogisticSolutionsSection = () => {
     return (

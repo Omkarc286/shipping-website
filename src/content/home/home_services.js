@@ -1,13 +1,13 @@
-import er_sevices from '../assets/er_services.png'
-import gc_services from '../assets/gc_services.png'
-import lg_services from '../assets/logistics_services.png'
-import ms_services from '../assets/ms_services.png'
-import mt_services from '../assets/mt_services.png'
+import er_sevices from '../../assets/er_services.png'
+import gc_services from '../../assets/gc_services.png'
+import lg_services from '../../assets/logistics_services.png'
+import ms_services from '../../assets/ms_services.png'
+import mt_services from '../../assets/mt_services.png'
 
 export const home_services = {
     badge_text: 'Services',
     header_text: 'Logistics Solutions We Offer',
-    cards:[
+    cards: [
         {
             header: 'General Contracting',
             desc: 'A trusted international freight forwarding and project cargo partner in the UAE for over 50 years.',
@@ -25,7 +25,7 @@ export const home_services = {
             desc: 'Comprehensive marine transport services, ensuring safe and efficient movement of goods across waterways, tailored to meet your specific shipping needs.',
             image: ms_services,
             url: 'https://www.google.com/marine-transport'
-        
+
         },
         {
             header: 'Material Supply',
@@ -40,5 +40,5 @@ export const home_services = {
             url: 'https://www.google.com/equipment-rental'
         }
     ]
-    
+
 }

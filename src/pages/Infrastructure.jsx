@@ -24,8 +24,8 @@ function Infrastructure() {
                 <WhyChooseADSO />
                 <TrustedBySection />
                 <RecentWorksSection />
-                <ReachOutSection backgroundImage={contact_bg} />
                 <FAQSection />
+                <ReachOutSection backgroundImage={contact_bg} />
                 <Footer />
             </div>
         </>

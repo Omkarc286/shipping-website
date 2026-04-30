@@ -1,10 +1,10 @@
-import React, { useRef, useEffect } from 'react'
-import NavigateNextRoundedIcon from '@mui/icons-material/NavigateNextRounded';
+import React, { useRef, useEffect } from 'react';
 import SplitText from '../../effects/SplitText';
-import ClickForMore from '../../components/ClickForMore';
 
 import gsap from 'gsap';
 import { ScrollTrigger } from 'gsap/ScrollTrigger';
+
+import { portfolio_hero } from '../../content/portfolio/portfolio_portfolioHero';
 
 gsap.registerPlugin(ScrollTrigger);
 
@@ -65,10 +65,10 @@ const PortfolioHero = () => {
                 }}
             >
 
-                {/* Badge */}
+                {/* BADGE */}
                 <div ref={badgeRef} className="hero-header-badge">
                     <SplitText
-                        text="Portfolio"
+                        text={portfolio_hero.badge_text}
                         tag="span"
                         className="hero-badge-text"
                         delay={20}
@@ -79,7 +79,7 @@ const PortfolioHero = () => {
                     />
                 </div>
 
-                {/* Heading */}
+                {/* HEADING + DESCRIPTION */}
                 <div
                     ref={heroTextRef}
                     className="hero-text-container text-center"
@@ -91,7 +91,7 @@ const PortfolioHero = () => {
                     }}
                 >
                     <SplitText
-                        text="Material Supply Works"
+                        text={portfolio_hero.heading}
                         tag="div"
                         className="hero-text"
                         delay={60}
@@ -102,19 +102,13 @@ const PortfolioHero = () => {
                     />
 
                     <p className="text-gray-300 text-center mt-6 max-w-6xl !text-[18px] md:text-base">
-                        Marine transport has long connected the world through trade and travel. In this blog, we explore its history, advancements, and its role in Abu Dhabi’s
-                        <br />
-                        maritime industry
+                        {portfolio_hero.description}
                     </p>
                 </div>
 
-                {/* Subtitle */}
-
-
-
             </div>
         </section>
-    )
-}
+    );
+};
 
-export default PortfolioHero
+export default PortfolioHero;

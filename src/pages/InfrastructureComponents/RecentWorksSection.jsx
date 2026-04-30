@@ -2,7 +2,7 @@
 import React from 'react';
 import Badge from '../../components/Badge';
 import Masonry from '../../effects/Masonry';
-import { gallery } from '../../content/home_rw';
+import { gallery } from '../../content/infrastructure/infrastructure_rw';
 import rw_bg_image from '../../assets/rw-bg-image.png';
 
 const RecentWorksSection = () => {

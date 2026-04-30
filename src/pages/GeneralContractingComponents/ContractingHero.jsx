@@ -2,6 +2,7 @@ import React, { useRef, useEffect } from 'react'
 import NavigateNextRoundedIcon from '@mui/icons-material/NavigateNextRounded';
 import SplitText from '../../effects/SplitText';
 import ClickForMore from '../../components/ClickForMore';
+import { contractinghero_content } from '../../content/generalcontracting/generalcontracting_contractingHero';
 
 import gsap from 'gsap';
 import { ScrollTrigger } from 'gsap/ScrollTrigger';
@@ -68,7 +69,7 @@ const ContractingHero = () => {
                 {/* Badge */}
                 <div ref={badgeRef} className="hero-header-badge">
                     <SplitText
-                        text="General Contracting"
+                        text={contractinghero_content.badge_text}
                         tag="span"
                         className="hero-badge-text"
                         delay={20}
@@ -90,45 +91,29 @@ const ContractingHero = () => {
                         alignItems: 'center'
                     }}
                 >
-                    <SplitText
-                        text="General Contracting Service in UAE"
-                        tag="div"
-                        className="hero-text"
-                        delay={60}
-                        duration={1}
-                        splitType="words"
-                        from={{ opacity: 0, y: 30 }}
-                        to={{ opacity: 1, y: 0 }}
-                    />
+                    {contractinghero_content.headings.map((line, index) => (
+                        <SplitText
+                            key={index}
+                            text={line}
+                            tag="div"
+                            className="hero-text"
+                            delay={60 + index * 20}
+                            duration={1}
+                            splitType="words"
+                            from={{ opacity: 0, y: 30 }}
+                            to={{ opacity: 1, y: 0 }}
+                        />
+                    ))}
 
-                    {/* <SplitText
-                        text="Across UAE & GCC"
-                        tag="div"
-                        className="hero-text"
-                        delay={60}
-                        duration={1}
-                        splitType="words"
-                        from={{ opacity: 0, y: 30 }}
-                        to={{ opacity: 1, y: 0 }}
-                    /> */}
-                    <p className="text-gray-300 text-center mt-6 max-w-7xl !text-[18px] md:text-base">
-                        ADSO is a leading and trusted general contracting company in Abu Dhabi that delivers professional general contracting service in UAE.  We also offer
-                        <br />
-                        infrastructural development and marine infrastructure work solutions with the best expertise. We make sure that your project, relevant to a specific
-                        <br />
-                        industry or the construction industry, is well completed from planning to final delivery. We have expertise to deal with large infrastructural projects. We
-                        <br />
-                        also perform marine construction projects and infrastructure works in the UAE.
+                    <p className="text-gray-300 text-center mt-6 max-w-7xl !text-[18px] md:text-base whitespace-pre-line">
+                        {contractinghero_content.description}
                     </p>
                 </div>
-
-                {/* Subtitle */}
-
 
                 {/* CTA */}
                 <div ref={buttonRef} style={{ margin: '16px' }}>
                     <ClickForMore
-                        text="Get a Free Quote"
+                        text={contractinghero_content.cta.text}
                         icon={
                             <NavigateNextRoundedIcon
                                 style={{ fontSize: '20px', marginLeft: '1px', color: '#FFF' }}
@@ -138,9 +123,10 @@ const ContractingHero = () => {
                         classTypography="get-free-quote-typography"
                     />
                 </div>
+
             </div>
         </section>
     )
 }
 
-export default ContractingHero
+export default ContractingHero;

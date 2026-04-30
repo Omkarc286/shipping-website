@@ -14,7 +14,7 @@ import landtransportImage from '../assets/landtransport.png'
 import airfreightImage from '../assets/airfreight.png'
 import contact_bg from '../assets/contact-bg.png'
 import testimonial_bg from '../assets/testimonials/testimonial_bg.png'
-import { home_aboutus } from '../content/home_aboutus';
+import { home_aboutus } from '../content/home/home_aboutus';
 import test_icon from '../assets/test_icon.png'
 import ServiceCard from '../components/ServiceCard';
 import IndustriesCard from '../components/IndustriesCard';

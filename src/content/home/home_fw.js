@@ -1,7 +1,7 @@
-import earth_works from '../assets/featured_works/earth_works.png';
-import fencing from '../assets/featured_works/fencing.png';
-import passenger_vehicles from '../assets/featured_works/passenger_vessels.png';
-import rig_movements from '../assets/featured_works/rig_movements.png';
+import earth_works from '../../assets/featured_works/earth_works.png';
+import fencing from '../../assets/featured_works/fencing.png';
+import passenger_vehicles from '../../assets/featured_works/passenger_vessels.png';
+import rig_movements from '../../assets/featured_works/rig_movements.png';
 export const featured_works = {
     badge_text: 'Industries',
     title: 'Featured Works',

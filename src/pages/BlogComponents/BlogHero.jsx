@@ -1,10 +1,10 @@
-import React, { useRef, useEffect } from 'react'
-import NavigateNextRoundedIcon from '@mui/icons-material/NavigateNextRounded';
+import React, { useRef, useEffect } from 'react';
 import SplitText from '../../effects/SplitText';
-import ClickForMore from '../../components/ClickForMore';
 
 import gsap from 'gsap';
 import { ScrollTrigger } from 'gsap/ScrollTrigger';
+
+import { blog_hero } from '../../content/blog/blog_blogHero';
 
 gsap.registerPlugin(ScrollTrigger);
 
@@ -65,10 +65,10 @@ const BlogHero = () => {
                 }}
             >
 
-                {/* Badge */}
+                {/* BADGE */}
                 <div ref={badgeRef} className="hero-header-badge">
                     <SplitText
-                        text="March 18, 2026 - 10:00 am"
+                        text={blog_hero.badge_text}
                         tag="span"
                         className="hero-badge-text"
                         delay={20}
@@ -79,7 +79,7 @@ const BlogHero = () => {
                     />
                 </div>
 
-                {/* Heading */}
+                {/* HEADING + DESCRIPTION */}
                 <div
                     ref={heroTextRef}
                     className="hero-text-container text-center"
@@ -90,41 +90,32 @@ const BlogHero = () => {
                         alignItems: 'center'
                     }}
                 >
-                    <SplitText
-                        text="Discovering Fascinating facts about Marine"
-                        tag="div"
-                        className="hero-text"
-                        delay={60}
-                        duration={1}
-                        splitType="words"
-                        from={{ opacity: 0, y: 30 }}
-                        to={{ opacity: 1, y: 0 }}
-                    />
-                    <SplitText
-                        text="Transport"
-                        tag="div"
-                        className="hero-text"
-                        delay={60}
-                        duration={1}
-                        splitType="words"
-                        from={{ opacity: 0, y: 30 }}
-                        to={{ opacity: 1, y: 0 }}
-                    />
 
+                    {/* MULTI-LINE HEADING */}
+                    {blog_hero.heading.map((line, index) => (
+                        <SplitText
+                            key={index}
+                            text={line}
+                            tag="div"
+                            className="hero-text"
+                            delay={60}
+                            duration={1}
+                            splitType="words"
+                            from={{ opacity: 0, y: 30 }}
+                            to={{ opacity: 1, y: 0 }}
+                        />
+                    ))}
+
+                    {/* DESCRIPTION */}
                     <p className="text-gray-300 text-center mt-6 max-w-6xl !text-[18px] md:text-base">
-                        Marine transport has long connected the world through trade and travel. In this blog, we explore its history, advancements, and its role in Abu Dhabi’s
-                        <br />
-                        maritime industry.
+                        {blog_hero.description}
                     </p>
+
                 </div>
-
-                {/* Subtitle */}
-
-
 
             </div>
         </section>
-    )
-}
+    );
+};
 
-export default BlogHero
+export default BlogHero;
