@@ -255,7 +255,7 @@ const Navbar = () => {
           onClick={() => navigate('/')}
         >
           <img src={Logo} className="w-9 h-9" alt="logo" />
-          <div className="brand-text">Fleetonic</div>
+          <div className="brand-text">Loom Freight</div>
         </div>
 
         {/* Desktop */}

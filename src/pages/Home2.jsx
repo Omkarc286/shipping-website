@@ -110,11 +110,11 @@ const Home2 = () => {
             saturation={1}
           />
         </div>
-        <div className="home-content items-center justify-start flex flex-col" style={{ position: 'fixed', top: 0, left: 0, right: 0, height: '100vh', zIndex: 10, paddingTop: '12rem' }}>
+        <div className="home-content items-center justify-start flex flex-col" style={{ position: 'fixed', top: 0, left: 0, right: 0, height: '100vh', zIndex: 10, paddingTop: '12rem', paddingLeft: '1rem', paddingRight: '1rem' }}>
           {/* Badge with SplitText effect */}
           <div ref={badgeRef} className="hero-header-badge">
             <SplitText
-              text="10K+ Active Clients across the Globe"
+              text="10 K+ Active Clients across the Globe"
               tag="span"
               className="hero-badge-text"
               delay={20}

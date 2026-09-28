@@ -74,7 +74,7 @@ const Home = () => {
         </div>
         <div className="home-content items-center justify-start flex flex-col" style={{ position: 'fixed', top: 0, left: 0, right: 0, height: '100vh', zIndex: 10, paddingTop: '12rem' }}>
           <div className="hero-header-badge">
-            <div className="hero-badge-text">10K+ Active Clients across the Globe</div>
+            <div className="hero-badge-text">10 K+ Active Clients across the Globe</div>
           </div>
           <div className="hero-text-container text-center">
             <div className='hero-text'>Integrated Logistics &<br /> Infrastructure Solutions</div>
