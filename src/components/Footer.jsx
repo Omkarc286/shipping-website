@@ -25,9 +25,9 @@ const Footer = () => {
 
                 {/* Left */}
                 <div className="md:col-span-5 space-y-6">
-                    <div className="flex items-center gap-3">
-                        <img src={footer_content.brand.logo} className="w-9 h-9" alt="logo" />
-                        <h2 className="text-2xl font-semibold">{footer_content.brand.name}</h2>
+                    <div className="flex items-center align-middle gap-3">
+                        <img src={footer_content.brand.logo} className="" alt="logo" />
+                        <h2 className="text-2xl font-semibold align-middle">{footer_content.brand.name}</h2>
                     </div>
 
                     <p className="text-gray-300 leading-relaxed text-[15px] max-w-md text-left">

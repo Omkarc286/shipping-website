@@ -448,14 +448,6 @@ p.logistics-p {
   line-height: 20px;
 }
 
-.hero-header-badge span,
-.hero-header-badge div {
-  background: linear-gradient(90deg, #E59CFF 0.01%, #BA9CFF 50.01%, #9CB2FF 100%);
-  background-clip: text;
-  -webkit-background-clip: text;
-  -webkit-text-fill-color: transparent;
-}
-
 .hero-badge-text {
 
   /* Medium */
@@ -465,6 +457,17 @@ p.logistics-p {
   font-weight: 500;
   line-height: 20px;
   /* 142.857% */
+  background: linear-gradient(90deg, #E59CFF 0.01%, #BA9CFF 50.01%, #9CB2FF 100%);
+  background-clip: text;
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+}
+
+.hero-badge-text.split-parent {
+  background: none;
+}
+
+.hero-badge-text.split-parent .split-char {
   background: linear-gradient(90deg, #E59CFF 0.01%, #BA9CFF 50.01%, #9CB2FF 100%);
   background-clip: text;
   -webkit-background-clip: text;

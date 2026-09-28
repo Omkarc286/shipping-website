@@ -1,6 +1,6 @@
 // content/footer.js
 
-import Logo from '../../assets/reflect.png';
+import Logo from '../../assets/LfLogo.svg';
 
 export const footer_content = {
     brand: {
