@@ -227,8 +227,8 @@ const Home2 = () => {
 
       </section>
 
-      {/* Next Section */}
-      <section className='flex flex-col p-20 bg-[#0A0118]'>
+      {/* Next Section — About Us */}
+      <section id="about-us" className='flex flex-col p-20 bg-[#0A0118]'>
         <div className='flex flex-col lg:flex-row gap-10 lg:gap-20 w-full'>
           <div className='flex flex-col items-center lg:items-start w-full lg:w-1/2 px-0 lg:px-10'>
             <Badge text='About us' />

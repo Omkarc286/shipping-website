@@ -140,6 +140,26 @@ const Navbar = () => {
     }
   }, [isMobileMenuOpen])
 
+  // ⭐ Scroll helper — smooth-scrolls to a section by id,
+  //    navigating home first if we're on another page
+  const scrollToSection = (sectionId) => {
+    const doScroll = () => {
+      const section = document.getElementById(sectionId)
+      if (section) {
+        section.scrollIntoView({ behavior: 'smooth' })
+      }
+    }
+
+    if (location.pathname === '/') {
+      // Already on home → just scroll
+      setTimeout(doScroll, 100)
+    } else {
+      // Navigate home first, then scroll
+      navigate('/')
+      setTimeout(doScroll, 300)
+    }
+  }
+
   const scrollToReachOut = () => {
     const isOnValidPage = pagesWithReachOut.includes(location.pathname) ||
       location.pathname.startsWith('/logistics/') ||
@@ -178,10 +198,15 @@ const Navbar = () => {
       return
     }
 
+    // ⭐ About Us → scroll to the about section on home page
+    if (item.id === 'aboutus') {
+      scrollToSection('about-us')
+      return
+    }
+
     window.scrollTo(0, 0)
 
     if (item.id === 'services') navigate('/services')
-    else if (item.id === 'aboutus') navigate('/')
     // ⭐ Blog navigation disabled
     // else if (item.id === 'blogs') navigate('/blog')
     else if (item.id === 'portfolio') navigate('/portfolio')
