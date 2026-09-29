@@ -6,8 +6,9 @@ import Logo from '../assets/LfLogo.svg'
 import { menuItems } from '../content/common/navbar_content'
 import brochurePDF from '../assets/brochure/freight_forwarding_brochure_sample.pdf'
 
-import AboutDropdown from './AboutDropdown'
-import ServicesDropdown from './ServicesDropdown'
+// ⭐ Dropdowns hidden
+// import AboutDropdown from './AboutDropdown'
+// import ServicesDropdown from './ServicesDropdown'
 import { FiChevronDown } from "react-icons/fi";
 
 
@@ -278,11 +279,13 @@ const Navbar = () => {
                   {item.label}
                 </div>
 
-                {item.id === 'aboutus' &&
-                  hoveredMenu === 'aboutus' && <AboutDropdown />}
+                {/* ⭐ About Us dropdown hidden */}
+                {/* {item.id === 'aboutus' &&
+                  hoveredMenu === 'aboutus' && <AboutDropdown />} */}
 
-                {item.id === 'services' &&
-                  hoveredMenu === 'services' && <ServicesDropdown />}
+                {/* ⭐ Our Services dropdown hidden */}
+                {/* {item.id === 'services' &&
+                  hoveredMenu === 'services' && <ServicesDropdown />} */}
               </div>
             ))}
           </div>
