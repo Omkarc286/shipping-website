@@ -88,7 +88,7 @@ const Navbar = () => {
   const [activeMenu, setActiveMenu] = useState(() => {
     if (isServiceRoute(location.pathname)) return 'services'
     if (isAboutRoute(location.pathname)) return 'aboutus'
-    return 'aboutus'
+    return null
   })
 
   const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false)
@@ -102,12 +102,25 @@ const Navbar = () => {
   const [hoveredMenu, setHoveredMenu] = useState(null)
   const hoverTimeout = useRef(null)
 
+  // ⭐ Track whether the current navigation was caused by a logo click
+  //    so we can suppress the "About Us active" highlight that would
+  //    otherwise be applied by the route-change effect below.
+  const logoClickRef = useRef(false)
+
   useEffect(() => {
+    // If we just clicked the logo, keep the active menu cleared
+    if (logoClickRef.current) {
+      logoClickRef.current = false
+      setActiveMenu(null)
+      return
+    }
+
     if (isServiceRoute(location.pathname)) setActiveMenu('services')
     else if (isAboutRoute(location.pathname)) setActiveMenu('aboutus')
     // ⭐ Blog active state disabled
     // else if (location.pathname === '/blog') setActiveMenu('blogs')
     else if (location.pathname === '/portfolio') setActiveMenu('portfolio')
+    else setActiveMenu(null)
   }, [location.pathname])
 
   useEffect(() => {
@@ -182,6 +195,20 @@ const Navbar = () => {
           reachOutSection.scrollIntoView({ behavior: 'smooth' })
         }
       }, 300)
+    }
+  }
+
+  // ⭐ Logo click → go home, scroll to top, clear active menu
+  const handleLogoClick = () => {
+    logoClickRef.current = true
+    setActiveMenu(null)
+
+    if (location.pathname === '/') {
+      // Already home — just scroll to top
+      window.scrollTo({ top: 0, behavior: 'smooth' })
+    } else {
+      navigate('/')
+      window.scrollTo({ top: 0, behavior: 'auto' })
     }
   }
 
@@ -286,7 +313,7 @@ const Navbar = () => {
         {/* Logo */}
         <div
           className="flex items-center gap-3 cursor-pointer"
-          onClick={() => navigate('/')}
+          onClick={handleLogoClick}
         >
           <img src={Logo} className="w-9 h-9" alt="logo" />
           <div className="brand-text">Loom Freight</div>
