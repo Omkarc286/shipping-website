@@ -12,6 +12,12 @@ import brochurePDF from '../assets/brochure/freight_forwarding_brochure_sample.p
 import { FiChevronDown } from "react-icons/fi";
 
 
+// ⭐ Menu items with Blog hidden
+const HIDDEN_MENU_IDS = ['blogs', 'blog']
+const visibleMenuItems = menuItems.filter(
+  (item) => !HIDDEN_MENU_IDS.includes(item.id)
+)
+
 const isServiceRoute = (pathname) => {
   const serviceRoutes = [
     '/services',
@@ -99,7 +105,8 @@ const Navbar = () => {
   useEffect(() => {
     if (isServiceRoute(location.pathname)) setActiveMenu('services')
     else if (isAboutRoute(location.pathname)) setActiveMenu('aboutus')
-    else if (location.pathname === '/blog') setActiveMenu('blogs')
+    // ⭐ Blog active state disabled
+    // else if (location.pathname === '/blog') setActiveMenu('blogs')
     else if (location.pathname === '/portfolio') setActiveMenu('portfolio')
   }, [location.pathname])
 
@@ -175,7 +182,8 @@ const Navbar = () => {
 
     if (item.id === 'services') navigate('/services')
     else if (item.id === 'aboutus') navigate('/')
-    else if (item.id === 'blogs') navigate('/blog')
+    // ⭐ Blog navigation disabled
+    // else if (item.id === 'blogs') navigate('/blog')
     else if (item.id === 'portfolio') navigate('/portfolio')
   }
 
@@ -262,7 +270,7 @@ const Navbar = () => {
         {/* Desktop */}
         {!isMobile && (
           <div className="menuholder flex gap-8">
-            {menuItems.map((item) => (
+            {visibleMenuItems.map((item) => (
               <div
                 key={item.id}
                 onMouseEnter={() => handleMouseEnter(item.id)}
@@ -320,7 +328,7 @@ const Navbar = () => {
       <div className={`mobile-menu-overlay ${isMobileMenuOpen ? 'open' : ''}`}>
         <div className="mobile-menu-content" style={{ maxHeight: '100vh', overflowY: 'auto', WebkitOverflowScrolling: 'touch' }}>
           <div className="mobile-menu-items">
-            {menuItems.map((item) => {
+            {visibleMenuItems.map((item) => {
               if (item.id === 'services') {
                 return (
                   <div key={item.id}>
