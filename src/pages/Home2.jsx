@@ -193,7 +193,7 @@ const Home2 = () => {
           backgroundPosition: 'center',
           backgroundAttachment: 'fixed',
           position: 'relative',
-          zIndex: 1
+          zIndex: 10
         }}
       >
         <div className='text-center items-center flex flex-col py-18'>
