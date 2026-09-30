@@ -1,4 +1,5 @@
 import React, { useEffect, useRef } from 'react';
+import { Link } from 'react-router-dom'; // <--- Added this import
 import gsap from 'gsap';
 import { ScrollTrigger } from 'gsap/ScrollTrigger';
 import LightRays from '../effects/LightRays';
@@ -47,10 +48,8 @@ const Home2 = () => {
 
     if (!shipCanvas || !exitSection) return;
 
-    // Set ship to visible initially
     gsap.set(shipCanvas, { x: 0, opacity: 1, scale: 1 });
 
-    // Exit animation on scroll - reversible
     gsap.fromTo(shipCanvas,
       { x: 0, opacity: 1, scale: 1 },
       {
@@ -68,7 +67,6 @@ const Home2 = () => {
       }
     );
 
-    // Exit animation for hero content - reversible
     gsap.fromTo([badgeRef.current, heroTextRef.current, buttonRef.current],
       { y: 0, opacity: 1 },
       {
@@ -111,7 +109,6 @@ const Home2 = () => {
           />
         </div>
         <div className="home-content items-center justify-start flex flex-col" style={{ position: 'fixed', top: 0, left: 0, right: 0, height: '100vh', zIndex: 10, paddingTop: '12rem', paddingLeft: '1rem', paddingRight: '1rem' }}>
-          {/* Badge with SplitText effect */}
           <div ref={badgeRef} className="hero-header-badge">
             <SplitText
               text="10 K+ Active Clients across the Globe"
@@ -125,7 +122,6 @@ const Home2 = () => {
             />
           </div>
 
-          {/* Hero text with SplitText effect */}
           <div ref={heroTextRef} className="hero-text-container text-center" style={{ marginTop: '20px', display: 'flex', flexDirection: 'column', alignItems: 'center' }}>
             <SplitText
               text="Integrated Logistics &"
@@ -149,7 +145,6 @@ const Home2 = () => {
             />
           </div>
 
-          {/* CTA Button */}
           <div ref={buttonRef} style={{ margin: '16px' }}>
             <ClickForMore
               text="Get a Free Quote"
@@ -159,7 +154,6 @@ const Home2 = () => {
             />
           </div>
 
-          {/* Ship entrance animation */}
           <div
             ref={shipCanvasRef}
             className='ship-canvas'
@@ -183,7 +177,6 @@ const Home2 = () => {
         </div>
       </section>
 
-      {/* Exit Section - Ship and content will fade out and exit as user scrolls */}
       <section
         ref={exitSectionRef}
         className='min-h-screen flex items-center justify-center px-18'
@@ -202,32 +195,39 @@ const Home2 = () => {
           </div>
           <div><h1 className='hero2'>Freight Solutions Built to Deliver</h1></div>
           <p className='logistics-p' style={{ fontWeight: '300', fontStyle: 'normal' }}>From <span className='logistics-span' style={{ fontWeight: '500', fontStyle: 'italic' }}>Ports</span> to <span className='logistics-span' style={{ fontWeight: '500', fontStyle: 'italic' }}>Highways</span> to <span className='logistics-span' style={{ fontWeight: '500', fontStyle: 'italic' }}>Airways</span>, our logistics services ensure reliable cargo movement across every transport channel.</p>
+
           <div className='slcard-grid grid grid-cols-1 md:grid-cols-2 px-12 py-12 gap-6 md:gap-8 w-full'>
-            <SLCard
-              title="Sea Freight"
-              image={seafreightImage}
-              description="Reliable global shipping through major sea routes."
-              spotlightColor="rgba(255, 255, 255, 0.25)"
-            />
-            <SLCard
-              title="Land Freight"
-              image={landtransportImage}
-              description="Reliable ground transportation for your cargo."
-              spotlightColor="rgba(255, 255, 255, 0.25)"
-            />
-            <SLCard
-              title="Air Freight"
-              image={airfreightImage}
-              description="Air cargo solutions for time-sensitive shipments."
-              spotlightColor="rgba(255, 255, 255, 0.25)"
-            />
+
+            <Link to="/sea-freight" style={{ textDecoration: 'none' }}>
+              <SLCard
+                title="Sea Freight"
+                image={seafreightImage}
+                description="Reliable global shipping through major sea routes."
+                spotlightColor="rgba(255, 255, 255, 0.25)"
+              />
+            </Link>
+
+            <Link to="/land-transport" style={{ textDecoration: 'none' }}>
+              <SLCard
+                title="Land Transport"
+                image={landtransportImage}
+                description="Reliable ground transportation for your cargo."
+                spotlightColor="rgba(255, 255, 255, 0.25)"
+              />
+            </Link>
+
+            <Link to="/air-transport" style={{ textDecoration: 'none' }}>
+              <SLCard
+                title="Air Transport"
+                image={airfreightImage}
+                description="Air cargo solutions for time-sensitive shipments."
+                spotlightColor="rgba(255, 255, 255, 0.25)"
+              />
+            </Link>
           </div>
         </div>
-
-
       </section>
 
-      {/* Next Section — About Us */}
       <section id="about-us" className='flex flex-col p-20 bg-[#0A0118]'>
         <div className='flex flex-col lg:flex-row gap-10 lg:gap-20 w-full'>
           <div className='flex flex-col items-center lg:items-start w-full lg:w-1/2 px-0 lg:px-10'>
@@ -295,100 +295,11 @@ const Home2 = () => {
         </div>
       </section>
       <AwardsSection />
-      {/* <section className='min-h-screen p-12 md:p-20 flex items-center justify-center' style={{ background: 'linear-gradient(180deg, #FBFAF4 0%, #E0EBF7 100%)' }}>
-        <div className='text-center items-center flex flex-col gap-4 w-full'>
-          <Badge text={home_services.badge_text} />
-          <h2 className='home-services-header-text'>{home_services.header_text}</h2>
-          <div className='services-grid grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-5 gap-6 w-full max-w-7xl mx-auto justify-items-center z-30'>
-            {home_services.cards.map((card, index) => (
-              <ServiceCard
-                key={index}
-                header={card.header}
-                desc={card.desc}
-                image={card.image}
-                url={card.url}
-              />
-            ))}
-          </div>
-        </div>
-      </section> */}
-      <LogisticSolutionsSection />
 
-      {/* <section className='min-h-screen p-3 md:p-12 lg:p-20 flex items-center justify-center' style={{ background: 'radial-gradient(113.16% 93.38% at 66.33% 33.28%, #EBDEFB 0%, #FBFAF4 48.99%, #FAF9F3 72.94%, #F2F0EC 100%)' }}>
-        <div className='text-center items-center flex flex-col gap-2 md:gap-4 w-full'>
-          <Badge text={home_industries.badge_text} />
-          <h2 className='home-services-header-text'>{home_industries.header_text}</h2>
-          <div className='industries-layout flex flex-col sm:flex-row items-center justify-center gap-3 md:gap-6 lg:gap-8 w-full'>
-            <div className='industries-cards-left flex flex-col gap-3 md:gap-6 lg:gap-13 w-full sm:w-auto'>
-              {
-                home_industries.cards_left.map((card, index) => (
-                  <IndustriesCard key={index} icon={card.icon} title={card.title} />
-                ))
-              }
-              <div className='sm:hidden flex flex-col gap-3'>
-                {
-                  home_industries.cards_right.map((card, index) => (
-                    <IndustriesCard key={`right-${index}`} icon={card.icon} title={card.title} />
-                  ))
-                }
-              </div>
-            </div>
-            <div className='hidden sm:block shrink-0'>
-              <img src={home_industries.bg_image} alt="" className='industries_image' />
-            </div>
-            <div className='industries-cards-right hidden sm:flex flex-col gap-3 md:gap-6 lg:gap-13 w-full sm:w-auto'>
-              {
-                home_industries.cards_right.map((card, index) => (
-                  <IndustriesCard key={index} icon={card.icon} title={card.title} />
-                ))
-              }
-            </div>
-            <div className='sm:hidden shrink-0 order-first'>
-              <img src={home_industries.bg_image} alt="" className='industries_image' />
-            </div>
-          </div>
-        </div>
-      </section> */}
+      <LogisticSolutionsSection />
       <IndustriesSection />
       <TrustedBySection />
-
-      {/* <section className='min-h-screen p-6 md:p-12 lg:p-20 flex items-center justify-center' style={{ background: `url(${rw_bg_image}) lightgray 0px -198.327px / 100% 139.886% no-repeat` }}>
-
-        <div className='text-center items-center flex flex-col gap-2 md:gap-4 w-full'>
-          <Badge text='Recent Works' />
-          <h2 className='recent-works-header-text mb-4'>Our Recent Completed Projects Showcase</h2>
-
-          <div className='w-full max-w-7xl mx-auto p-3 md:p-6 lg:p-8 overflow-hidden z-30'>
-            <Masonry
-              items={gallery}
-              ease="power3.out"
-              duration={0.6}
-              stagger={0.05}
-              animateFrom="bottom"
-              scaleOnHover={true}
-              hoverScale={0.95}
-              blurToFocus={true}
-              colorShiftOnHover={true}
-            />
-          </div>
-        </div>
-      </section> */}
       <RecentWorksSection />
-      {/* <section className='min-h-screen p-6 md:p-12 lg:p-20 flex items-center justify-center' style={{ background: '#0F0B15' }}>
-        <div className='text-center items-center flex flex-col gap-2 md:gap-4 w-full'>
-          <Badge text="Industries" />
-          <h2 className='featured-works-header-text'>Featured Works</h2>
-          <div className='featured-works-grid grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-6 w-full justify-items-center z-50'>
-            {featured_works.cards.map((card, index) => (
-              <FWCard
-                key={index}
-                header={card.header}
-                image={card.img}
-              />
-            ))}
-          </div>
-        </div>
-      </section> */}
       <FeaturedWorksSection />
 
       <TestimonialsSection backgroundImage={testimonial_bg} />
