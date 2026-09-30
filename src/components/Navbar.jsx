@@ -6,10 +6,17 @@ import Logo from '../assets/LfLogo.svg'
 import { menuItems } from '../content/common/navbar_content'
 import brochurePDF from '../assets/brochure/freight_forwarding_brochure_sample.pdf'
 
-import AboutDropdown from './AboutDropdown'
-import ServicesDropdown from './ServicesDropdown'
+// ⭐ Dropdowns hidden
+// import AboutDropdown from './AboutDropdown'
+// import ServicesDropdown from './ServicesDropdown'
 import { FiChevronDown } from "react-icons/fi";
 
+
+// ⭐ Menu items with Blog hidden
+const HIDDEN_MENU_IDS = ['blogs', 'blog']
+const visibleMenuItems = menuItems.filter(
+  (item) => !HIDDEN_MENU_IDS.includes(item.id)
+)
 
 const isServiceRoute = (pathname) => {
   const serviceRoutes = [
@@ -81,7 +88,7 @@ const Navbar = () => {
   const [activeMenu, setActiveMenu] = useState(() => {
     if (isServiceRoute(location.pathname)) return 'services'
     if (isAboutRoute(location.pathname)) return 'aboutus'
-    return 'aboutus'
+    return null
   })
 
   const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false)
@@ -95,11 +102,25 @@ const Navbar = () => {
   const [hoveredMenu, setHoveredMenu] = useState(null)
   const hoverTimeout = useRef(null)
 
+  // ⭐ Track whether the current navigation was caused by a logo click
+  //    so we can suppress the "About Us active" highlight that would
+  //    otherwise be applied by the route-change effect below.
+  const logoClickRef = useRef(false)
+
   useEffect(() => {
+    // If we just clicked the logo, keep the active menu cleared
+    if (logoClickRef.current) {
+      logoClickRef.current = false
+      setActiveMenu(null)
+      return
+    }
+
     if (isServiceRoute(location.pathname)) setActiveMenu('services')
     else if (isAboutRoute(location.pathname)) setActiveMenu('aboutus')
-    else if (location.pathname === '/blog') setActiveMenu('blogs')
+    // ⭐ Blog active state disabled
+    // else if (location.pathname === '/blog') setActiveMenu('blogs')
     else if (location.pathname === '/portfolio') setActiveMenu('portfolio')
+    else setActiveMenu(null)
   }, [location.pathname])
 
   useEffect(() => {
@@ -132,6 +153,26 @@ const Navbar = () => {
     }
   }, [isMobileMenuOpen])
 
+  // ⭐ Scroll helper — smooth-scrolls to a section by id,
+  //    navigating home first if we're on another page
+  const scrollToSection = (sectionId) => {
+    const doScroll = () => {
+      const section = document.getElementById(sectionId)
+      if (section) {
+        section.scrollIntoView({ behavior: 'smooth' })
+      }
+    }
+
+    if (location.pathname === '/') {
+      // Already on home → just scroll
+      setTimeout(doScroll, 100)
+    } else {
+      // Navigate home first, then scroll
+      navigate('/')
+      setTimeout(doScroll, 300)
+    }
+  }
+
   const scrollToReachOut = () => {
     const isOnValidPage = pagesWithReachOut.includes(location.pathname) ||
       location.pathname.startsWith('/logistics/') ||
@@ -157,6 +198,20 @@ const Navbar = () => {
     }
   }
 
+  // ⭐ Logo click → go home, scroll to top, clear active menu
+  const handleLogoClick = () => {
+    logoClickRef.current = true
+    setActiveMenu(null)
+
+    if (location.pathname === '/') {
+      // Already home — just scroll to top
+      window.scrollTo({ top: 0, behavior: 'smooth' })
+    } else {
+      navigate('/')
+      window.scrollTo({ top: 0, behavior: 'auto' })
+    }
+  }
+
   const handleMenuClick = (item) => {
     setActiveMenu(item.id)
     setIsMobileMenuOpen(false)
@@ -170,11 +225,17 @@ const Navbar = () => {
       return
     }
 
+    // ⭐ About Us → scroll to the about section on home page
+    if (item.id === 'aboutus') {
+      scrollToSection('about-us')
+      return
+    }
+
     window.scrollTo(0, 0)
 
     if (item.id === 'services') navigate('/services')
-    else if (item.id === 'aboutus') navigate('/')
-    else if (item.id === 'blogs') navigate('/blog')
+    // ⭐ Blog navigation disabled
+    // else if (item.id === 'blogs') navigate('/blog')
     else if (item.id === 'portfolio') navigate('/portfolio')
   }
 
@@ -252,7 +313,7 @@ const Navbar = () => {
         {/* Logo */}
         <div
           className="flex items-center gap-3 cursor-pointer"
-          onClick={() => navigate('/')}
+          onClick={handleLogoClick}
         >
           <img src={Logo} className="w-9 h-9" alt="logo" />
           <div className="brand-text">Loom Freight</div>
@@ -261,7 +322,7 @@ const Navbar = () => {
         {/* Desktop */}
         {!isMobile && (
           <div className="menuholder flex gap-8">
-            {menuItems.map((item) => (
+            {visibleMenuItems.map((item) => (
               <div
                 key={item.id}
                 onMouseEnter={() => handleMouseEnter(item.id)}
@@ -278,11 +339,13 @@ const Navbar = () => {
                   {item.label}
                 </div>
 
-                {item.id === 'aboutus' &&
-                  hoveredMenu === 'aboutus' && <AboutDropdown />}
+                {/* ⭐ About Us dropdown hidden */}
+                {/* {item.id === 'aboutus' &&
+                  hoveredMenu === 'aboutus' && <AboutDropdown />} */}
 
-                {item.id === 'services' &&
-                  hoveredMenu === 'services' && <ServicesDropdown />}
+                {/* ⭐ Our Services dropdown hidden */}
+                {/* {item.id === 'services' &&
+                  hoveredMenu === 'services' && <ServicesDropdown />} */}
               </div>
             ))}
           </div>
@@ -317,7 +380,7 @@ const Navbar = () => {
       <div className={`mobile-menu-overlay ${isMobileMenuOpen ? 'open' : ''}`}>
         <div className="mobile-menu-content" style={{ maxHeight: '100vh', overflowY: 'auto', WebkitOverflowScrolling: 'touch' }}>
           <div className="mobile-menu-items">
-            {menuItems.map((item) => {
+            {visibleMenuItems.map((item) => {
               if (item.id === 'services') {
                 return (
                   <div key={item.id}>

@@ -1,4 +1,5 @@
 import React from 'react';
+import { useNavigate, useLocation } from 'react-router-dom';
 import {
     FaInstagram,
     FaYoutube,
@@ -9,7 +10,38 @@ import {
 import { FiPhone } from "react-icons/fi";
 import { footer_content } from '../content/common/common_footer';
 
+// ⭐ Same list as Navbar — pages that have a #reach-out section
+const pagesWithReachOut = [
+    '/',
+    '/about-company',
+    '/career',
+    '/services',
+    '/general-contracting',
+    '/general-contracting/infrastructure',
+    '/general-contracting/marine',
+    '/blog',
+    '/portfolio',
+    '/logistics',
+    '/logistics/land-freight',
+    '/logistics/air-freight',
+    '/logistics/sea-freight',
+    '/logistics/open-yard-storage',
+    '/marine',
+    '/marine/ship-management',
+    '/marine/commercial-management',
+    '/marine/docking-management',
+    '/marine/crew-management',
+    '/marine/procurement-services',
+    '/marine/our-fleets',
+    '/material-supply',
+    '/equipment-rental',
+    '/custom-clearance'
+]
+
 const Footer = () => {
+
+    const navigate = useNavigate();
+    const location = useLocation();
 
     const iconMap = {
         instagram: FaInstagram,
@@ -17,6 +49,92 @@ const Footer = () => {
         linkedin: FaLinkedin,
         twitter: FaTwitter,
         discord: FaDiscord,
+    };
+
+    // ⭐ Scroll to #about-us, navigating home first if needed
+    const scrollToAboutUs = () => {
+        const doScroll = () => {
+            const section = document.getElementById('about-us');
+            if (section) {
+                section.scrollIntoView({ behavior: 'smooth' });
+            }
+        };
+
+        if (location.pathname === '/') {
+            setTimeout(doScroll, 100);
+        } else {
+            navigate('/');
+            setTimeout(doScroll, 300);
+        }
+    };
+
+    // ⭐ Same logic as Navbar's scrollToReachOut:
+    //    if current page has a #reach-out section → scroll to it
+    //    otherwise → navigate home, then scroll
+    const scrollToReachOut = () => {
+        const isOnValidPage =
+            pagesWithReachOut.includes(location.pathname) ||
+            location.pathname.startsWith('/logistics/') ||
+            location.pathname.startsWith('/marine/');
+
+        if (isOnValidPage) {
+            setTimeout(() => {
+                const reachOutSection = document.getElementById('reach-out');
+                if (reachOutSection) {
+                    reachOutSection.scrollIntoView({ behavior: 'smooth' });
+                }
+            }, 100);
+        } else {
+            navigate('/');
+            setTimeout(() => {
+                const reachOutSection = document.getElementById('reach-out');
+                if (reachOutSection) {
+                    reachOutSection.scrollIntoView({ behavior: 'smooth' });
+                }
+            }, 300);
+        }
+    };
+
+    // ⭐ Custom click handler per quick link label
+    const handleQuickLinkClick = (e, link) => {
+        const label = (link.label || '').trim().toLowerCase();
+
+        // Our Services → /services
+        if (label === 'our services' || label === 'services') {
+            e.preventDefault();
+            navigate('/services');
+            window.scrollTo(0, 0);
+            return;
+        }
+
+        // Our Projects / Portfolio → /portfolio
+        if (
+            label === 'our projects' ||
+            label === 'our project' ||
+            label === 'projects' ||
+            label === 'portfolio'
+        ) {
+            e.preventDefault();
+            navigate('/portfolio');
+            window.scrollTo(0, 0);
+            return;
+        }
+
+        // About Us → scroll to #about-us on home page
+        if (label === 'about us' || label === 'aboutus') {
+            e.preventDefault();
+            scrollToAboutUs();
+            return;
+        }
+
+        // Contact Us → scroll to this page's #reach-out (or home if not present)
+        if (label === 'contact us' || label === 'contactus' || label === 'contact') {
+            e.preventDefault();
+            scrollToReachOut();
+            return;
+        }
+
+        // Fallback: let the default anchor href behavior work
     };
 
     return (
@@ -60,7 +178,8 @@ const Footer = () => {
                             <a
                                 key={index}
                                 href={link.link}
-                                className="block hover:text-white transition-colors"
+                                onClick={(e) => handleQuickLinkClick(e, link)}
+                                className="block hover:text-white transition-colors cursor-pointer"
                             >
                                 {link.label}
                             </a>
