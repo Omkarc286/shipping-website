@@ -1,8 +1,8 @@
 import React, { useRef, useState } from 'react';
 import './ADSOconnect.css';
-import { adsoconnect_content } from '../../content/generalcontracting/generalcontracting_adsoconnect';
+import { loomFreightconnect_content } from '../../content/generalcontracting/generalcontracting_adsoconnect';
 
-const ADSOconnect = () => {
+const LoomFreightconnect = () => {
     const exitSectionRef = useRef(null);
 
     const [formData, setFormData] = useState({
@@ -49,14 +49,14 @@ const ADSOconnect = () => {
                                 marginBottom: '1rem'
                             }}
                         >
-                            {adsoconnect_content.heading}
+                            {loomFreightconnect_content.heading}
                         </h2>
 
                         <p
                             className="text-white/90 md:mx-0 mt-6 text-left whitespace-pre-line"
                             style={{ fontSize: '16px', lineHeight: '1.6' }}
                         >
-                            {adsoconnect_content.description}
+                            {loomFreightconnect_content.description}
                         </p>
                     </div>
                 </div>
@@ -65,10 +65,10 @@ const ADSOconnect = () => {
                 <div className="bg-[#2d2539] rounded-3xl p-10 shadow-lg border border-white/60">
                     <div className="mb-8">
                         <h3 className="text-3xl font-semibold text-white text-left">
-                            {adsoconnect_content.form.title}
+                            {loomFreightconnect_content.form.title}
                         </h3>
                         <p className="text-white mt-3 text-[15px] leading-relaxed text-left">
-                            {adsoconnect_content.form.subtitle}
+                            {loomFreightconnect_content.form.subtitle}
                         </p>
                     </div>
 
@@ -78,7 +78,7 @@ const ADSOconnect = () => {
                             <input
                                 type="text"
                                 name="lastName"
-                                placeholder={adsoconnect_content.form.fields.lastName}
+                                placeholder={loomFreightconnect_content.form.fields.lastName}
                                 value={formData.lastName}
                                 onChange={handleChange}
                                 className="w-full px-5 py-4 bg-[#76717E] border border-transparent focus:border-[#4C3FFF] rounded-md outline-none placeholder-black text-black"
@@ -87,7 +87,7 @@ const ADSOconnect = () => {
                             <input
                                 type="text"
                                 name="firstName"
-                                placeholder={adsoconnect_content.form.fields.firstName}
+                                placeholder={loomFreightconnect_content.form.fields.firstName}
                                 value={formData.firstName}
                                 onChange={handleChange}
                                 className="w-full px-5 py-4 bg-[#76717E] border border-transparent focus:border-[#4C3FFF] rounded-md outline-none placeholder-black text-black"
@@ -98,7 +98,7 @@ const ADSOconnect = () => {
                         <input
                             type="email"
                             name="email"
-                            placeholder={adsoconnect_content.form.fields.email}
+                            placeholder={loomFreightconnect_content.form.fields.email}
                             value={formData.email}
                             onChange={handleChange}
                             className="w-full px-5 py-4 bg-[#76717E] border border-transparent focus:border-[#4C3FFF] rounded-md outline-none placeholder-black text-black"
@@ -108,7 +108,7 @@ const ADSOconnect = () => {
                         <input
                             type="tel"
                             name="phone"
-                            placeholder={adsoconnect_content.form.fields.phone}
+                            placeholder={loomFreightconnect_content.form.fields.phone}
                             value={formData.phone}
                             onChange={handleChange}
                             className="w-full px-5 py-4 bg-[#76717E] border border-transparent focus:border-[#4C3FFF] rounded-md outline-none placeholder-black text-black"
@@ -116,7 +116,7 @@ const ADSOconnect = () => {
 
                         <textarea
                             name="message"
-                            placeholder={adsoconnect_content.form.fields.message}
+                            placeholder={loomFreightconnect_content.form.fields.message}
                             rows="5"
                             value={formData.message}
                             onChange={handleChange}
@@ -128,7 +128,7 @@ const ADSOconnect = () => {
                             type="submit"
                             className="w-full bg-[#8B00FF] hover:bg-[#7A00E6] text-white font-semibold py-4 rounded-md transition-all flex items-center justify-center gap-3 text-lg shadow-md"
                         >
-                            {adsoconnect_content.form.buttonText}
+                            {loomFreightconnect_content.form.buttonText}
                             <span className="text-xl">→</span>
                         </button>
                     </form>
@@ -139,4 +139,4 @@ const ADSOconnect = () => {
     );
 };
 
-export default ADSOconnect;
+export default LoomFreightconnect;

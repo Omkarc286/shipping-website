@@ -13,9 +13,6 @@ import FreightForwarders from './OurServicesComponents/FreightForwarders'
 import freight from '../assets/ourservices/freight.png'
 import HowWeDoFreightForwarding from './OurServicesComponents/HowWeDoFreightForwarding'
 
-
-
-
 const Services = () => {
     return (
         <>
@@ -28,7 +25,12 @@ const Services = () => {
             <TrustedBySection />
             <LogisticSolutionsSection />
             <FAQSection />
-            <ReachOutSection backgroundImage={contact_bg} />
+
+            {/* Reach Out section — wrapped with an id so we can scroll to it */}
+            <div id="reach-out">
+                <ReachOutSection backgroundImage={contact_bg} />
+            </div>
+
             <Footer />
         </>
     )

@@ -16,26 +16,26 @@ const MarineContractingServices = () => {
                 zIndex: 1
             }}
         >
-            <div className="adso-general-section">
+            <div className="loomFreight-general-section">
 
-                <div className="adso-general-container reverse">
+                <div className="loomFreight-general-container reverse">
 
                     {/* Image */}
-                    <div className="adso-general-image-container">
+                    <div className="loomFreight-general-image-container">
                         <img
                             src={pic1}
                             alt={marinecontractingservices_content.image.alt}
-                            className="adso-general-image"
+                            className="loomFreight-general-image"
                         />
                     </div>
 
                     {/* Content */}
-                    <div className="adso-general-content">
-                        <h2 className="adso-general-title !text-[#111116]">
+                    <div className="loomFreight-general-content">
+                        <h2 className="loomFreight-general-title !text-[#111116]">
                             {marinecontractingservices_content.content.title}
                         </h2>
 
-                        <p className="adso-general-description !text-[#22232C] whitespace-pre-line">
+                        <p className="loomFreight-general-description !text-[#22232C] whitespace-pre-line">
                             {marinecontractingservices_content.content.description}
                         </p>
                     </div>

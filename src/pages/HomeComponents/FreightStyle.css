@@ -22,12 +22,36 @@
     align-items: center;
     justify-content: flex-start;
     /* <--- CHANGED FROM CENTER TO FLEX-START */
-    background-size: cover;
-    background-position: center;
-    background-repeat: no-repeat;
     padding: 0 8%;
     overflow: hidden;
     z-index: 1;
+
+    /* Fallback background color to prevent white flash while image loads */
+    background-color: #0A0118;
+}
+
+/* --- HERO BACKGROUND IMAGE (real <img>, preloaded via index.html) --- */
+.sf-hero-fixed>picture {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    z-index: 0;
+    display: block;
+}
+
+.sf-hero-bg-img {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    object-position: center;
+    z-index: 0;
+    pointer-events: none;
+    user-select: none;
 }
 
 .sf-hero-overlay {
@@ -164,7 +188,6 @@
     display: flex;
     align-items: flex-start;
     gap: 16px;
-
 }
 
 .sf-feature-icon {
@@ -174,7 +197,7 @@
     display: flex;
     align-items: center;
     justify-content: center;
-    padding-top: 2px
+    padding-top: 2px;
 }
 
 .icon-placeholder {
@@ -221,7 +244,7 @@
     grid-template-columns: repeat(3, 1fr);
     gap: 24px;
     max-width: 1400px;
-    margin: 0 auto
+    margin: 0 auto;
 }
 
 .sf-step-card {
@@ -250,7 +273,6 @@
     font-weight: 500;
     margin: 0;
     color: #C2BCFF;
-
 }
 
 .sf-step-desc {
@@ -313,7 +335,4 @@
     .sf-steps-grid {
         grid-template-columns: 1fr;
     }
-
-
-
 }
