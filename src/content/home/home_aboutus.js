@@ -1,6 +1,6 @@
 export const home_aboutus = {
     header_text: 'Crafting Success for Over 50+ Years',
-    description: `ADSO Group of Companies was established in 1968 with its head office in Abu Dhabi and branches across the UAE and major Gulf cities.\nFor over five decades, ADSO has supported large-scale projects in oil & gas, petrochemical, telecommunications, and power industries.`,
+    description: `Loom Freight Group of Companies was established in 1968 with its head office in Abu Dhabi and branches across the UAE and major Gulf cities.\nFor over five decades, Loom Freight has supported large-scale projects in oil & gas, petrochemical, telecommunications, and power industries.`,
     subhead1: 'Our Mission',
     subdesc1: 'Is to provide innovative, reliable, and efficient logistics and project management solutions, ensuring customer satisfaction through exceptional service, integrity, and a commitment to excellence in the UAE and beyond.',
     subhead2: 'Verticals We Serve',

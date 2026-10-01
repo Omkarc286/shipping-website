@@ -63,7 +63,7 @@ const FreightForwarding = () => {
                             Reliable Land, Sea &amp; Air Freight Solutions across GCC
                         </h2>
                         <p className="freight-description">
-                            ADSO LLC AUH provides reliable freight services through land, sea, and air across the UAE, KSA,
+                            Loom Freight LLC AUH provides reliable freight services through land, sea, and air across the UAE, KSA,
                             Oman, Bahrain, and other GCC countries. We handle everything from fast road transport to large sea
                             shipments and urgent air freight, along with customs and documentation support. With expert
                             logistics planning and real-time updates, we ensure safe, efficient, and timely delivery across
@@ -74,7 +74,7 @@ const FreightForwarding = () => {
                             Trusted Freight Forwarding Partner for Industrial Logistics in UAE
                         </h3>
                         <p className="freight-description">
-                            ADSO provides reliable industrial freight and logistics services for heavy, oversized, and sensitive
+                            Loom Freight provides reliable industrial freight and logistics services for heavy, oversized, and sensitive
                             cargo. We support sectors like oil &amp; gas, construction, and manufacturing, handling machinery,
                             cranes, and equipment with professionalism and precision.
                         </p>

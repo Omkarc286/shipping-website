@@ -4,7 +4,7 @@ export const infrastructurecards_content = {
         {
             title: "Complete Civil & Infrastructure Solutions",
 
-            description: `ADSO infrastructure contractors in UAE delivers end-to-end
+            description: `Loom Freight infrastructure contractors in UAE delivers end-to-end
 infrastructure and civil works solutions across greenfield and
 brownfield projects. Our services include roadworks such as subgrade
 preparation, subbase and base course installation, asphalt paving,

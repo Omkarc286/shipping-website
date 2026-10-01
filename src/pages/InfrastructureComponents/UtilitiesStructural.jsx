@@ -15,14 +15,14 @@ const UtilitiesStructural = () => {
                 zIndex: 1
             }}
         >
-            <div className="adso-general-section">
+            <div className="loomFreight-general-section">
 
                 {/* UTILITIES */}
                 <div
-                    className="adso-general-content adso-general-container"
+                    className="loomFreight-general-content loomFreight-general-container"
                     style={{ textAlign: 'center' }}
                 >
-                    <h2 className="adso-general-title !mx-auto !mb-0">
+                    <h2 className="loomFreight-general-title !mx-auto !mb-0">
                         {utilities_structural.utilities.header_text}
                     </h2>
 
@@ -41,20 +41,20 @@ const UtilitiesStructural = () => {
                 </div>
 
                 {/* STRUCTURAL */}
-                <div className="adso-general-container reverse">
+                <div className="loomFreight-general-container reverse">
 
                     {/* IMAGE FROM CONTENT */}
-                    <div className="adso-general-image-container">
+                    <div className="loomFreight-general-image-container">
                         <img
                             src={utilities_structural.structural.image}
                             alt={utilities_structural.structural.image_alt}
-                            className="adso-general-image"
+                            className="loomFreight-general-image"
                         />
                     </div>
 
                     {/* CONTENT */}
-                    <div className="adso-general-content">
-                        <h2 className="adso-general-title">
+                    <div className="loomFreight-general-content">
+                        <h2 className="loomFreight-general-title">
                             {utilities_structural.structural.header_text}
                         </h2>
 

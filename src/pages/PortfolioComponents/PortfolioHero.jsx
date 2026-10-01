@@ -76,6 +76,8 @@ const PortfolioHero = () => {
                         splitType="chars"
                         from={{ opacity: 0, y: 20 }}
                         to={{ opacity: 1, y: 0 }}
+                        textAlign="center"
+
                     />
                 </div>
 
@@ -99,6 +101,8 @@ const PortfolioHero = () => {
                         splitType="words"
                         from={{ opacity: 0, y: 30 }}
                         to={{ opacity: 1, y: 0 }}
+                        textAlign="center"
+
                     />
 
                     <p className="text-gray-300 text-center mt-6 max-w-6xl !text-[18px] md:text-base">

@@ -17,7 +17,7 @@
     }
 }
 
-.adso-general-section {
+.loomFreight-general-section {
     color: #ffffff;
     padding: 60px 0;
     position: relative;
@@ -26,12 +26,12 @@
 }
 
 @media (min-width: 768px) {
-    .adso-general-section {
+    .loomFreight-general-section {
         padding: 100px 0;
     }
 }
 
-.adso-general-container {
+.loomFreight-general-container {
     max-width: 1400px;
     margin: 0 auto;
     display: flex;
@@ -41,13 +41,13 @@
 }
 
 /* ==================== DEFAULT LAYOUT (Content Left | Image Right) ==================== */
-.adso-general-content {
+.loomFreight-general-content {
     flex: 1;
     min-width: 300px;
     text-align: left;
 }
 
-.adso-general-title {
+.loomFreight-general-title {
     font-size: 28px;
     font-weight: 700;
     color: #C2BCFF;
@@ -57,14 +57,14 @@
 }
 
 @media (min-width: 768px) {
-    .adso-general-title {
+    .loomFreight-general-title {
         font-size: 32px;
         line-height: 40px;
         margin-bottom: 1.5rem;
     }
 }
 
-.adso-general-description {
+.loomFreight-general-description {
     font-size: 15px;
     line-height: 1.6;
     color: #FFFFFF;
@@ -75,13 +75,13 @@
 }
 
 @media (min-width: 768px) {
-    .adso-general-description {
+    .loomFreight-general-description {
         font-size: 16px;
         line-height: 1.7;
     }
 }
 
-.adso-general-image-container {
+.loomFreight-general-image-container {
     flex: 0 0 100%;
     border-radius: 16px;
     overflow: hidden;
@@ -89,12 +89,12 @@
 }
 
 @media (min-width: 968px) {
-    .adso-general-image-container {
+    .loomFreight-general-image-container {
         flex: 0 0 33%;
     }
 }
 
-.adso-general-image {
+.loomFreight-general-image {
     width: 100%;
     height: auto;
     display: block;
@@ -102,7 +102,7 @@
 }
 
 /* ==================== NEW LAYOUT (Image Left | Content Right) ==================== */
-.adso-general-container.reverse {
+.loomFreight-general-container.reverse {
     flex-direction: row;
 }
 
@@ -125,18 +125,18 @@
 /* ==================== RESPONSIVE ==================== */
 @media (max-width: 967px) {
 
-    .adso-general-container,
-    .adso-general-container.reverse {
+    .loomFreight-general-container,
+    .loomFreight-general-container.reverse {
         flex-direction: column !important;
         gap: 2rem;
     }
 
-    .adso-general-content {
+    .loomFreight-general-content {
         text-align: left;
         width: 100%;
     }
 
-    .adso-general-image-container {
+    .loomFreight-general-image-container {
         width: 100%;
         max-width: 100%;
         margin: 0;
@@ -144,19 +144,19 @@
 }
 
 /* Spacing between the two sections */
-.adso-general-container+.adso-general-container {
+.loomFreight-general-container+.loomFreight-general-container {
     margin-top: 60px;
 }
 
 @media (min-width: 768px) {
-    .adso-general-container+.adso-general-container {
+    .loomFreight-general-container+.loomFreight-general-container {
         margin-top: 80px;
     }
 }
 
 /* Optional padding for better alignment on large screens */
 @media (min-width: 969px) {
-    .adso-general-container.reverse .adso-general-content {
+    .loomFreight-general-container.reverse .loomFreight-general-content {
         padding-left: 2rem;
     }
 }

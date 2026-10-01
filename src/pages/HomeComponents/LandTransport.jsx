@@ -14,7 +14,9 @@ import gsap from 'gsap';
 import { ScrollTrigger } from 'gsap/ScrollTrigger';
 
 // Assets
-import heroBg from '../../assets/landtransport2.png';
+// NOTE: heroBg is served from /public (un-hashed, stable URL).
+// We use a plain URL string instead of importing, so the preload
+// link in index.html can point at the same stable path.
 import test_icon from '../../assets/test_icon.png';
 
 gsap.registerPlugin(ScrollTrigger);
@@ -23,6 +25,20 @@ const LandTransport = () => {
     const badgeRef = useRef(null);
     const heroTextRef = useRef(null);
     const buttonRef = useRef(null);
+
+    // Public-folder asset URLs (stable, never hashed by Vite)
+    const heroBgWebp = '/landtransport2.webp';
+    const heroBgPng = '/landtransport2.png'; // fallback for non-WebP browsers
+
+    // ---- Scroll to Reach Out section ----
+    const scrollToReachOut = () => {
+        const target = document.getElementById('reach-out');
+        if (!target) return;
+
+        // Use window.scrollTo with offset (friendlier with ScrollTrigger pinned sections)
+        const y = target.getBoundingClientRect().top + window.scrollY;
+        window.scrollTo({ top: y, behavior: 'smooth' });
+    };
 
     useEffect(() => {
         window.scrollTo(0, 0);
@@ -61,7 +77,6 @@ const LandTransport = () => {
         };
     }, []);
 
-
     const features = [
         { title: 'Full Truckload', desc: 'Dedicated containers for your cargo.' },
         { title: 'Less than Truckload', desc: 'Share space, save cost.' },
@@ -83,8 +98,22 @@ const LandTransport = () => {
         <div className="sea-freight-page">
 
             {/* FIXED HERO SECTION - Left aligned, Playfair Display typography */}
-            <section className="sf-hero-fixed" style={{ backgroundImage: `url(${heroBg})` }}>
+            <section className="sf-hero-fixed">
+                {/* Real <img> with <picture> for WebP + PNG fallback */}
+                <picture>
+                    <source srcSet={heroBgWebp} type="image/webp" />
+                    <img
+                        src={heroBgPng}
+                        alt=""
+                        aria-hidden="true"
+                        fetchpriority="high"
+                        decoding="async"
+                        className="sf-hero-bg-img"
+                    />
+                </picture>
+
                 <div className="sf-hero-overlay"></div>
+
                 <div className="sf-hero-content">
 
                     {/* Badge - Left aligned */}
@@ -98,6 +127,7 @@ const LandTransport = () => {
                             splitType="chars"
                             from={{ opacity: 0, y: 20 }}
                             to={{ opacity: 1, y: 0 }}
+                            textAlign="left"
                         />
                     </div>
 
@@ -114,15 +144,14 @@ const LandTransport = () => {
                                 splitType="words"
                                 from={{ opacity: 0, y: 30 }}
                                 to={{ opacity: 1, y: 0 }}
+                                textAlign="left"
                             />
                         </h1>
 
                         {/* Description with Inter light + SplitText */}
                         <p className="sf-hero-desc">
                             <SplitText
-                                text="We offer cost-effective and sustainable land transport solution for business of all sizes. 
-From full truck loads to smaller shipments, we ensure your cargo reaches 
-its destination safely and on time."
+                                text="We offer cost-effective and sustainable land transport solution for business of all sizes. From full truck loads to smaller shipments, we ensure your cargo reaches its destination safely and on time."
                                 tag="span"
                                 className="sf-desc-text"
                                 delay={30}
@@ -130,11 +159,12 @@ its destination safely and on time."
                                 splitType="words"
                                 from={{ opacity: 0, y: 15 }}
                                 to={{ opacity: 1, y: 0 }}
+                                textAlign="left"
                             />
                         </p>
                     </div>
 
-                    {/* CTA Button - Left aligned */}
+                    {/* CTA Button - Left aligned, scrolls to Reach Out section */}
                     <div ref={buttonRef} className="sf-button-wrapper">
                         <ClickForMore
                             text="Request a quote"
@@ -145,6 +175,7 @@ its destination safely and on time."
                             }
                             classContainer="get-free-quote-button2"
                             classTypography="get-free-quote-typography"
+                            onClick={scrollToReachOut}
                         />
                     </div>
 
@@ -163,13 +194,8 @@ its destination safely and on time."
                                 <img src={test_icon} alt={item.title} className="sf-feature-img" />
                             </div>
                             <div className="sf-feature-text">
-                                <h3 style={{
-                                    color: '#E6F9AF'
-                                }}>{item.title}</h3>
-                                <p style={{
-                                    textAlign: 'left',
-                                    fontSize: '15px'
-                                }}>{item.desc}</p>
+                                <h3 style={{ color: '#E6F9AF' }}>{item.title}</h3>
+                                <p style={{ textAlign: 'left', fontSize: '15px' }}>{item.desc}</p>
                             </div>
                         </div>
                     ))}
@@ -178,7 +204,6 @@ its destination safely and on time."
 
             {/* HOW IT WORKS SECTION */}
             <section className="sf-how-it-works">
-
                 <h2 className="sf-section-title">How it Works</h2>
                 <div className="sf-steps-grid">
                     {steps.map((step, index) => (
@@ -189,11 +214,12 @@ its destination safely and on time."
                         </div>
                     ))}
                 </div>
-
             </section>
 
             {/* REACH OUT & FOOTER */}
-            <ReachOutSection backgroundImage={contact_bg} />
+            <div id="reach-out">
+                <ReachOutSection backgroundImage={contact_bg} />
+            </div>
             <Footer />
         </div>
     );

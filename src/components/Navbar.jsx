@@ -153,48 +153,52 @@ const Navbar = () => {
     }
   }, [isMobileMenuOpen])
 
-  // ⭐ Scroll helper — smooth-scrolls to a section by id,
-  //    navigating home first if we're on another page
+
   const scrollToSection = (sectionId) => {
     const doScroll = () => {
       const section = document.getElementById(sectionId)
       if (section) {
-        section.scrollIntoView({ behavior: 'smooth' })
+
+        setTimeout(() => {
+          section.scrollIntoView({ behavior: 'smooth', block: 'start' })
+        }, 400)
       }
     }
 
     if (location.pathname === '/') {
-      // Already on home → just scroll
-      setTimeout(doScroll, 100)
+      window.scrollTo({ top: 0, behavior: 'auto' })
+      setTimeout(doScroll, 200)
     } else {
-      // Navigate home first, then scroll
       navigate('/')
-      setTimeout(doScroll, 300)
+      window.scrollTo({ top: 0, behavior: 'auto' })
+      setTimeout(doScroll, 700)
     }
   }
 
   const scrollToReachOut = () => {
-    const isOnValidPage = pagesWithReachOut.includes(location.pathname) ||
+    const isOnValidPage =
+      pagesWithReachOut.includes(location.pathname) ||
       location.pathname.startsWith('/logistics/') ||
       location.pathname.startsWith('/marine/')
 
     if (isOnValidPage) {
-      // We're already on a page with reach-out section, just scroll
+      // Already on a page with a reach-out section — just scroll
       setTimeout(() => {
         const reachOutSection = document.getElementById('reach-out')
         if (reachOutSection) {
-          reachOutSection.scrollIntoView({ behavior: 'smooth' })
+          reachOutSection.scrollIntoView({ behavior: 'smooth', block: 'start' })
         }
       }, 100)
     } else {
-      // Navigate to home first, then scroll
+      // Navigate home from the top, then scroll
       navigate('/')
+      window.scrollTo({ top: 0, behavior: 'auto' })
       setTimeout(() => {
         const reachOutSection = document.getElementById('reach-out')
         if (reachOutSection) {
-          reachOutSection.scrollIntoView({ behavior: 'smooth' })
+          reachOutSection.scrollIntoView({ behavior: 'smooth', block: 'start' })
         }
-      }, 300)
+      }, 700)
     }
   }
 
@@ -227,7 +231,26 @@ const Navbar = () => {
 
     // ⭐ About Us → scroll to the about section on home page
     if (item.id === 'aboutus') {
-      scrollToSection('about-us')
+      if (location.pathname === '/') {
+        // Already home — just scroll, no loader involved
+        window.scrollTo({ top: 0, behavior: 'auto' })
+        setTimeout(() => {
+          const section = document.getElementById('about-us')
+          if (section) {
+            section.scrollIntoView({ behavior: 'smooth', block: 'start' })
+          }
+        }, 200)
+      } else {
+        // Coming from another page — tell Home2 to skip the hero loader
+        navigate('/', { state: { skipHeroLoader: true } })
+        window.scrollTo({ top: 0, behavior: 'auto' })
+        setTimeout(() => {
+          const section = document.getElementById('about-us')
+          if (section) {
+            section.scrollIntoView({ behavior: 'smooth', block: 'start' })
+          }
+        }, 700)
+      }
       return
     }
 
