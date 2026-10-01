@@ -231,7 +231,26 @@ const Navbar = () => {
 
     // ⭐ About Us → scroll to the about section on home page
     if (item.id === 'aboutus') {
-      scrollToSection('about-us')
+      if (location.pathname === '/') {
+        // Already home — just scroll, no loader involved
+        window.scrollTo({ top: 0, behavior: 'auto' })
+        setTimeout(() => {
+          const section = document.getElementById('about-us')
+          if (section) {
+            section.scrollIntoView({ behavior: 'smooth', block: 'start' })
+          }
+        }, 200)
+      } else {
+        // Coming from another page — tell Home2 to skip the hero loader
+        navigate('/', { state: { skipHeroLoader: true } })
+        window.scrollTo({ top: 0, behavior: 'auto' })
+        setTimeout(() => {
+          const section = document.getElementById('about-us')
+          if (section) {
+            section.scrollIntoView({ behavior: 'smooth', block: 'start' })
+          }
+        }, 700)
+      }
       return
     }
 

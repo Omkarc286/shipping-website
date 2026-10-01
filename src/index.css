@@ -55,6 +55,29 @@ body {
   margin: 0;
 }
 
+.hero-loader {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 100%;
+  height: 160px;
+}
+
+.hero-loader-spinner {
+  width: 56px;
+  height: 56px;
+  border: 4px solid rgba(255, 255, 255, 0.25);
+  border-top-color: #ffffff;
+  border-radius: 50%;
+  animation: hero-loader-spin 0.9s linear infinite;
+}
+
+@keyframes hero-loader-spin {
+  to {
+    transform: rotate(360deg);
+  }
+}
+
 #root {
   width: 100lvw;
   max-width: 100%;

@@ -1,5 +1,5 @@
-import React, { useEffect, useRef } from 'react';
-import { Link } from 'react-router-dom';
+import React, { useEffect, useRef, useState } from 'react';
+import { Link, useLocation } from 'react-router-dom';
 import gsap from 'gsap';
 import { ScrollTrigger } from 'gsap/ScrollTrigger';
 import LightRays from '../effects/LightRays';
@@ -43,6 +43,22 @@ const Home2 = () => {
   const buttonRef = useRef(null);
   const exitSectionRef = useRef(null);
 
+  // ---- Read navigation state (e.g. About Us click from Navbar) ----
+  const location = useLocation();
+  const skipLoader = location.state?.skipHeroLoader === true;
+
+  // ---- Loading state for hero text ----
+  // If redirected from About Us, start with the loader disabled
+  const [isLoading, setIsLoading] = useState(!skipLoader);
+  const [heroData, setHeroData] = useState(
+    skipLoader
+      ? {
+        line1: 'Integrated Logistics &',
+        line2: 'Infrastructure Solutions',
+      }
+      : null
+  );
+
   // Public-folder asset URLs (stable, never hashed by Vite)
   const shipWebp = '/cargo-ship-sea.webp';
   const shipPng = '/cargo-ship-sea.png';
@@ -55,6 +71,45 @@ const Home2 = () => {
     window.scrollTo({ top: y, behavior: 'smooth' });
   };
 
+  // ---- Simulate/perform data fetching ----
+  useEffect(() => {
+    // If redirected from About Us, skip the loader and the fetch
+    if (skipLoader) {
+      setIsLoading(false);
+      ScrollTrigger.refresh();
+      return;
+    }
+
+    const fetchHeroData = async () => {
+      try {
+        // Replace this with your real data source (API, context, props, etc.)
+        // Example:
+        // const res = await fetch('/api/hero');
+        // const data = await res.json();
+
+        // Simulated delay for demo purposes
+        await new Promise((resolve) => setTimeout(resolve, 1000));
+
+        setHeroData({
+          line1: 'Integrated Logistics &',
+          line2: 'Infrastructure Solutions',
+        });
+      } catch (err) {
+        console.error('Failed to load hero data', err);
+        // Fallback so the section doesn't stay empty
+        setHeroData({
+          line1: 'Integrated Logistics &',
+          line2: 'Infrastructure Solutions',
+        });
+      } finally {
+        setIsLoading(false);
+      }
+    };
+
+    fetchHeroData();
+  }, [skipLoader]);
+
+  // ---- GSAP scroll animations ----
   useEffect(() => {
     const shipCanvas = shipCanvasRef.current;
     const exitSection = exitSectionRef.current;
@@ -62,7 +117,6 @@ const Home2 = () => {
     if (!shipCanvas || !exitSection) return;
 
     gsap.set(shipCanvas, { x: 0, opacity: 1, scale: 1 });
-
 
     const shipTween = gsap.fromTo(
       shipCanvas,
@@ -100,13 +154,19 @@ const Home2 = () => {
     );
 
     return () => {
-
       shipTween.scrollTrigger?.kill();
       shipTween.kill();
       contentTween.scrollTrigger?.kill();
       contentTween.kill();
     };
   }, []);
+
+  // Refresh ScrollTrigger after content swaps from loader -> text
+  useEffect(() => {
+    if (!isLoading) {
+      ScrollTrigger.refresh();
+    }
+  }, [isLoading]);
 
   return (
     <>
@@ -168,31 +228,41 @@ const Home2 = () => {
               display: 'flex',
               flexDirection: 'column',
               alignItems: 'center',
+              justifyContent: 'center',
               gap: '0px',
+              minHeight: '160px',
             }}
           >
-            <SplitText
-              text="Integrated Logistics &"
-              tag="div"
-              className="hero-text"
-              delay={60}
-              duration={1}
-              splitType="words"
-              from={{ opacity: 0, y: 30 }}
-              to={{ opacity: 1, y: 0 }}
-              textAlign="center"
-            />
-            <SplitText
-              text="Infrastructure Solutions"
-              tag="div"
-              className="hero-text"
-              delay={60}
-              duration={1}
-              splitType="words"
-              from={{ opacity: 0, y: 30 }}
-              to={{ opacity: 1, y: 0 }}
-              textAlign="center"
-            />
+            {isLoading ? (
+              <div className="hero-loader" aria-label="Loading" role="status">
+                <div className="hero-loader-spinner" />
+              </div>
+            ) : (
+              <>
+                <SplitText
+                  text={heroData?.line1 || 'Integrated Logistics &'}
+                  tag="div"
+                  className="hero-text"
+                  delay={60}
+                  duration={1}
+                  splitType="words"
+                  from={{ opacity: 0, y: 30 }}
+                  to={{ opacity: 1, y: 0 }}
+                  textAlign="center"
+                />
+                <SplitText
+                  text={heroData?.line2 || 'Infrastructure Solutions'}
+                  tag="div"
+                  className="hero-text"
+                  delay={60}
+                  duration={1}
+                  splitType="words"
+                  from={{ opacity: 0, y: 30 }}
+                  to={{ opacity: 1, y: 0 }}
+                  textAlign="center"
+                />
+              </>
+            )}
           </div>
 
           <div ref={buttonRef} style={{ margin: '16px' }}>
