@@ -1,5 +1,5 @@
 
-export const whychooseadso_content = {
+export const whychooseloomFreight_content = {
     top: {
         title: "Why Choose Loom Freight as A General Contractor in UAE?",
         description: `Loom Freight is the best construction company in Abu Dhabi. We have 50 years of hands-on experience in general contracting services. We have delivered many successful projects, providing general contracting services in UAE as a main contractor. We are an LLC licensed general contracting company that is accredited and certified.  We perform our contracting services with a client-focused approach and deliver every project while complying with local and international standards. We give priority to reliability and transparency with trusted commitment. We believe in long-term partnerships with subcontractors and construction companies.`,

@@ -1,4 +1,4 @@
-export const why_choose_adso = {
+export const why_choose_loomFreight = {
     top_section: {
         header_text: 'Why Choose Loom Freight for Your Infrastructure Projects in the UAE?',
 

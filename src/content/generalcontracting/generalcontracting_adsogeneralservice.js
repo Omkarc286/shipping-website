@@ -1,7 +1,7 @@
 
 import pic1 from '../../assets/generalcontracting/pic1.png';
 
-export const adsogeneralservice_content = {
+export const loomFreightgeneralservice_content = {
     intro: {
         heading: 'Loom Freight General Contracting Service in UAE',
 
