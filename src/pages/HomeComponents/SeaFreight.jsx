@@ -30,6 +30,16 @@ const SeaFreight = () => {
     const heroBgWebp = '/seafreight2.webp';
     const heroBgPng = '/seafreight2.png'; // fallback for non-WebP browsers
 
+    // ---- Scroll to Reach Out section ----
+    const scrollToReachOut = () => {
+        const target = document.getElementById('reach-out');
+        if (!target) return;
+
+        // Use window.scrollTo with offset (friendlier with ScrollTrigger pinned sections)
+        const y = target.getBoundingClientRect().top + window.scrollY;
+        window.scrollTo({ top: y, behavior: 'smooth' });
+    };
+
     useEffect(() => {
         window.scrollTo(0, 0);
     }, []);
@@ -155,7 +165,7 @@ const SeaFreight = () => {
                         </p>
                     </div>
 
-                    {/* CTA Button - Left aligned */}
+                    {/* CTA Button - Left aligned, scrolls to Reach Out section */}
                     <div ref={buttonRef} className="sf-button-wrapper">
                         <ClickForMore
                             text="Request a quote"
@@ -166,6 +176,7 @@ const SeaFreight = () => {
                             }
                             classContainer="get-free-quote-button2"
                             classTypography="get-free-quote-typography"
+                            onClick={scrollToReachOut}
                         />
                     </div>
 
@@ -207,7 +218,9 @@ const SeaFreight = () => {
             </section>
 
             {/* REACH OUT & FOOTER */}
-            <ReachOutSection backgroundImage={contact_bg} />
+            <div id="reach-out">
+                <ReachOutSection backgroundImage={contact_bg} />
+            </div>
             <Footer />
         </div>
     );

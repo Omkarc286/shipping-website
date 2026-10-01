@@ -1491,7 +1491,7 @@ code {
 }
 
 /* Masonry Gallery Responsive Styles */
-@media (max-width: 1024px) {
+@media (max-width: 1023px) {
   [data-key] {
     box-shadow: 0px 8px 40px -8px rgba(0, 0, 0, 0.15) !important;
   }

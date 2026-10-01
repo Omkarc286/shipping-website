@@ -8,8 +8,6 @@ import SplitText from '../effects/SplitText';
 import NavigateNextRoundedIcon from '@mui/icons-material/NavigateNextRounded';
 
 // Assets
-// NOTE: cargo ship is now served from /public (un-hashed, stable URL)
-// so the <link rel="preload"> in index.html can point at the same path.
 import bgImage from '../assets/bg-image.png';
 import Badge from '../components/Badge';
 import SLCard from '../components/SLCard';
@@ -47,7 +45,15 @@ const Home2 = () => {
 
   // Public-folder asset URLs (stable, never hashed by Vite)
   const shipWebp = '/cargo-ship-sea.webp';
-  const shipPng = '/cargo-ship-sea.png'; // fallback for non-WebP browsers
+  const shipPng = '/cargo-ship-sea.png';
+
+  // ---- Scroll to Reach Out section ----
+  const scrollToReachOut = () => {
+    const target = document.getElementById('reach-out');
+    if (!target) return;
+    const y = target.getBoundingClientRect().top + window.scrollY;
+    window.scrollTo({ top: y, behavior: 'smooth' });
+  };
 
   useEffect(() => {
     const shipCanvas = shipCanvasRef.current;
@@ -57,7 +63,9 @@ const Home2 = () => {
 
     gsap.set(shipCanvas, { x: 0, opacity: 1, scale: 1 });
 
-    gsap.fromTo(shipCanvas,
+
+    const shipTween = gsap.fromTo(
+      shipCanvas,
       { x: 0, opacity: 1, scale: 1 },
       {
         x: 1750,
@@ -69,12 +77,13 @@ const Home2 = () => {
           end: 'top 20%',
           scrub: 1.5,
           markers: false,
-          reversed: false
-        }
+          reversed: false,
+        },
       }
     );
 
-    gsap.fromTo([badgeRef.current, heroTextRef.current, buttonRef.current],
+    const contentTween = gsap.fromTo(
+      [badgeRef.current, heroTextRef.current, buttonRef.current],
       { y: 0, opacity: 1 },
       {
         y: -100,
@@ -85,19 +94,27 @@ const Home2 = () => {
           end: 'top 20%',
           scrub: 1.5,
           markers: false,
-          reversed: false
-        }
+          reversed: false,
+        },
       }
     );
 
     return () => {
-      ScrollTrigger.getAll().forEach(trigger => trigger.kill());
+
+      shipTween.scrollTrigger?.kill();
+      shipTween.kill();
+      contentTween.scrollTrigger?.kill();
+      contentTween.kill();
     };
   }, []);
 
   return (
     <>
-      <section ref={homeSectionRef} className='home-section' style={{ position: 'relative', minHeight: '100vh' }}>
+      <section
+        ref={homeSectionRef}
+        className='home-section'
+        style={{ position: 'relative', minHeight: '100vh' }}
+      >
         <div className='light-rays-container'>
           <LightRays
             raysOrigin="top-center"
@@ -115,7 +132,20 @@ const Home2 = () => {
             saturation={1}
           />
         </div>
-        <div className="home-content items-center justify-start flex flex-col" style={{ position: 'fixed', top: 0, left: 0, right: 0, height: '100vh', zIndex: 10, paddingTop: '9rem', paddingLeft: '1rem', paddingRight: '1rem' }}>
+        <div
+          className="home-content items-center justify-start flex flex-col"
+          style={{
+            position: 'fixed',
+            top: 0,
+            left: 0,
+            right: 0,
+            height: '100vh',
+            zIndex: 10,
+            paddingTop: '9rem',
+            paddingLeft: '1rem',
+            paddingRight: '1rem',
+          }}
+        >
           <div ref={badgeRef} className="hero-header-badge">
             <SplitText
               text="10 K+ Active Clients across the Globe"
@@ -130,7 +160,17 @@ const Home2 = () => {
             />
           </div>
 
-          <div ref={heroTextRef} className="hero-text-container text-center" style={{ marginTop: '20px', display: 'flex', flexDirection: 'column', alignItems: 'center' }}>
+          <div
+            ref={heroTextRef}
+            className="hero-text-container text-center"
+            style={{
+              marginTop: '20px',
+              display: 'flex',
+              flexDirection: 'column',
+              alignItems: 'center',
+              gap: '0px',
+            }}
+          >
             <SplitText
               text="Integrated Logistics &"
               tag="div"
@@ -161,6 +201,7 @@ const Home2 = () => {
               icon={<NavigateNextRoundedIcon style={{ fontSize: '20px', marginLeft: '1px', color: '#FFF' }} />}
               classContainer="get-free-quote-button"
               classTypography="get-free-quote-typography"
+              onClick={scrollToReachOut}
             />
           </div>
 
@@ -175,11 +216,9 @@ const Home2 = () => {
               left: '50%',
               transform: 'translate(-50%, -25%)',
               zIndex: 5,
-              pointerEvents: 'none'
+              pointerEvents: 'none',
             }}
           >
-            {/* <picture> for WebP + PNG fallback, with fetchpriority="high"
-                so the browser starts downloading it immediately */}
             <picture>
               <source srcSet={shipWebp} type="image/webp" />
               <img
@@ -203,7 +242,7 @@ const Home2 = () => {
           backgroundPosition: 'center',
           backgroundAttachment: 'fixed',
           position: 'relative',
-          zIndex: 10
+          zIndex: 10,
         }}
       >
         <div className='text-center items-center flex flex-col py-18'>
@@ -211,10 +250,14 @@ const Home2 = () => {
             <Badge text='Logistics' />
           </div>
           <div><h1 className='hero2'>Freight Solutions Built to Deliver</h1></div>
-          <p className='logistics-p' style={{ fontWeight: '300', fontStyle: 'normal' }}>From <span className='logistics-span' style={{ fontWeight: '500', fontStyle: 'italic' }}>Ports</span> to <span className='logistics-span' style={{ fontWeight: '500', fontStyle: 'italic' }}>Highways</span> to <span className='logistics-span' style={{ fontWeight: '500', fontStyle: 'italic' }}>Airways</span>, our logistics services ensure reliable cargo movement across every transport channel.</p>
+          <p className='logistics-p' style={{ fontWeight: '300', fontStyle: 'normal' }}>
+            From <span className='logistics-span' style={{ fontWeight: '500', fontStyle: 'italic' }}>Ports</span> to{' '}
+            <span className='logistics-span' style={{ fontWeight: '500', fontStyle: 'italic' }}>Highways</span> to{' '}
+            <span className='logistics-span' style={{ fontWeight: '500', fontStyle: 'italic' }}>Airways</span>, our
+            logistics services ensure reliable cargo movement across every transport channel.
+          </p>
 
           <div className='slcard-grid grid grid-cols-1 md:grid-cols-2 px-12 py-12 gap-6 md:gap-8 w-full'>
-
             <Link to="/sea-freight" style={{ textDecoration: 'none' }}>
               <SLCard
                 title="Sea Freight"
@@ -262,8 +305,8 @@ const Home2 = () => {
               <p className='about-p text-center lg:text-left'>{home_aboutus.subdesc2}</p>
             </div>
           </div>
-
         </div>
+
         <div className='grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 mt-14 gap-2.5 px-6 md:px-8 py-5 rounded-[1.25rem] bg-[#221A2F] w-full auto-rows-max'>
           <div className='flex flex-col justify-center md:justify-start items-center md:items-start w-full'>
             <div className='flex items-start w-full'>
@@ -311,6 +354,7 @@ const Home2 = () => {
           </div>
         </div>
       </section>
+
       <AwardsSection />
 
       <LogisticSolutionsSection />
@@ -321,7 +365,11 @@ const Home2 = () => {
 
       <TestimonialsSection backgroundImage={testimonial_bg} />
       <FAQSection />
-      <ReachOutSection backgroundImage={contact_bg} />
+
+      <div id="reach-out">
+        <ReachOutSection backgroundImage={contact_bg} />
+      </div>
+
       <Footer />
     </>
   )

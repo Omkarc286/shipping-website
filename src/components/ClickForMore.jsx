@@ -1,12 +1,17 @@
-import React from 'react'
+// components/ClickForMore.jsx
+import React from 'react';
 
-const ClickForMore = ({ text, icon, classContainer, classTypography }) => {
+const ClickForMore = ({ text, icon, classContainer, classTypography, onClick }) => {
   return (
-    <div className={`${classContainer} flex items-center justify-center cursor-pointer transition-transform duration-300 hover:scale-105`}>
-      <div className={`${classTypography} items-center`}>{text}</div>
-      <div className="flex items-center">{icon}</div>
-    </div>
-  )
-}
+    <button
+      type="button"
+      onClick={onClick}
+      className={classContainer}
+    >
+      <span className={classTypography}>{text}</span>
+      {icon}
+    </button>
+  );
+};
 
-export default ClickForMore
+export default ClickForMore;

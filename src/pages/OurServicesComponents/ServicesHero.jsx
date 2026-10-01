@@ -15,6 +15,15 @@ const ServicesHero = () => {
     const badgeRef = useRef(null);
     const homeSectionRef = useRef(null);
 
+    // ---- Scroll to Reach Out section ----
+    const scrollToReachOut = () => {
+        const target = document.getElementById('reach-out');
+        if (!target) return;
+
+        const y = target.getBoundingClientRect().top + window.scrollY;
+        window.scrollTo({ top: y, behavior: 'smooth' });
+    };
+
     useEffect(() => {
         const elements = [
             badgeRef.current,
@@ -78,7 +87,6 @@ const ServicesHero = () => {
                         from={{ opacity: 0, y: 20 }}
                         to={{ opacity: 1, y: 0 }}
                         textAlign="center"
-
                     />
                 </div>
 
@@ -105,7 +113,6 @@ const ServicesHero = () => {
                             from={{ opacity: 0, y: 30 }}
                             to={{ opacity: 1, y: 0 }}
                             textAlign="center"
-
                         />
                     ))}
 
@@ -125,6 +132,7 @@ const ServicesHero = () => {
                         }
                         classContainer="get-free-quote-button"
                         classTypography="get-free-quote-typography"
+                        onClick={scrollToReachOut}
                     />
                 </div>
 
