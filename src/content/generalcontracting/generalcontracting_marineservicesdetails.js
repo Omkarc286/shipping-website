@@ -63,7 +63,7 @@ export const marineservicesdetails_content = [
 
     {
         title: "Advanced Port Infrastructure Solutions",
-        description: `ADSO also offers general contracting service in UAE for port infrastructure works that include construction work, barge support, and heavy lifting operations. As experienced port contractors and operators, we understand the specific requirements to work on UAE ports by following approved planning and safety standards. We always use certified lifting equipment to perform heavy lifting and marine logistics services. ADSO has earned a recognized name as an excellent marine contracting company in the local market. Marine contracting companies in UAE are experts in building and maintaining ports, harbors, and offshore structures.`,
+        description: `Loom Freight also offers general contracting service in UAE for port infrastructure works that include construction work, barge support, and heavy lifting operations. As experienced port contractors and operators, we understand the specific requirements to work on UAE ports by following approved planning and safety standards. We always use certified lifting equipment to perform heavy lifting and marine logistics services. Loom Freight has earned a recognized name as an excellent marine contracting company in the local market. Marine contracting companies in UAE are experts in building and maintaining ports, harbors, and offshore structures.`,
 
         cards: [
             {

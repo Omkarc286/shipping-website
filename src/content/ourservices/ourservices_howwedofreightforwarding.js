@@ -16,7 +16,7 @@ export const howwedofreightforwarding_content = {
         {
             id: 2,
             image: img2,
-            textBottom: `It is highly recommended to hire the services of a third party logistics partner like ADSO AUH, because despite the ease in transportation, the import/export laws have become stringent as well as the strictness at border control. With the assistance of ADSO AUH, companies can conduct international freight forwarding business with ease.`,
+            textBottom: `It is highly recommended to hire the services of a third party logistics partner like Loom Freight AUH, because despite the ease in transportation, the import/export laws have become stringent as well as the strictness at border control. With the assistance of Loom Freight AUH, companies can conduct international freight forwarding business with ease.`,
         },
         {
             id: 3,
@@ -26,7 +26,7 @@ export const howwedofreightforwarding_content = {
         {
             id: 4,
             image: img4,
-            textTitle: "For International Forwarding ADSO covers",
+            textTitle: "For International Forwarding Loom Freight covers",
             textBottom: `Imports, exports, customs clearance, local & cross border trucking, storage & distribution, heavy lift, break bulk handling, project forwarding & management consultancy`,
         },
     ],

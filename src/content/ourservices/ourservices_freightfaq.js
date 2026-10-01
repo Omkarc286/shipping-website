@@ -1,7 +1,7 @@
 
 export const freightfaq_content = {
     why_choose: {
-        title: `Why Choose ADSO LLC AUH for
+        title: `Why Choose Loom Freight LLC AUH for
 Freight Forwarding in UAE`,
 
         description: `We enhance your freight operations with safe, reliable, and efficient
