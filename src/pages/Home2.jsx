@@ -1,22 +1,25 @@
 import React, { useEffect, useRef } from 'react';
-import { Link } from 'react-router-dom'; // <--- Added this import
+import { Link } from 'react-router-dom';
 import gsap from 'gsap';
 import { ScrollTrigger } from 'gsap/ScrollTrigger';
 import LightRays from '../effects/LightRays';
 import ClickForMore from '../components/ClickForMore';
 import SplitText from '../effects/SplitText';
 import NavigateNextRoundedIcon from '@mui/icons-material/NavigateNextRounded';
-import ship from '../assets/cargo-ship-sea.png'
-import bgImage from '../assets/bg-image.png'
+
+// Assets
+// NOTE: cargo ship is now served from /public (un-hashed, stable URL)
+// so the <link rel="preload"> in index.html can point at the same path.
+import bgImage from '../assets/bg-image.png';
 import Badge from '../components/Badge';
 import SLCard from '../components/SLCard';
-import seafreightImage from '../assets/seafreight.png'
-import landtransportImage from '../assets/landtransport.png'
-import airfreightImage from '../assets/airfreight.png'
-import contact_bg from '../assets/contact-bg.png'
-import testimonial_bg from '../assets/testimonials/testimonial_bg.png'
+import seafreightImage from '../assets/seafreight.png';
+import landtransportImage from '../assets/landtransport.png';
+import airfreightImage from '../assets/airfreight.png';
+import contact_bg from '../assets/contact-bg.png';
+import testimonial_bg from '../assets/testimonials/testimonial_bg.png';
 import { home_aboutus } from '../content/home/home_aboutus';
-import test_icon from '../assets/test_icon.png'
+import test_icon from '../assets/test_icon.png';
 import ServiceCard from '../components/ServiceCard';
 import IndustriesCard from '../components/IndustriesCard';
 import Masonry from '../effects/Masonry';
@@ -41,6 +44,10 @@ const Home2 = () => {
   const heroTextRef = useRef(null);
   const buttonRef = useRef(null);
   const exitSectionRef = useRef(null);
+
+  // Public-folder asset URLs (stable, never hashed by Vite)
+  const shipWebp = '/cargo-ship-sea.webp';
+  const shipPng = '/cargo-ship-sea.png'; // fallback for non-WebP browsers
 
   useEffect(() => {
     const shipCanvas = shipCanvasRef.current;
@@ -108,7 +115,7 @@ const Home2 = () => {
             saturation={1}
           />
         </div>
-        <div className="home-content items-center justify-start flex flex-col" style={{ position: 'fixed', top: 0, left: 0, right: 0, height: '100vh', zIndex: 10, paddingTop: '12rem', paddingLeft: '1rem', paddingRight: '1rem' }}>
+        <div className="home-content items-center justify-start flex flex-col" style={{ position: 'fixed', top: 0, left: 0, right: 0, height: '100vh', zIndex: 10, paddingTop: '9rem', paddingLeft: '1rem', paddingRight: '1rem' }}>
           <div ref={badgeRef} className="hero-header-badge">
             <SplitText
               text="10 K+ Active Clients across the Globe"
@@ -119,6 +126,7 @@ const Home2 = () => {
               splitType="chars"
               from={{ opacity: 0, y: 20 }}
               to={{ opacity: 1, y: 0 }}
+              textAlign="center"
             />
           </div>
 
@@ -132,6 +140,7 @@ const Home2 = () => {
               splitType="words"
               from={{ opacity: 0, y: 30 }}
               to={{ opacity: 1, y: 0 }}
+              textAlign="center"
             />
             <SplitText
               text="Infrastructure Solutions"
@@ -142,6 +151,7 @@ const Home2 = () => {
               splitType="words"
               from={{ opacity: 0, y: 30 }}
               to={{ opacity: 1, y: 0 }}
+              textAlign="center"
             />
           </div>
 
@@ -168,11 +178,18 @@ const Home2 = () => {
               pointerEvents: 'none'
             }}
           >
-            <img
-              src={ship}
-              alt="Cargo Ship"
-              className='w-full h-full object-contain'
-            />
+            {/* <picture> for WebP + PNG fallback, with fetchpriority="high"
+                so the browser starts downloading it immediately */}
+            <picture>
+              <source srcSet={shipWebp} type="image/webp" />
+              <img
+                src={shipPng}
+                alt="Cargo Ship"
+                fetchpriority="high"
+                decoding="async"
+                className='w-full h-full object-contain'
+              />
+            </picture>
           </div>
         </div>
       </section>

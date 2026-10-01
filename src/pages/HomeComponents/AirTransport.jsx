@@ -14,7 +14,9 @@ import gsap from 'gsap';
 import { ScrollTrigger } from 'gsap/ScrollTrigger';
 
 // Assets
-import heroBg from '../../assets/airtransport2.png';
+// NOTE: heroBg is served from /public (un-hashed, stable URL).
+// We use a plain URL string instead of importing, so the preload
+// link in index.html can point at the same stable path.
 import test_icon from '../../assets/test_icon.png';
 
 gsap.registerPlugin(ScrollTrigger);
@@ -23,6 +25,10 @@ const AirTransport = () => {
     const badgeRef = useRef(null);
     const heroTextRef = useRef(null);
     const buttonRef = useRef(null);
+
+    // Public-folder asset URLs (stable, never hashed by Vite)
+    const heroBgWebp = '/airtransport2.webp';
+    const heroBgPng = '/airtransport2.png'; // fallback for non-WebP browsers
 
     useEffect(() => {
         window.scrollTo(0, 0);
@@ -61,7 +67,6 @@ const AirTransport = () => {
         };
     }, []);
 
-
     const features = [
         { title: 'Airport-to-Airport', desc: 'Dedicated containers for your cargo.' },
         { title: 'Door-to-Airport', desc: 'Share space, save cost.' },
@@ -83,8 +88,22 @@ const AirTransport = () => {
         <div className="sea-freight-page">
 
             {/* FIXED HERO SECTION - Left aligned, Playfair Display typography */}
-            <section className="sf-hero-fixed" style={{ backgroundImage: `url(${heroBg})` }}>
+            <section className="sf-hero-fixed">
+                {/* Real <img> with <picture> for WebP + PNG fallback */}
+                <picture>
+                    <source srcSet={heroBgWebp} type="image/webp" />
+                    <img
+                        src={heroBgPng}
+                        alt=""
+                        aria-hidden="true"
+                        fetchpriority="high"
+                        decoding="async"
+                        className="sf-hero-bg-img"
+                    />
+                </picture>
+
                 <div className="sf-hero-overlay"></div>
+
                 <div className="sf-hero-content">
 
                     {/* Badge - Left aligned */}
@@ -98,6 +117,7 @@ const AirTransport = () => {
                             splitType="chars"
                             from={{ opacity: 0, y: 20 }}
                             to={{ opacity: 1, y: 0 }}
+                            textAlign="left"
                         />
                     </div>
 
@@ -114,15 +134,14 @@ const AirTransport = () => {
                                 splitType="words"
                                 from={{ opacity: 0, y: 30 }}
                                 to={{ opacity: 1, y: 0 }}
+                                textAlign="left"
                             />
                         </h1>
 
                         {/* Description with Inter light + SplitText */}
                         <p className="sf-hero-desc">
                             <SplitText
-                                text="We offer cost-effective and sustainable air transport solution for business of all sizes. 
-From full truck loads to smaller shipments, we ensure your cargo reaches 
-its destination safely and on time."
+                                text="We offer cost-effective and sustainable air transport solution for business of all sizes. From full truck loads to smaller shipments, we ensure your cargo reaches its destination safely and on time."
                                 tag="span"
                                 className="sf-desc-text"
                                 delay={30}
@@ -130,6 +149,7 @@ its destination safely and on time."
                                 splitType="words"
                                 from={{ opacity: 0, y: 15 }}
                                 to={{ opacity: 1, y: 0 }}
+                                textAlign="left"
                             />
                         </p>
                     </div>
@@ -163,13 +183,8 @@ its destination safely and on time."
                                 <img src={test_icon} alt={item.title} className="sf-feature-img" />
                             </div>
                             <div className="sf-feature-text">
-                                <h3 style={{
-                                    color: '#E6F9AF'
-                                }}>{item.title}</h3>
-                                <p style={{
-                                    textAlign: 'left',
-                                    fontSize: '15px'
-                                }}>{item.desc}</p>
+                                <h3 style={{ color: '#E6F9AF' }}>{item.title}</h3>
+                                <p style={{ textAlign: 'left', fontSize: '15px' }}>{item.desc}</p>
                             </div>
                         </div>
                     ))}
@@ -178,7 +193,6 @@ its destination safely and on time."
 
             {/* HOW IT WORKS SECTION */}
             <section className="sf-how-it-works">
-
                 <h2 className="sf-section-title">How it Works</h2>
                 <div className="sf-steps-grid">
                     {steps.map((step, index) => (
@@ -189,7 +203,6 @@ its destination safely and on time."
                         </div>
                     ))}
                 </div>
-
             </section>
 
             {/* REACH OUT & FOOTER */}

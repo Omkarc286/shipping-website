@@ -77,6 +77,8 @@ const ServicesHero = () => {
                         splitType="chars"
                         from={{ opacity: 0, y: 20 }}
                         to={{ opacity: 1, y: 0 }}
+                        textAlign="center"
+
                     />
                 </div>
 
@@ -102,6 +104,8 @@ const ServicesHero = () => {
                             splitType="words"
                             from={{ opacity: 0, y: 30 }}
                             to={{ opacity: 1, y: 0 }}
+                            textAlign="center"
+
                         />
                     ))}
 
