@@ -5,10 +5,10 @@ import { testimonials_content } from '../../content/home/home_testimonials';
 const TestimonialsSection = ({ backgroundImage }) => {
     return (
         <section
-            className='min-h-screen flex items-center justify-center py-20 px-6 relative z-10'
+            className='min-h-screen flex items-center justify-center py-42 px-6 relative z-10'
             style={{
                 backgroundImage: `url(${backgroundImage})`,
-                backgroundPosition: '50% 7.25rem',
+                backgroundPosition: '50% 12rem',
                 backgroundSize: 'min(640px, 80vw) auto',
                 backgroundRepeat: 'no-repeat',
                 backgroundColor: '#0F0B15'

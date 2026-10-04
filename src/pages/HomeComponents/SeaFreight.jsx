@@ -78,20 +78,47 @@ const SeaFreight = () => {
     }, []);
 
     const features = [
-        { title: 'Full Container Load', desc: 'Dedicated containers for your cargo.' },
-        { title: 'Less than Container Load', desc: 'Share space, save cost.' },
-        { title: 'Port-to-port Shipping', desc: 'Direct and efficient shipping.' },
-        { title: 'Door to Door Shipping', desc: 'Complete logistics, end to end.' },
-        { title: 'Container management', desc: 'Tracking, handling and documentation.' },
+        {
+            title: 'Full Container Load',
+            desc: 'Dedicated containers for high-volume shipments.'
+        },
+        {
+            title: 'Less than Container Load',
+            desc: 'Shared container space for smaller shipments.'
+        },
+        {
+            title: 'Port-to-port Shipping',
+            desc: 'Reliable transport between origin and destination ports.'
+        },
+        {
+            title: 'Door to Door Shipping',
+            desc: 'End-to-end delivery from pickup to destination.'
+        },
+        {
+            title: 'Container Management',
+            desc: 'Efficient tracking and coordination of containers.'
+        },
+        {
+            title: 'Hazardous Cargo',
+            desc: 'Compliant handling for regulated shipments.'
+        },
+        {
+            title: 'Documentation',
+            desc: 'Accurate paperwork and regulatory checks.'
+        },
+        {
+            title: 'ISO Tanks',
+            desc: 'Certified tanks for bulk liquid transport.'
+        },
     ];
 
     const steps = [
-        { num: '1.', title: 'Cargo Booking', desc: 'Share cargo details and get a quote' },
-        { num: '2.', title: 'Pickup & Consolidation', desc: 'We collect and consolidate your shipment.' },
-        { num: '3.', title: 'Post Handling', desc: 'Customers and documentation at the port.' },
-        { num: '4.', title: 'Ocean Transit', desc: 'Your cargo travels safely across the ocean.' },
-        { num: '5.', title: 'Customer Clearance', desc: 'We handle all paperwork and formalities.' },
-        { num: '6.', title: 'Final Delivery', desc: 'Your cargo reaches the destination.' },
+        { num: '1.', title: 'Cargo Booking', desc: 'Submit details and confirm your shipment.' },
+        { num: '2.', title: 'Pickup & Consolidation', desc: 'Cargo is collected and prepared for transit.' },
+        { num: '3.', title: 'Cargo Manifest', desc: 'Shipment details are prepared for processing.' },
+        { num: '4.', title: 'Ocean Transit', desc: 'Cargo travels securely to the destination port.' },
+        { num: '5.', title: 'Custom Clearance', desc: 'Documents are processed for cargo release.' },
+        { num: '6.', title: 'Last Mile Delivery', desc: 'Cargo reaches its final destination.' },
     ];
 
     return (

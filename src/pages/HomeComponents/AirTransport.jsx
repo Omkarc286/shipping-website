@@ -78,20 +78,63 @@ const AirTransport = () => {
     }, []);
 
     const features = [
-        { title: 'Airport-to-Airport', desc: 'Dedicated containers for your cargo.' },
-        { title: 'Door-to-Airport', desc: 'Share space, save cost.' },
-        { title: 'Door-to-Door', desc: 'Direct and efficient shipping.' },
-        { title: 'Express Air Freight', desc: 'Complete logistics, end to end.' },
-        { title: 'Priority Cargo', desc: 'Tracking, handling and documentation.' },
+        {
+            title: 'Airport-to-Airport',
+            desc: 'Direct air transport between major airports.'
+        },
+        {
+            title: 'Door-to-Airport',
+            desc: 'Convenient pickup with airport delivery.'
+        },
+        {
+            title: 'Door-to-Door',
+            desc: 'End-to-end delivery from origin to destination.'
+        },
+        {
+            title: 'Express Cargo',
+            desc: 'Priority transit for urgent shipments.'
+        },
+        {
+            title: 'ULD',
+            desc: 'Secure cargo loading using standard ULD equipment.'
+        },
+        {
+            title: 'Storage & Handling',
+            desc: 'Secure storage and careful cargo handling.'
+        }
     ];
 
     const steps = [
-        { num: '1.', title: 'Booking', desc: 'Share cargo details and get a quote' },
-        { num: '2.', title: 'Cargo Pickup', desc: 'We collect and consolidate your shipment.' },
-        { num: '3.', title: 'Security & Documentation', desc: 'Customers and documentation at the pickup location.' },
-        { num: '4.', title: 'Airport Handling', desc: 'Your cargo travels safely across the sky.' },
-        { num: '5.', title: 'Air Transit', desc: 'We handle all paperwork and formalities.' },
-        { num: '6.', title: 'Customs & Delivery', desc: 'Your cargo reaches the destination.' },
+        {
+            num: '1.',
+            title: 'Booking',
+            desc: 'Submit cargo details and confirm your shipment.'
+        },
+        {
+            num: '2.',
+            title: 'Cargo Pickup',
+            desc: 'Cargo is collected and prepared for transport.'
+        },
+        {
+            num: '3.',
+            title: 'Security & Documentation',
+            desc: 'Cargo undergoes security checks and document verification.'
+        },
+        {
+            num: '4.',
+            title: 'Airport Handling',
+            desc: 'Cargo is screened, handled, and prepared for loading.'
+        },
+        {
+            num: '5.',
+            title: 'Air Transit',
+            desc: 'Cargo is transported securely to the destination airport.'
+        },
+        {
+            num: '6.',
+            title: 'Customs & Delivery',
+            desc: 'Cargo clears customs and reaches its final destination.'
+        },
     ];
 
     return (
@@ -151,7 +194,7 @@ const AirTransport = () => {
                         {/* Description with Inter light + SplitText */}
                         <p className="sf-hero-desc">
                             <SplitText
-                                text="We offer cost-effective and sustainable air transport solution for business of all sizes. From full truck loads to smaller shipments, we ensure your cargo reaches its destination safely and on time."
+                                text="Fast, flexible, and reliable air freight solutions designed for businesses of all sizes. We connect your cargo to destinations worldwide, ensuring secure handling, timely delivery, and complete visibility at every step."
                                 tag="span"
                                 className="sf-desc-text"
                                 delay={30}

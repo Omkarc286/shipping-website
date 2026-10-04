@@ -1,6 +1,6 @@
 export const home_aboutus = {
     header_text: 'Crafting Success for Over 50+ Years',
-    description: `Loom Freight Group of Companies was established in 1968 with its head office in Abu Dhabi and branches across the UAE and major Gulf cities.\nFor over five decades, Loom Freight has supported large-scale projects in oil & gas, petrochemical, telecommunications, and power industries.`,
+    description: `Loom Freight was established in 1968 with its head office in Abu Dhabi and branches across the UAE and major Gulf cities.\nFor over five decades, Loom Freight has supported large-scale projects in oil & gas, petrochemical, pharmaceutical, telecommunications, and power industries.`,
     subhead1: 'Our Mission',
     subdesc1: 'Is to provide innovative, reliable, and efficient logistics and project management solutions, ensuring customer satisfaction through exceptional service, integrity, and a commitment to excellence in the UAE and beyond.',
     subhead2: 'Verticals We Serve',
@@ -9,8 +9,8 @@ export const home_aboutus = {
     about_tag1_desc: 'yrs of Experience',
     about_tag2_head: '1000+',
     about_tag2_desc: 'Projects Completed',
-    about_tag3_head: 'GCC',
-    about_tag3_desc: 'Wide Operations',
+    about_tag3_head: 'Global',
+    about_tag3_desc: 'Reach & Operations',
     about_tag4_head: '24/7',
     about_tag4_desc: 'logistics Support',
 }

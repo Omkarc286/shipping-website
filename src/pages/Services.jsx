@@ -19,13 +19,13 @@ const Services = () => {
             <ServicesHero />
             <FreightForwarding />
             <FreightExpertise />
-            <FreightFAQ />
+            {/* <FreightFAQ /> */}
             <FreightForwarders backgroundImage={freight} />
             <HowWeDoFreightForwarding />
-            <TrustedBySection />
+            {/* <TrustedBySection />
             <LogisticSolutionsSection />
-            <FAQSection />
-
+            <FAQSection /> */}
+            <FreightFAQ />
             {/* Reach Out section — wrapped with an id so we can scroll to it */}
             <div id="reach-out">
                 <ReachOutSection backgroundImage={contact_bg} />

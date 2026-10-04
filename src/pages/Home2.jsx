@@ -54,7 +54,7 @@ const Home2 = () => {
     skipLoader
       ? {
         line1: 'Integrated Logistics &',
-        line2: 'Infrastructure Solutions',
+        line2: 'Supply Chain Solutions',
       }
       : null
   );
@@ -92,14 +92,14 @@ const Home2 = () => {
 
         setHeroData({
           line1: 'Integrated Logistics &',
-          line2: 'Infrastructure Solutions',
+          line2: 'Supply Chain Solutions',
         });
       } catch (err) {
         console.error('Failed to load hero data', err);
         // Fallback so the section doesn't stay empty
         setHeroData({
           line1: 'Integrated Logistics &',
-          line2: 'Infrastructure Solutions',
+          line2: 'Supply Chain Solutions',
         });
       } finally {
         setIsLoading(false);
@@ -251,7 +251,7 @@ const Home2 = () => {
                   textAlign="center"
                 />
                 <SplitText
-                  text={heroData?.line2 || 'Infrastructure Solutions'}
+                  text={heroData?.line2 || 'Supply Chain Solutions'}
                   tag="div"
                   className="hero-text"
                   delay={60}
@@ -430,8 +430,8 @@ const Home2 = () => {
       <LogisticSolutionsSection />
       <IndustriesSection />
       <TrustedBySection />
-      <RecentWorksSection />
-      <FeaturedWorksSection />
+      {/* <RecentWorksSection /> */}
+      {/* <FeaturedWorksSection /> */}
 
       <TestimonialsSection backgroundImage={testimonial_bg} />
       <FAQSection />

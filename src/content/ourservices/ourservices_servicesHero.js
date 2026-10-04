@@ -3,8 +3,8 @@ export const serviceshero_content = {
     badge_text: 'Our Services',
 
     headings: [
-        'Freight Forwarding & Heavy Transport',
-        'Across UAE & GCC'
+        'Freight Forwarding Solutions',
+        'Across the Globe'
     ],
 
     description: `Safe, fast, and reliable logistics solutions for all cargo types.

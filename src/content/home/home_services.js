@@ -1,44 +1,44 @@
-import er_sevices from '../../assets/er_services.png'
-import gc_services from '../../assets/gc_services.png'
-import lg_services from '../../assets/logistics_services.png'
-import ms_services from '../../assets/ms_services.png'
-import mt_services from '../../assets/mt_services.png'
+
+import pl_services from '../../assets/pl_services.png'
+import wh_services from '../../assets/wh_services.png'
+import ff_services from '../../assets/ff_services.png'
+import cc_services from '../../assets/cc_services.png'
+import va_services from '../../assets/va_services.png'
 
 export const home_services = {
     badge_text: 'Services',
     header_text: 'Logistics Solutions We Offer',
     cards: [
-        {
-            header: 'General Contracting',
-            desc: 'A trusted international freight forwarding and project cargo partner in the UAE for over 50 years.',
-            image: gc_services,
-            url: 'https://www.google.com/general-contracting'
-        },
-        {
-            header: 'Logistics',
-            desc: 'Specialized project logistics solutions for complex and oversized cargo, providing end-to-end management and execution for successful project delivery.',
-            image: lg_services,
-            url: 'https://www.google.com/logistics'
-        },
-        {
-            header: 'Marine Transport',
-            desc: 'Comprehensive marine transport services, ensuring safe and efficient movement of goods across waterways, tailored to meet your specific shipping needs.',
-            image: ms_services,
-            url: 'https://www.google.com/marine-transport'
-
-        },
-        {
-            header: 'Material Supply',
-            desc: 'Reliable material supply services, ensuring timely delivery of high-quality materials to support your projects and operations.',
-            image: er_sevices,
-            url: 'https://www.google.com/material-supply'
-        },
-        {
-            header: 'Equipment Rental',
-            desc: 'Comprehensive equipment rental services, providing high-quality machinery and tools to support your projects and operations efficiently.',
-            image: mt_services,
-            url: 'https://www.google.com/equipment-rental'
-        }
-    ]
+    {
+        header: 'Freight Forwarding',
+        desc: 'End-to-end coordination of air, ocean, and road freight across global destinations.',
+        image: ff_services,
+        url: 'https://www.google.com/freight-forwarding'
+    },
+    {
+        header: 'Customs Clearance',
+        desc: 'Smooth import and export clearance with accurate documentation and regulatory compliance.',
+        image: cc_services,
+        url: 'https://www.google.com/customs-clearance'
+    },
+    {
+        header: 'Warehousing',
+        desc: 'Secure storage and inventory management to keep cargo organized and ready for dispatch.',
+        image: wh_services,
+        url: 'https://www.google.com/warehousing'
+    },
+    {
+        header: 'Project Logistics',
+        desc: 'Specialized planning and execution for oversized, complex, and time-sensitive cargo.',
+        image: pl_services,
+        url: 'https://www.google.com/project-logistics'
+    },
+    {
+        header: 'Value-Added Services',
+        desc: 'Flexible packing, labeling, consolidation, and cargo preparation tailored to your needs.',
+        image: va_services,
+        url: 'https://www.google.com/value-added-services'
+    }
+]
 
 }

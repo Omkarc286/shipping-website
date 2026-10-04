@@ -1,5 +1,11 @@
 export const menuItems = [
   { 
+    id: 'home', 
+    label: 'Home', 
+    type: 'page'
+  },
+  { 
+    
     id: 'aboutus', 
     label: 'About Us', 
     type: 'dropdown', 
@@ -135,16 +141,16 @@ export const menuItems = [
         url: 'https://www.google.com/custom-clearance-services'
     }
   ]},
-  { 
-    id: 'portfolio', 
-    label: 'Portfolio', 
-    type: 'page'
-  },
-  { 
-    id: 'blogs', 
-    label: 'Blog', 
-    type: 'page'
-  },
+  // { 
+  //   id: 'portfolio', 
+  //   label: 'Portfolio', 
+  //   type: 'page'
+  // },
+  // { 
+  //   id: 'blogs', 
+  //   label: 'Blog', 
+  //   type: 'page'
+  // },
   { 
     id: 'contact', 
     label: 'Contact Us', 

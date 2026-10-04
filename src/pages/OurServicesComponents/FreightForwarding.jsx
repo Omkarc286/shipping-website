@@ -2,6 +2,7 @@ import React, { useRef } from 'react';
 import './FreightForwarding.css';
 
 import pic1 from '../../assets/ourservices/pic1.png';
+import pic2 from '../../assets/ourservices/pic2.png';
 
 const FreightForwarding = () => {
     const exitSectionRef = useRef(null);
@@ -25,14 +26,12 @@ const FreightForwarding = () => {
                     {/* Left Content */}
                     <div className="freight-content">
                         <h2 className="freight-title">
-                            Comprehensive Freight Forwarding Services in UAE
+                            Freight Forwarding, Without Borders
                         </h2>
                         <p className="freight-description">
-                            We provide comprehensive freight forwarding services in the UAE, managing every step from cargo
-                            pickup and packaging to customs clearance, shipping, and final delivery. Our team ensures smooth
-                            handling of both local and international shipments using efficient processes. No matter the industry or
-                            shipment size, we plan each movement carefully to minimize delays and ensure your cargo arrives
-                            safely and on time.
+                            From first-mile collection to final delivery, we coordinate cargo across international trade lanes
+                            with care at every handoff. Packaging, customs clearance, route planning and delivery come together
+                            in one considered service, tailored to your cargo, schedule and destination.
                         </p>
                     </div>
 
@@ -40,7 +39,9 @@ const FreightForwarding = () => {
                     <div className="freight-image-container">
                         <img
                             src={pic1}
-                            alt="Heavy machinery cargo transport in UAE"
+                            // change the size of the image to be smaller and more centered
+                            style={{ width: '100%', height: 'auto', margin: '0 auto' }}
+                            alt="Heavy industrial machinery prepared for shipment"
                             className="freight-image"
                         />
                     </div>
@@ -51,8 +52,9 @@ const FreightForwarding = () => {
                     {/* Left Image */}
                     <div className="freight-image-container">
                         <img
-                            src={pic1}
-                            alt="Heavy machinery transport across GCC"
+                            src={pic2}
+                            alt="Freight transport for heavy industrial equipment"
+                            style={{ width: '100%', height: 'auto', margin: '0 auto' }}
                             className="freight-image"
                         />
                     </div>
@@ -60,23 +62,21 @@ const FreightForwarding = () => {
                     {/* Right Content */}
                     <div className="freight-content">
                         <h2 className="freight-title">
-                            Reliable Land, Sea &amp; Air Freight Solutions across GCC
+                            Air, Ocean &amp; Road, Seamlessly Connected
                         </h2>
                         <p className="freight-description">
-                            Loom Freight LLC AUH provides reliable freight services through land, sea, and air across the UAE, KSA,
-                            Oman, Bahrain, and other GCC countries. We handle everything from fast road transport to large sea
-                            shipments and urgent air freight, along with customs and documentation support. With expert
-                            logistics planning and real-time updates, we ensure safe, efficient, and timely delivery across
-                            borders.
+                            Whether it is time-sensitive air cargo, a large ocean shipment or cross-border road freight, we plan
+                            the route around what you are moving and when it needs to arrive. Our team coordinates customs
+                            documentation and keeps you informed from departure through delivery.
                         </p>
 
                         <h3 className="freight-subtitle">
-                            Trusted Freight Forwarding Partner for Industrial Logistics in UAE
+                            Specialist Logistics for Complex Cargo
                         </h3>
                         <p className="freight-description">
-                            Loom Freight provides reliable industrial freight and logistics services for heavy, oversized, and sensitive
-                            cargo. We support sectors like oil &amp; gas, construction, and manufacturing, handling machinery,
-                            cranes, and equipment with professionalism and precision.
+                            Heavy, oversized and sensitive freight demands more than a standard booking. We plan the movement
+                            of machinery, cranes and project equipment for the energy, construction and manufacturing sectors,
+                            with careful coordination at every stage.
                         </p>
                     </div>
                 </div>

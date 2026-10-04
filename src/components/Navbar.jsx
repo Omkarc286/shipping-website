@@ -13,11 +13,11 @@ import { FiChevronDown } from "react-icons/fi";
 
 
 // ⭐ Menu items with Blog hidden
-const HIDDEN_MENU_IDS = ['blogs', 'blog']
+const HIDDEN_MENU_IDS = ['blogs', 'blog', 'portfolio']
 const visibleMenuItems = menuItems.filter(
   (item) => !HIDDEN_MENU_IDS.includes(item.id)
 )
-
+const isHomeRoute = (pathname) => pathname === '/' || pathname === '/home'
 const isServiceRoute = (pathname) => {
   const serviceRoutes = [
     '/services',
@@ -49,7 +49,7 @@ const isServiceRoute = (pathname) => {
 }
 
 const isAboutRoute = (pathname) => {
-  const aboutRoutes = ['/', '/about-company', '/career']
+  const aboutRoutes = ['/about-company', '/career']
   return aboutRoutes.includes(pathname)
 }
 
@@ -86,6 +86,7 @@ const Navbar = () => {
 
   const [isScrolled, setIsScrolled] = useState(false)
   const [activeMenu, setActiveMenu] = useState(() => {
+    if (isHomeRoute(location.pathname)) return 'home'
     if (isServiceRoute(location.pathname)) return 'services'
     if (isAboutRoute(location.pathname)) return 'aboutus'
     return null
@@ -114,12 +115,12 @@ const Navbar = () => {
       setActiveMenu(null)
       return
     }
-
-    if (isServiceRoute(location.pathname)) setActiveMenu('services')
+    if (isHomeRoute(location.pathname)) setActiveMenu('home')
+    else if (isServiceRoute(location.pathname)) setActiveMenu('services')
     else if (isAboutRoute(location.pathname)) setActiveMenu('aboutus')
     // ⭐ Blog active state disabled
     // else if (location.pathname === '/blog') setActiveMenu('blogs')
-    else if (location.pathname === '/portfolio') setActiveMenu('portfolio')
+    // else if (location.pathname === '/portfolio') setActiveMenu('portfolio')
     else setActiveMenu(null)
   }, [location.pathname])
 
@@ -228,7 +229,11 @@ const Navbar = () => {
       scrollToReachOut()
       return
     }
-
+    if (item.id === 'home') {
+      navigate('/')
+      window.scrollTo({ top: 0, behavior: 'smooth' })
+      return
+    }
     // ⭐ About Us → scroll to the about section on home page
     if (item.id === 'aboutus') {
       if (location.pathname === '/') {
@@ -338,7 +343,7 @@ const Navbar = () => {
           className="flex items-center gap-3 cursor-pointer"
           onClick={handleLogoClick}
         >
-          <img src={Logo} className="w-9 h-9" alt="logo" />
+          <img src={Logo} className="w-12 h-12" alt="logo" />
           <div className="brand-text">Loom Freight</div>
         </div>
 

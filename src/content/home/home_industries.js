@@ -16,6 +16,10 @@ export const home_industries = {
         {
             icon: test_icon,
             title: 'Telecommunications'
+        },
+        {
+            icon: test_icon,
+            title: 'Livestock'
         }
 
     ],
@@ -27,6 +31,14 @@ export const home_industries = {
         {
             icon: test_icon,
             title: 'Infrastructure'
+        },
+        {
+            icon: test_icon,
+            title: 'Perishables'
+        },
+        {
+            icon: test_icon,
+            title: 'Pharma'
         }
     ]
 };
