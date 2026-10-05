@@ -3,7 +3,7 @@ import InfrastructureHero from './InfrastructureComponents/InfrastructureHero';
 import ProfessionalEarthworks from './InfrastructureComponents/ProfessionalEarthworks';
 import UtilitiesStructural from './InfrastructureComponents/UtilitiesStructural';
 import MarineContractingServices from './InfrastructureComponents/MarineContractingServices';
-import WhyChooseADSO from './InfrastructureComponents/WhyChooseADSO';
+import WhyChooseLoomFreight from './InfrastructureComponents/WhyChooseLoomFreight';
 import TrustedBySection from './InfrastructureComponents/TrustedBySection';
 import RecentWorksSection from './InfrastructureComponents/RecentWorksSection';
 import contact_bg from '../assets/contact-bg.png'
@@ -21,7 +21,7 @@ function Infrastructure() {
                 <ProfessionalEarthworks />
                 <UtilitiesStructural />
                 <MarineContractingServices />
-                <WhyChooseADSO />
+                <WhyChooseLoomFreight />
                 <TrustedBySection />
                 <RecentWorksSection />
                 <FAQSection />

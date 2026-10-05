@@ -1,6 +1,6 @@
 
-import pic1 from '../assets/ourservices/pic1.png';
-import pic2 from '../assets/ourservices/pic2.png';
+import pic1 from '../../assets/ourservices/pic1.png';
+import pic2 from '../../assets/ourservices/pic2.png';
 
 export const freightforwarding_content = {
     sections: [

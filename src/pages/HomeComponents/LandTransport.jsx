@@ -19,12 +19,18 @@ import { ScrollTrigger } from 'gsap/ScrollTrigger';
 // link in index.html can point at the same stable path.
 import test_icon from '../../assets/test_icon.png';
 
+// Content
+import { landtransport_content } from '../../content/home/home_landtransport_content';
+
 gsap.registerPlugin(ScrollTrigger);
 
 const LandTransport = () => {
     const badgeRef = useRef(null);
     const heroTextRef = useRef(null);
     const buttonRef = useRef(null);
+
+    // Destructure content for cleaner JSX
+    const { hero, features, how_it_works } = landtransport_content;
 
     // Public-folder asset URLs (stable, never hashed by Vite)
     const heroBgWebp = '/landtransport2.webp';
@@ -77,78 +83,6 @@ const LandTransport = () => {
         };
     }, []);
 
-    const features = [
-        {
-            title: 'Full Truckload',
-            desc: 'Dedicated capacity for large-volume cargo.'
-        },
-        {
-            title: 'Less than Truckload',
-            desc: 'Shared capacity for cost-effective shipping.'
-        },
-        {
-            title: 'Long & Short Haul',
-            desc: 'Flexible transport across regional and long routes.'
-        },
-        {
-            title: 'Customer Service',
-            desc: 'Responsive support from booking to delivery.'
-        },
-        {
-            title: 'Last-mile Delivery',
-            desc: 'Reliable delivery to the final destination.'
-        },
-        {
-            title: 'Documentation',
-            desc: 'Accurate paperwork and compliance checks.'
-        },
-        {
-            title: 'Cross-border Transportation',
-            desc: 'Smooth movement across international borders.'
-        },
-        {
-            title: 'Mainline Operators',
-            desc: 'Major carriers for international trade routes.'
-        },
-        {
-            title: 'Feeder Operators',
-            desc: 'Regional connections to major trade routes.'
-        },
-    ];
-
-    const steps = [
-        {
-            num: '1.',
-            title: 'Shipment Request',
-            desc: 'Submit cargo details and receive a transport quote.'
-        },
-        {
-            num: '2.',
-            title: 'Vehicle Assignment',
-            desc: 'The right vehicle is assigned to your shipment.'
-        },
-        {
-            num: '3.',
-            title: 'Pickup',
-            desc: 'Cargo is collected and verified at the pickup point.'
-        },
-        {
-            num: '4.',
-            title: 'Route & Transit',
-            desc: 'Cargo moves securely along the planned route.'
-        },
-        {
-            num: '5.',
-            title: 'Delivery',
-            desc: 'Cargo is delivered safely to the destination.'
-        },
-        {
-            num: '6.',
-            title: 'Proof of Delivery',
-            desc: 'Delivery is confirmed with digital proof of receipt.'
-        },
-    ];
-
     return (
         <div className="sea-freight-page">
 
@@ -174,7 +108,7 @@ const LandTransport = () => {
                     {/* Badge - Left aligned */}
                     <div ref={badgeRef} className="sf-badge-wrapper">
                         <SplitText
-                            text="Land Transport"
+                            text={hero.badge}
                             tag="span"
                             className="sf-badge"
                             delay={20}
@@ -191,7 +125,7 @@ const LandTransport = () => {
                         {/* Title with Playfair Display + SplitText */}
                         <h1 className="sf-hero-title">
                             <SplitText
-                                text="Flexible road transportation for reliable regional and domestic delivery"
+                                text={hero.title}
                                 tag="div"
                                 className="sf-title-line"
                                 delay={60}
@@ -206,7 +140,7 @@ const LandTransport = () => {
                         {/* Description with Inter light + SplitText */}
                         <p className="sf-hero-desc">
                             <SplitText
-                                text="We offer cost-effective and sustainable land transport solution for business of all sizes. From full truck loads to smaller shipments, we ensure your cargo reaches its destination safely and on time."
+                                text={hero.description}
                                 tag="span"
                                 className="sf-desc-text"
                                 delay={30}
@@ -222,7 +156,7 @@ const LandTransport = () => {
                     {/* CTA Button - Left aligned, scrolls to Reach Out section */}
                     <div ref={buttonRef} className="sf-button-wrapper">
                         <ClickForMore
-                            text="Request a quote"
+                            text={hero.cta}
                             icon={
                                 <NavigateNextRoundedIcon
                                     style={{ fontSize: '20px', marginLeft: '1px', color: '#FFF' }}
@@ -259,9 +193,9 @@ const LandTransport = () => {
 
             {/* HOW IT WORKS SECTION */}
             <section className="sf-how-it-works">
-                <h2 className="sf-section-title">How it Works</h2>
+                <h2 className="sf-section-title">{how_it_works.title}</h2>
                 <div className="sf-steps-grid">
-                    {steps.map((step, index) => (
+                    {how_it_works.steps.map((step, index) => (
                         <div className="expertise-card2" key={index}>
                             <div className="sf-step-num">{step.num}</div>
                             <h3 className="sf-step-title">{step.title}</h3>

@@ -1,6 +1,6 @@
 import React from 'react';
-import './ADSOgeneralservice.css';
-import { loomFreightgeneralservice_content } from '../../content/generalcontracting/generalcontracting_adsogeneralservice';
+import './LoomFreightgeneralservice.css';
+import { loomFreightgeneralservice_content } from '../../content/generalcontracting/generalcontracting_loomfreightgeneralservice';
 
 const LoomFreightgeneralservice = () => {
     return (

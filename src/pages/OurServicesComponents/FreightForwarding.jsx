@@ -3,6 +3,8 @@ import './FreightForwarding.css';
 
 import pic1 from '../../assets/ourservices/pic1.png';
 import pic2 from '../../assets/ourservices/pic2.png';
+import { freightforwarding_content } from '../../content/ourservices/ourservices_freightforwarding';
+
 
 const FreightForwarding = () => {
     const exitSectionRef = useRef(null);
@@ -26,22 +28,24 @@ const FreightForwarding = () => {
                     {/* Left Content */}
                     <div className="freight-content">
                         <h2 className="freight-title">
-                            Freight Forwarding, Without Borders
+                            {/* Freight Forwarding, Without Borders */}
+                            {freightforwarding_content.sections[0].title}
                         </h2>
                         <p className="freight-description">
-                            From first-mile collection to final delivery, we coordinate cargo across international trade lanes
+                            {/* From first-mile collection to final delivery, we coordinate cargo across international trade lanes
                             with care at every handoff. Packaging, customs clearance, route planning and delivery come together
-                            in one considered service, tailored to your cargo, schedule and destination.
+                            in one considered service, tailored to your cargo, schedule and destination. */}
+                            {freightforwarding_content.sections[0].description}
                         </p>
                     </div>
 
                     {/* Right Image */}
                     <div className="freight-image-container">
                         <img
-                            src={pic1}
+                            src={freightforwarding_content.sections[0].image}
                             // change the size of the image to be smaller and more centered
                             style={{ width: '100%', height: 'auto', margin: '0 auto' }}
-                            alt="Heavy industrial machinery prepared for shipment"
+                            alt={freightforwarding_content.sections[0].alt}
                             className="freight-image"
                         />
                     </div>
@@ -52,8 +56,8 @@ const FreightForwarding = () => {
                     {/* Left Image */}
                     <div className="freight-image-container">
                         <img
-                            src={pic2}
-                            alt="Freight transport for heavy industrial equipment"
+                            src={freightforwarding_content.sections[1].image}
+                            alt={freightforwarding_content.sections[1].alt}
                             style={{ width: '100%', height: 'auto', margin: '0 auto' }}
                             className="freight-image"
                         />
@@ -62,21 +66,17 @@ const FreightForwarding = () => {
                     {/* Right Content */}
                     <div className="freight-content">
                         <h2 className="freight-title">
-                            Air, Ocean &amp; Road, Seamlessly Connected
+                            {freightforwarding_content.sections[1].title}
                         </h2>
                         <p className="freight-description">
-                            Whether it is time-sensitive air cargo, a large ocean shipment or cross-border road freight, we plan
-                            the route around what you are moving and when it needs to arrive. Our team coordinates customs
-                            documentation and keeps you informed from departure through delivery.
+                            {freightforwarding_content.sections[1].description}
                         </p>
 
                         <h3 className="freight-subtitle">
-                            Specialist Logistics for Complex Cargo
+                            {freightforwarding_content.sections[1].subSection.subtitle}
                         </h3>
                         <p className="freight-description">
-                            Heavy, oversized and sensitive freight demands more than a standard booking. We plan the movement
-                            of machinery, cranes and project equipment for the energy, construction and manufacturing sectors,
-                            with careful coordination at every stage.
+                            {freightforwarding_content.sections[1].subSection.description}
                         </p>
                     </div>
                 </div>
