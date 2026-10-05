@@ -1,5 +1,5 @@
 import React from "react";
-import { why_choose_loomFreight } from "../../content/infrastructure/infrastructure_whyChooseAdso";
+import { why_choose_loomFreight } from "../../content/infrastructure/infrastructure_whyChooseLoomFreight";
 
 const WhyChooseLoomFreight = () => {
     return (

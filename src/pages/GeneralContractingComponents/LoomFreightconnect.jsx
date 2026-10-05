@@ -1,6 +1,6 @@
 import React, { useRef, useState } from 'react';
-import './ADSOconnect.css';
-import { loomFreightconnect_content } from '../../content/generalcontracting/generalcontracting_adsoconnect';
+import './LoomFreightconnect.css';
+import { loomFreightconnect_content } from '../../content/generalcontracting/generalcontracting_loomfreightconnect';
 
 const LoomFreightconnect = () => {
     const exitSectionRef = useRef(null);
