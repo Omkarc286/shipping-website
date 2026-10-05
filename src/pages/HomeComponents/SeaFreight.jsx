@@ -19,12 +19,19 @@ import { ScrollTrigger } from 'gsap/ScrollTrigger';
 // link in index.html can point at the same stable path.
 import test_icon from '../../assets/test_icon.png';
 
+// Content
+import { seafreight_content } from '../../content/home/home_seafreight_content';
+
+
 gsap.registerPlugin(ScrollTrigger);
 
 const SeaFreight = () => {
     const badgeRef = useRef(null);
     const heroTextRef = useRef(null);
     const buttonRef = useRef(null);
+
+    // Destructure content for cleaner JSX
+    const { hero, features, how_it_works } = seafreight_content;
 
     // Public-folder asset URLs (stable, never hashed by Vite)
     const heroBgWebp = '/seafreight2.webp';
@@ -77,50 +84,6 @@ const SeaFreight = () => {
         };
     }, []);
 
-    const features = [
-        {
-            title: 'Full Container Load',
-            desc: 'Dedicated containers for high-volume shipments.'
-        },
-        {
-            title: 'Less than Container Load',
-            desc: 'Shared container space for smaller shipments.'
-        },
-        {
-            title: 'Port-to-port Shipping',
-            desc: 'Reliable transport between origin and destination ports.'
-        },
-        {
-            title: 'Door to Door Shipping',
-            desc: 'End-to-end delivery from pickup to destination.'
-        },
-        {
-            title: 'Container Management',
-            desc: 'Efficient tracking and coordination of containers.'
-        },
-        {
-            title: 'Hazardous Cargo',
-            desc: 'Compliant handling for regulated shipments.'
-        },
-        {
-            title: 'Documentation',
-            desc: 'Accurate paperwork and regulatory checks.'
-        },
-        {
-            title: 'ISO Tanks',
-            desc: 'Certified tanks for bulk liquid transport.'
-        },
-    ];
-
-    const steps = [
-        { num: '1.', title: 'Cargo Booking', desc: 'Submit details and confirm your shipment.' },
-        { num: '2.', title: 'Pickup & Consolidation', desc: 'Cargo is collected and prepared for transit.' },
-        { num: '3.', title: 'Cargo Manifest', desc: 'Shipment details are prepared for processing.' },
-        { num: '4.', title: 'Ocean Transit', desc: 'Cargo travels securely to the destination port.' },
-        { num: '5.', title: 'Custom Clearance', desc: 'Documents are processed for cargo release.' },
-        { num: '6.', title: 'Last Mile Delivery', desc: 'Cargo reaches its final destination.' },
-    ];
-
     return (
         <div className="sea-freight-page">
 
@@ -146,7 +109,7 @@ const SeaFreight = () => {
                     {/* Badge - Left aligned */}
                     <div ref={badgeRef} className="sf-badge-wrapper">
                         <SplitText
-                            text="Sea Freight"
+                            text={hero.badge}
                             tag="span"
                             className="sf-badge"
                             delay={20}
@@ -164,7 +127,7 @@ const SeaFreight = () => {
                         {/* Title with Playfair Display + SplitText */}
                         <h1 className="sf-hero-title">
                             <SplitText
-                                text="Reliable ocean shipping for global cargo movement"
+                                text={hero.title}
                                 tag="div"
                                 className="sf-title-line"
                                 delay={60}
@@ -179,7 +142,7 @@ const SeaFreight = () => {
                         {/* Description with Inter light + SplitText */}
                         <p className="sf-hero-desc">
                             <SplitText
-                                text="We offer cost-effective and sustainable sea freight solution for business of all sizes. From full container loads to smaller shipments, we ensure your cargo reaches its destination safely and on time."
+                                text={hero.description}
                                 tag="span"
                                 className="sf-desc-text"
                                 delay={30}
@@ -195,7 +158,7 @@ const SeaFreight = () => {
                     {/* CTA Button - Left aligned, scrolls to Reach Out section */}
                     <div ref={buttonRef} className="sf-button-wrapper">
                         <ClickForMore
-                            text="Request a quote"
+                            text={hero.cta}
                             icon={
                                 <NavigateNextRoundedIcon
                                     style={{ fontSize: '20px', marginLeft: '1px', color: '#FFF' }}
@@ -232,9 +195,9 @@ const SeaFreight = () => {
 
             {/* HOW IT WORKS SECTION */}
             <section className="sf-how-it-works">
-                <h2 className="sf-section-title">How it Works</h2>
+                <h2 className="sf-section-title">{how_it_works.title}</h2>
                 <div className="sf-steps-grid">
-                    {steps.map((step, index) => (
+                    {how_it_works.steps.map((step, index) => (
                         <div className="expertise-card2" key={index}>
                             <div className="sf-step-num">{step.num}</div>
                             <h3 className="sf-step-title">{step.title}</h3>

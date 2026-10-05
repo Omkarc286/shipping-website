@@ -33,7 +33,17 @@ import LogisticSolutionsSection from './HomeComponents/LogisticSolutionsSection.
 import AwardsSection from './HomeComponents/AwardsSection.jsx';
 import TrustedBySection from './HomeComponents/TrustedBySection.jsx';
 
+// Content
+import { home2_content } from '../content/home/home_logistics';
+
 gsap.registerPlugin(ScrollTrigger);
+
+// Map image keys to actual imported assets
+const CARD_IMAGES = {
+  seafreight: seafreightImage,
+  landtransport: landtransportImage,
+  airtransport: airfreightImage,
+};
 
 const Home2 = () => {
   const shipCanvasRef = useRef(null);
@@ -43,6 +53,9 @@ const Home2 = () => {
   const buttonRef = useRef(null);
   const exitSectionRef = useRef(null);
 
+  // ---- Destructure content ----
+  const { hero, logistics } = home2_content;
+
   // ---- Read navigation state (e.g. About Us click from Navbar) ----
   const location = useLocation();
   const skipLoader = location.state?.skipHeroLoader === true;
@@ -50,14 +63,7 @@ const Home2 = () => {
   // ---- Loading state for hero text ----
   // If redirected from About Us, start with the loader disabled
   const [isLoading, setIsLoading] = useState(!skipLoader);
-  const [heroData, setHeroData] = useState(
-    skipLoader
-      ? {
-        line1: 'Integrated Logistics &',
-        line2: 'Supply Chain Solutions',
-      }
-      : null
-  );
+  const [heroData, setHeroData] = useState(skipLoader ? hero.loaded : null);
 
   // Public-folder asset URLs (stable, never hashed by Vite)
   const shipWebp = '/cargo-ship-sea.webp';
@@ -90,24 +96,18 @@ const Home2 = () => {
         // Simulated delay for demo purposes
         await new Promise((resolve) => setTimeout(resolve, 1000));
 
-        setHeroData({
-          line1: 'Integrated Logistics &',
-          line2: 'Supply Chain Solutions',
-        });
+        setHeroData(hero.loaded);
       } catch (err) {
         console.error('Failed to load hero data', err);
         // Fallback so the section doesn't stay empty
-        setHeroData({
-          line1: 'Integrated Logistics &',
-          line2: 'Supply Chain Solutions',
-        });
+        setHeroData(hero.loaded);
       } finally {
         setIsLoading(false);
       }
     };
 
     fetchHeroData();
-  }, [skipLoader]);
+  }, [skipLoader, hero.loaded]);
 
   // ---- GSAP scroll animations ----
   useEffect(() => {
@@ -168,6 +168,25 @@ const Home2 = () => {
     }
   }, [isLoading]);
 
+  // ---- Render the logistics description with highlighted words ----
+  const renderLogisticsDescription = () => (
+    <p className='logistics-p' style={{ fontWeight: '300', fontStyle: 'normal' }}>
+      {logistics.description.parts.map((part, idx) =>
+        part.highlight ? (
+          <span
+            key={idx}
+            className='logistics-span'
+            style={{ fontWeight: '500', fontStyle: 'italic' }}
+          >
+            {part.text}
+          </span>
+        ) : (
+          <React.Fragment key={idx}>{part.text}</React.Fragment>
+        )
+      )}
+    </p>
+  );
+
   return (
     <>
       <section
@@ -208,7 +227,7 @@ const Home2 = () => {
         >
           <div ref={badgeRef} className="hero-header-badge">
             <SplitText
-              text="10 K+ Active Clients across the Globe"
+              text={hero.badge}
               tag="span"
               className="hero-badge-text"
               delay={20}
@@ -240,7 +259,7 @@ const Home2 = () => {
             ) : (
               <>
                 <SplitText
-                  text={heroData?.line1 || 'Integrated Logistics &'}
+                  text={heroData?.line1 || hero.loading.line1}
                   tag="div"
                   className="hero-text"
                   delay={60}
@@ -251,7 +270,7 @@ const Home2 = () => {
                   textAlign="center"
                 />
                 <SplitText
-                  text={heroData?.line2 || 'Supply Chain Solutions'}
+                  text={heroData?.line2 || hero.loading.line2}
                   tag="div"
                   className="hero-text"
                   delay={60}
@@ -267,7 +286,7 @@ const Home2 = () => {
 
           <div ref={buttonRef} style={{ margin: '16px' }}>
             <ClickForMore
-              text="Get a Free Quote"
+              text={hero.cta}
               icon={<NavigateNextRoundedIcon style={{ fontSize: '20px', marginLeft: '1px', color: '#FFF' }} />}
               classContainer="get-free-quote-button"
               classTypography="get-free-quote-typography"
@@ -317,43 +336,26 @@ const Home2 = () => {
       >
         <div className='text-center items-center flex flex-col py-18'>
           <div>
-            <Badge text='Logistics' />
+            <Badge text={logistics.badge} />
           </div>
-          <div><h1 className='hero2'>Freight Solutions Built to Deliver</h1></div>
-          <p className='logistics-p' style={{ fontWeight: '300', fontStyle: 'normal' }}>
-            From <span className='logistics-span' style={{ fontWeight: '500', fontStyle: 'italic' }}>Ports</span> to{' '}
-            <span className='logistics-span' style={{ fontWeight: '500', fontStyle: 'italic' }}>Highways</span> to{' '}
-            <span className='logistics-span' style={{ fontWeight: '500', fontStyle: 'italic' }}>Airways</span>, our
-            logistics services ensure reliable cargo movement across every transport channel.
-          </p>
+          <div><h1 className='hero2'>{logistics.title}</h1></div>
+          {renderLogisticsDescription()}
 
           <div className='slcard-grid grid grid-cols-1 md:grid-cols-2 px-12 py-12 gap-6 md:gap-8 w-full'>
-            <Link to="/sea-freight" style={{ textDecoration: 'none' }}>
-              <SLCard
-                title="Sea Freight"
-                image={seafreightImage}
-                description="Reliable global shipping through major sea routes."
-                spotlightColor="rgba(255, 255, 255, 0.25)"
-              />
-            </Link>
-
-            <Link to="/land-transport" style={{ textDecoration: 'none' }}>
-              <SLCard
-                title="Land Transport"
-                image={landtransportImage}
-                description="Reliable ground transportation for your cargo."
-                spotlightColor="rgba(255, 255, 255, 0.25)"
-              />
-            </Link>
-
-            <Link to="/air-transport" style={{ textDecoration: 'none' }}>
-              <SLCard
-                title="Air Transport"
-                image={airfreightImage}
-                description="Air cargo solutions for time-sensitive shipments."
-                spotlightColor="rgba(255, 255, 255, 0.25)"
-              />
-            </Link>
+            {logistics.cards.map((card, idx) => (
+              <Link
+                key={idx}
+                to={card.route}
+                style={{ textDecoration: 'none' }}
+              >
+                <SLCard
+                  title={card.title}
+                  image={CARD_IMAGES[card.imageKey]}
+                  description={card.description}
+                  spotlightColor={card.spotlightColor}
+                />
+              </Link>
+            ))}
           </div>
         </div>
       </section>

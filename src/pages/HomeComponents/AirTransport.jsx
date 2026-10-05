@@ -19,12 +19,18 @@ import { ScrollTrigger } from 'gsap/ScrollTrigger';
 // link in index.html can point at the same stable path.
 import test_icon from '../../assets/test_icon.png';
 
+// Content
+import { airtransport_content } from '../../content/home/home_airtransport_content';
+
 gsap.registerPlugin(ScrollTrigger);
 
 const AirTransport = () => {
     const badgeRef = useRef(null);
     const heroTextRef = useRef(null);
     const buttonRef = useRef(null);
+
+    // Destructure content for cleaner JSX
+    const { hero, features, how_it_works } = airtransport_content;
 
     // Public-folder asset URLs (stable, never hashed by Vite)
     const heroBgWebp = '/airtransport2.webp';
@@ -77,66 +83,6 @@ const AirTransport = () => {
         };
     }, []);
 
-    const features = [
-        {
-            title: 'Airport-to-Airport',
-            desc: 'Direct air transport between major airports.'
-        },
-        {
-            title: 'Door-to-Airport',
-            desc: 'Convenient pickup with airport delivery.'
-        },
-        {
-            title: 'Door-to-Door',
-            desc: 'End-to-end delivery from origin to destination.'
-        },
-        {
-            title: 'Express Cargo',
-            desc: 'Priority transit for urgent shipments.'
-        },
-        {
-            title: 'ULD',
-            desc: 'Secure cargo loading using standard ULD equipment.'
-        },
-        {
-            title: 'Storage & Handling',
-            desc: 'Secure storage and careful cargo handling.'
-        }
-    ];
-
-    const steps = [
-        {
-            num: '1.',
-            title: 'Booking',
-            desc: 'Submit cargo details and confirm your shipment.'
-        },
-        {
-            num: '2.',
-            title: 'Cargo Pickup',
-            desc: 'Cargo is collected and prepared for transport.'
-        },
-        {
-            num: '3.',
-            title: 'Security & Documentation',
-            desc: 'Cargo undergoes security checks and document verification.'
-        },
-        {
-            num: '4.',
-            title: 'Airport Handling',
-            desc: 'Cargo is screened, handled, and prepared for loading.'
-        },
-        {
-            num: '5.',
-            title: 'Air Transit',
-            desc: 'Cargo is transported securely to the destination airport.'
-        },
-        {
-            num: '6.',
-            title: 'Customs & Delivery',
-            desc: 'Cargo clears customs and reaches its final destination.'
-        },
-    ];
-
     return (
         <div className="sea-freight-page">
 
@@ -162,7 +108,7 @@ const AirTransport = () => {
                     {/* Badge - Left aligned */}
                     <div ref={badgeRef} className="sf-badge-wrapper">
                         <SplitText
-                            text="Air Transport"
+                            text={hero.badge}
                             tag="span"
                             className="sf-badge"
                             delay={20}
@@ -179,7 +125,7 @@ const AirTransport = () => {
                         {/* Title with Playfair Display + SplitText */}
                         <h1 className="sf-hero-title">
                             <SplitText
-                                text="Fast and secure air cargo solutions for time-sensitive shipments"
+                                text={hero.title}
                                 tag="div"
                                 className="sf-title-line"
                                 delay={60}
@@ -194,7 +140,7 @@ const AirTransport = () => {
                         {/* Description with Inter light + SplitText */}
                         <p className="sf-hero-desc">
                             <SplitText
-                                text="Fast, flexible, and reliable air freight solutions designed for businesses of all sizes. We connect your cargo to destinations worldwide, ensuring secure handling, timely delivery, and complete visibility at every step."
+                                text={hero.description}
                                 tag="span"
                                 className="sf-desc-text"
                                 delay={30}
@@ -210,7 +156,7 @@ const AirTransport = () => {
                     {/* CTA Button - Left aligned, scrolls to Reach Out section */}
                     <div ref={buttonRef} className="sf-button-wrapper">
                         <ClickForMore
-                            text="Request a quote"
+                            text={hero.cta}
                             icon={
                                 <NavigateNextRoundedIcon
                                     style={{ fontSize: '20px', marginLeft: '1px', color: '#FFF' }}
@@ -247,9 +193,9 @@ const AirTransport = () => {
 
             {/* HOW IT WORKS SECTION */}
             <section className="sf-how-it-works">
-                <h2 className="sf-section-title">How it Works</h2>
+                <h2 className="sf-section-title">{how_it_works.title}</h2>
                 <div className="sf-steps-grid">
-                    {steps.map((step, index) => (
+                    {how_it_works.steps.map((step, index) => (
                         <div className="expertise-card2" key={index}>
                             <div className="sf-step-num">{step.num}</div>
                             <h3 className="sf-step-title">{step.title}</h3>
