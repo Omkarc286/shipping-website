@@ -155,27 +155,6 @@ const Navbar = () => {
   }, [isMobileMenuOpen])
 
 
-  const scrollToSection = (sectionId) => {
-    const doScroll = () => {
-      const section = document.getElementById(sectionId)
-      if (section) {
-
-        setTimeout(() => {
-          section.scrollIntoView({ behavior: 'smooth', block: 'start' })
-        }, 400)
-      }
-    }
-
-    if (location.pathname === '/') {
-      window.scrollTo({ top: 0, behavior: 'auto' })
-      setTimeout(doScroll, 200)
-    } else {
-      navigate('/')
-      window.scrollTo({ top: 0, behavior: 'auto' })
-      setTimeout(doScroll, 700)
-    }
-  }
-
   const scrollToReachOut = () => {
     const isOnValidPage =
       pagesWithReachOut.includes(location.pathname) ||
@@ -213,6 +192,7 @@ const Navbar = () => {
       window.scrollTo({ top: 0, behavior: 'smooth' })
     } else {
       navigate('/')
+      // navigate('/', { state: { skipHeroLoader: true } })
       window.scrollTo({ top: 0, behavior: 'auto' })
     }
   }
@@ -231,7 +211,7 @@ const Navbar = () => {
     }
     if (item.id === 'home') {
       navigate('/')
-      window.scrollTo({ top: 0, behavior: 'smooth' })
+      window.scrollTo({ top: 0, behavior: 'auto' })
       return
     }
     // ⭐ About Us → scroll to the about section on home page
