@@ -1,6 +1,6 @@
 import React, { useState } from 'react';
 import { FiPhone, FiFacebook, FiInstagram, FiLinkedin } from "react-icons/fi";
-import { reachout_content } from '../../content/blog/blog_reachout';
+import { reachout_content } from '../../content/home/home_reachout';
 
 const ReachOutSection = ({ backgroundImage = '', id = 'reach-out' }) => {
     const [formData, setFormData] = useState({

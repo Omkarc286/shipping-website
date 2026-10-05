@@ -46,11 +46,11 @@ const ServiceCard = ({ header, desc, image, url }) => {
     setIsHovered(true)
   }
 
-  const handleButtonClick = () => {
-    if (url) {
-      window.open(url, '_blank')
-    }
-  }
+  // const handleButtonClick = () => {
+  //   if (url) {
+  //     window.open(url, '_blank')
+  //   }
+  // }
 
   return (
     <div

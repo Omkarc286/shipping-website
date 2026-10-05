@@ -1,5 +1,5 @@
 import React from 'react';
-import { trustedby_content } from '../../content/ourservices/ourservices_trustedby';
+import { trustedby_content } from '../../content/home/home_trustedby';
 
 const TrustedBySection = () => {
 

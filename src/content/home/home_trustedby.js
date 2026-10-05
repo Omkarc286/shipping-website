@@ -1,17 +1,21 @@
 
-import siemens from '../../assets/partners/siemens.png';
-import samsung from '../../assets/partners/samsung.png';
-import bellway from '../../assets/partners/bellway.png';
-import otis from '../../assets/partners/otis.png';
-import ncp from '../../assets/partners/ncp.png';
+import cma_cgm from '../../assets/partners/CMA_CGM.png';
+import cosco from '../../assets/partners/COSCO.png';
+import maersk from '../../assets/partners/Maersk.png';
+import hapagllyod from '../../assets/partners/Hapag_Lloyd.png';
+import msc from '../../assets/partners/MSC.png';
+import one from '../../assets/partners/ONE.png';
+import unifeeder from '../../assets/partners/Unifeeder.png';
 
 export const trustedby_content = {
-    header_text: 'TRUSTED BY',
+    header_text: 'PARTNERED SHIPPING LINES',
     partners: [
-        { name: "Siemens", logo: siemens },
-        { name: "Samsung", logo: samsung },
-        { name: "Bellway", logo: bellway },
-        { name: "Otis", logo: otis },
-        { name: "NCP", logo: ncp },
+        { name: "CMA CGM", logo: cma_cgm },
+        { name: "COSCO", logo: cosco },
+        { name: "Maersk", logo: maersk },
+        { name: "Hapag-Lloyd", logo: hapagllyod },
+        { name: "MSC", logo: msc },
+        { name: "ONE", logo: one },
+        { name: "Unifeeder", logo: unifeeder },
     ],
 };

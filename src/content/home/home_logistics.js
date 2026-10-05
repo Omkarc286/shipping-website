@@ -2,7 +2,7 @@
 
 export const home2_content = {
     hero: {
-        badge: '10 K+ Active Clients across the Globe',
+        badge: '1000+ Active Clients across the Globe',
 
         loading: {
             line1: 'Integrated Logistics &',

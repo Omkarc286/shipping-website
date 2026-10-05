@@ -18,16 +18,10 @@ import contact_bg from '../assets/contact-bg.png';
 import testimonial_bg from '../assets/testimonials/testimonial_bg.png';
 import { home_aboutus } from '../content/home/home_aboutus';
 import test_icon from '../assets/test_icon.png';
-import ServiceCard from '../components/ServiceCard';
-import IndustriesCard from '../components/IndustriesCard';
-import Masonry from '../effects/Masonry';
-import FWCard from '../components/FWCard';
 import TestimonialsSection from './HomeComponents/TestimonialsSection.jsx';
 import FAQSection from './HomeComponents/FAQSection.jsx';
 import ReachOutSection from './HomeComponents/ReachOutSection.jsx';
 import Footer from '../components/Footer.jsx';
-import FeaturedWorksSection from './HomeComponents/FeaturedWorksSection.jsx';
-import RecentWorksSection from './HomeComponents/RecentWorksSection.jsx';
 import IndustriesSection from './HomeComponents/IndustriesSection.jsx';
 import LogisticSolutionsSection from './HomeComponents/LogisticSolutionsSection.jsx';
 import AwardsSection from './HomeComponents/AwardsSection.jsx';
@@ -365,7 +359,7 @@ const Home2 = () => {
           <div className='flex flex-col items-center lg:items-start w-full lg:w-1/2 px-0 lg:px-10'>
             <Badge text='About us' />
             <h1 className='about-head-text text-center lg:text-left pt-1.5'>{home_aboutus.header_text}</h1>
-            <p className='about-p text-center lg:text-left pr-0 lg:pr-6'>{home_aboutus.description}</p>
+            <p className='about-p text-center lg:text-left pr-0 lg:pr-6' dangerouslySetInnerHTML={{ __html: home_aboutus.description }} />
           </div>
           <div className='flex flex-col lg:flex-row w-full lg:w-1/2 pt-0 lg:pt-10 gap-7'>
             <div className='flex flex-col items-center lg:items-start w-full lg:w-1/2'>
@@ -374,7 +368,7 @@ const Home2 = () => {
             </div>
             <div className='flex flex-col items-center lg:items-start w-full lg:w-1/2'>
               <h2 className='about-subhead-text text-center lg:text-left'>{home_aboutus.subhead2}</h2>
-              <p className='about-p text-center lg:text-left'>{home_aboutus.subdesc2}</p>
+              <p className='about-p text-center lg:text-left' dangerouslySetInnerHTML={{ __html: home_aboutus.subdesc2 }} />
             </div>
           </div>
         </div>

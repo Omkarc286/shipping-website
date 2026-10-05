@@ -7,7 +7,7 @@ import {
     FaTwitter,
     FaDiscord
 } from 'react-icons/fa';
-import { FiPhone } from "react-icons/fi";
+import { FiPhone, FiMail } from "react-icons/fi";
 import { footer_content } from '../content/common/common_footer';
 
 // ⭐ Same list as Navbar — pages that have a #reach-out section

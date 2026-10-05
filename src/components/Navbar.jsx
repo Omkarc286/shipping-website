@@ -4,7 +4,7 @@ import { useNavigate, useLocation } from 'react-router-dom'
 
 import Logo from '../assets/LfLogo.svg'
 import { menuItems } from '../content/common/navbar_content'
-import brochurePDF from '../assets/brochure/freight_forwarding_brochure_sample.pdf'
+import brochurePDF from '../assets/brochure/Loom-Freight-Company-Profile.pdf'
 
 // ⭐ Dropdowns hidden
 // import AboutDropdown from './AboutDropdown'
@@ -244,7 +244,7 @@ const Navbar = () => {
     if (item.id === 'services') navigate('/services')
     // ⭐ Blog navigation disabled
     // else if (item.id === 'blogs') navigate('/blog')
-    else if (item.id === 'portfolio') navigate('/portfolio')
+    // else if (item.id === 'portfolio') navigate('/portfolio')
   }
 
   const handleServiceSubItemClick = (path) => {
@@ -306,7 +306,7 @@ const Navbar = () => {
   const handleDownloadBrochure = () => {
     const link = document.createElement('a')
     link.href = brochurePDF
-    link.download = 'Fleetonic_Freight_Forwarding_Brochure.pdf'
+    link.download = 'Loom-Freight-Company-Profile.pdf'
     document.body.appendChild(link)
     link.click()
     document.body.removeChild(link)
@@ -621,10 +621,10 @@ const Navbar = () => {
 
           <div className="mobile-menu-button-container">
             <div
-              className="flex px-4 py-3 items-center justify-center rounded-lg bg-linear-to-r from-blue-500 to-purple-500 cursor-pointer"
+              className="flex px-4 py-2 items-center justify-center rounded-lg bg-linear-to-r from-blue-500 to-purple-500 cursor-pointer"
               onClick={handleDownloadBrochure}
             >
-              <div className="font-medium text-base text-white">
+              <div className="font-medium text-[12px] text-white">
                 Company Brochure
               </div>
             </div>

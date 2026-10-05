@@ -116,7 +116,7 @@ const ServicesHero = () => {
                         />
                     ))}
 
-                    <p className="text-gray-300 text-center mt-6 max-w-xl !text-[18px] md:text-base whitespace-pre-line">
+                    <p className="text-gray-300 text-center mt-6 max-w-xl text-[18px]! md:text-base whitespace-pre-line">
                         {serviceshero_content.description}
                     </p>
                 </div>
