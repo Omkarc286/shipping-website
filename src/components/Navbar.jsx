@@ -362,10 +362,10 @@ const Navbar = () => {
         {!isMobile && (
           <div className="flex justify-end">
             <div
-              className="flex px-2 py-2 items-center justify-center rounded-lg bg-linear-to-r from-blue-500 to-purple-500 cursor-pointer"
+              className="flex px-2 py-1.5 items-center justify-center rounded-lg bg-linear-to-r from-blue-500 to-purple-500 cursor-pointer"
               onClick={handleDownloadBrochure}
             >
-              <div className="font-medium text-base text-white">
+              <div className="font-medium text-sm text-white">
                 Company Brochure
               </div>
             </div>
