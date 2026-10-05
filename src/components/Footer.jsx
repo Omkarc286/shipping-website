@@ -20,7 +20,7 @@ const pagesWithReachOut = [
     '/general-contracting/infrastructure',
     '/general-contracting/marine',
     '/blog',
-    '/portfolio',
+    // '/portfolio',
     '/logistics',
     '/logistics/land-freight',
     '/logistics/air-freight',
@@ -108,17 +108,17 @@ const Footer = () => {
         }
 
         // Our Projects / Portfolio → /portfolio
-        if (
-            label === 'our projects' ||
-            label === 'our project' ||
-            label === 'projects' ||
-            label === 'portfolio'
-        ) {
-            e.preventDefault();
-            navigate('/portfolio');
-            window.scrollTo(0, 0);
-            return;
-        }
+        // if (
+        //     label === 'our projects' ||
+        //     label === 'our project' ||
+        //     label === 'projects' ||
+        //     label === 'portfolio'
+        // ) {
+        //     e.preventDefault();
+        //     navigate('/portfolio');
+        //     window.scrollTo(0, 0);
+        //     return;
+        // }
 
         // About Us → scroll to #about-us on home page
         if (label === 'about us' || label === 'aboutus') {

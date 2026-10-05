@@ -20,7 +20,6 @@ Since Loom Freight's establishment, it specialized in providing services to the 
 
     quick_links: [
         { label: 'Our Services', link: '#' },
-        { label: 'Our Project', link: '#' },
         { label: 'About Us', link: '#' },
         { label: 'Contact Us', link: '#' },
     ],
@@ -30,7 +29,7 @@ Since Loom Freight's establishment, it specialized in providing services to the 
 
         items: [
             { type: 'phone', value: '+971 6 878 8877', link: 'tel:+97168788877' },
-            { type: 'email', value: 'reflect@emirate.net.ae', link: 'mailto:reflect@emirate.net.ae' },
+            { type: 'email', value: 'admin@loomfreight.com', link: 'mailto:admin@loomfreight.com' },
             { type: 'time', value: 'Mon - Fri 08:00 - 17:00' },
             { type: 'time', value: 'Sat 08:00 - 13:00', fullWidth: true },
         ],
