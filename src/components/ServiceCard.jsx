@@ -1,6 +1,6 @@
 import React, { useState, useRef, useEffect } from 'react'
 
-const ServiceCard = ({header, desc, image, url}) => {
+const ServiceCard = ({ header, desc, image, url }) => {
   const [isHovered, setIsHovered] = useState(false)
   const [tilt, setTilt] = useState({ x: 0, y: 0 })
   const [supportsHover, setSupportsHover] = useState(() => {
@@ -53,7 +53,7 @@ const ServiceCard = ({header, desc, image, url}) => {
   }
 
   return (
-    <div 
+    <div
       ref={cardRef}
       className="service-card"
       onMouseMove={handleMouseMove}
@@ -63,20 +63,20 @@ const ServiceCard = ({header, desc, image, url}) => {
         transform: supportsHover && isHovered
           ? `perspective(1000px) rotateX(${tilt.x}deg) rotateY(${tilt.y}deg) scale(1.08)`
           : isHovered
-          ? 'scale(1.05)'
-          : 'perspective(1000px) rotateX(0deg) rotateY(0deg) scale(1)',
+            ? 'scale(1.05)'
+            : 'perspective(1000px) rotateX(0deg) rotateY(0deg) scale(1)',
       }}
     >
       <img src={image} alt={header} className="service-card-image" />
       <h3 className="service-card-header text-left px-2">{header}</h3>
       <p className="service-card-desc text-left px-2">{desc}</p>
-      
+
       {/* Hover Button */}
-      <div className={`service-card-button-container ${isHovered ? 'visible' : 'hidden'}`}>
+      {/* <div className={`service-card-button-container ${isHovered ? 'visible' : 'hidden'}`}>
         <button className="service-card-button" onClick={handleButtonClick}>
           Learn More
         </button>
-      </div>
+      </div> */}
     </div>
   )
 }
