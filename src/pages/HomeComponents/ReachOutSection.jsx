@@ -1,7 +1,11 @@
 import React, { useState } from 'react';
 import { FiPhone, FiFacebook, FiInstagram, FiLinkedin } from "react-icons/fi";
 import { reachout_content } from '../../content/home/home_reachout';
+import emailjs from '@emailjs/browser';
 
+const EMAILJS_SERVICE_ID = import.meta.env.VITE_EMAILJS_SERVICE_ID || '';
+const EMAILJS_TEMPLATE_ID = import.meta.env.VITE_EMAILJS_TEMPLATE_ID || '';
+const EMAILJS_PUBLIC_KEY = import.meta.env.VITE_EMAILJS_PUBLIC_KEY || '';
 const ReachOutSection = ({ backgroundImage = '', id = 'reach-out' }) => {
     const [formData, setFormData] = useState({
         firstName: '',
@@ -10,14 +14,43 @@ const ReachOutSection = ({ backgroundImage = '', id = 'reach-out' }) => {
         phone: '',
         message: ''
     });
-
+    const [status, setStatus] = useState("idle");
     const handleChange = (e) => {
         setFormData({ ...formData, [e.target.name]: e.target.value });
     };
 
-    const handleSubmit = (e) => {
+    const handleSubmit = async (e) => {
         e.preventDefault();
-        alert("Message sent successfully! (Demo)");
+        setStatus("sending");
+        console.log("Form Data:", formData);
+        try{
+            await emailjs.send(
+                EMAILJS_SERVICE_ID,
+                EMAILJS_TEMPLATE_ID,
+                {
+                    name: `${formData.firstName} ${formData.lastName}`,
+                    email: formData.email,
+                    phone: formData.phone,
+                    message: formData.message
+                },
+                EMAILJS_PUBLIC_KEY
+            );
+            setStatus("success");
+            alert("RFQ submitted successfully!");
+            setFormData({
+                firstName: '',
+                lastName: '',
+                email: '',
+                phone: '',
+                message: ''
+            });
+        } catch(e) {
+            console.error("Error sending email:", e);
+            setStatus("error");
+            alert("There was an error submitting your RFQ. Please try again later.");
+            return;
+        }
+        
     };
 
     const renderIcon = (name) => {
