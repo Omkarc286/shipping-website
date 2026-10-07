@@ -38,7 +38,7 @@ export const home_industries = {
         },
         {
             icon: test_icon,
-            title: 'Pharma'
+            title: 'Pharmaceutical'
         }
     ]
 };

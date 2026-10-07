@@ -23,7 +23,7 @@ const ReachOutSection = ({ backgroundImage = '', id = 'reach-out' }) => {
         e.preventDefault();
         setStatus("sending");
         console.log("Form Data:", formData);
-        try{
+        try {
             await emailjs.send(
                 EMAILJS_SERVICE_ID,
                 EMAILJS_TEMPLATE_ID,
@@ -44,13 +44,13 @@ const ReachOutSection = ({ backgroundImage = '', id = 'reach-out' }) => {
                 phone: '',
                 message: ''
             });
-        } catch(e) {
+        } catch (e) {
             console.error("Error sending email:", e);
             setStatus("error");
             alert("There was an error submitting your RFQ. Please try again later.");
             return;
         }
-        
+
     };
 
     const renderIcon = (name) => {
@@ -63,7 +63,7 @@ const ReachOutSection = ({ backgroundImage = '', id = 'reach-out' }) => {
     };
 
     // Shared class for inputs to keep placeholder + text black
-    const inputClass = "w-full px-5 py-4 bg-[#a5daf0] rounded-md outline-none placeholder-black text-black";
+    const inputClass = "w-full px-5 py-4 bg-[#a5daf0] rounded-md outline-none placeholder-gray text-black";
 
     return (
         <section
@@ -143,8 +143,8 @@ const ReachOutSection = ({ backgroundImage = '', id = 'reach-out' }) => {
 
                     <form onSubmit={handleSubmit} className="space-y-6">
                         <div className="grid grid-cols-2 gap-4">
-                            <input name="lastName" placeholder="Last Name" value={formData.lastName} onChange={handleChange} className={inputClass} required />
                             <input name="firstName" placeholder="First Name" value={formData.firstName} onChange={handleChange} className={inputClass} required />
+                            <input name="lastName" placeholder="Last Name" value={formData.lastName} onChange={handleChange} className={inputClass} required />
                         </div>
 
                         <input type="email" name="email" placeholder="Email" value={formData.email} onChange={handleChange} className={inputClass} required />
