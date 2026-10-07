@@ -107,14 +107,14 @@ const ReachOutSection = ({ backgroundImage = '', id = 'reach-out' }) => {
 
                     <form onSubmit={handleSubmit} className="space-y-6">
                         <div className="grid grid-cols-2 gap-4">
-                            <input name="lastName" placeholder="Last Name" value={formData.lastName} onChange={handleChange} className="w-full px-5 py-4 bg-[#a5daf0] rounded-md outline-none" required />
-                            <input name="firstName" placeholder="First Name" value={formData.firstName} onChange={handleChange} className="w-full px-5 py-4 bg-[#a5daf0] rounded-md outline-none" required />
+                            <input name="firstName" placeholder="First Name" value={formData.firstName} onChange={handleChange} className="w-full px-5 py-4 bg-[#a5daf0] rounded-md outline-none placeholder-gray text-black" required />
+                            <input name="lastName" placeholder="Last Name" value={formData.lastName} onChange={handleChange} className="w-full px-5 py-4 bg-[#a5daf0] rounded-md outline-none placeholder-gray text-black" required />
                         </div>
 
-                        <input type="email" name="email" placeholder="Email" value={formData.email} onChange={handleChange} className="w-full px-5 py-4 bg-[#a5daf0] rounded-md outline-none" required />
-                        <input type="tel" name="phone" placeholder="Phone Number" value={formData.phone} onChange={handleChange} className="w-full px-5 py-4 bg-[#a5daf0] rounded-md outline-none" />
+                        <input type="email" name="email" placeholder="Email" value={formData.email} onChange={handleChange} className="w-full px-5 py-4 bg-[#a5daf0] rounded-md outline-none placeholder-gray text-black" required />
+                        <input type="tel" name="phone" placeholder="Phone Number" value={formData.phone} onChange={handleChange} className="w-full px-5 py-4 bg-[#a5daf0] rounded-md outline-none placeholder-gray text-black" />
 
-                        <textarea name="message" placeholder="Message" rows="5" value={formData.message} onChange={handleChange} className="w-full px-5 py-4 bg-[#a5daf0] rounded-md outline-none resize-y" required />
+                        <textarea name="message" placeholder="Message" rows="5" value={formData.message} onChange={handleChange} className="w-full px-5 py-4 bg-[#a5daf0] rounded-md outline-none resize-y placeholder-gray text-black" required />
 
                         <button type="submit" className="w-full bg-[#8B00FF] hover:bg-[#7A00E6] text-white font-semibold py-4 rounded-md flex items-center justify-center gap-3 text-lg shadow-md">
                             {reachout_content.form.button_text}
