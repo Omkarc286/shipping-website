@@ -119,6 +119,8 @@ h1.hero2 {
 
   @media (max-width: 1024px) {
     font-size: 3rem;
+    line-height: 56px;
+    margin-top: 20px
   }
 }
 
@@ -140,6 +142,10 @@ p.logistics-p {
   letter-spacing: 2%;
   text-align: center;
   color: rgba(220, 220, 220, 1);
+
+  @media (max-width: 480px) {
+    margin-top: 20px;
+  }
 }
 
 .about-p {
@@ -702,6 +708,19 @@ p.logistics-p {
   }
 }
 
+@media (max-width: 1032px) {
+  .ship-canvas {
+    width: 800px !important;
+    height: 467px !important;
+    bottom: 450px !important;
+  }
+
+  .sf-title-line {
+    font-size: 4rem !important;
+    line-height: 4.5rem !important;
+  }
+}
+
 @media (max-width: 880px) {
   .ship-canvas {
     width: 560px !important;
@@ -714,7 +733,12 @@ p.logistics-p {
   .ship-canvas {
     width: 480px !important;
     height: 280px !important;
-    bottom: 0px !important;
+    bottom: 142px !important;
+  }
+
+  .sf-title-line {
+    font-size: 4rem !important;
+    line-height: 4.5rem !important;
   }
 }
 
@@ -730,7 +754,94 @@ p.logistics-p {
   .ship-canvas {
     width: 280px !important;
     height: 164px !important;
-    bottom: 40px !important;
+    bottom: 8% !important;
+  }
+}
+
+@media (max-width: 440px) {
+  .ship-canvas {
+    width: 280px !important;
+    height: 164px !important;
+    bottom: 8% !important;
+  }
+
+  .sf-title-line {
+    font-size: 3rem !important;
+    line-height: 3.5rem !important;
+  }
+
+  .hero-text {
+    font-size: 4rem !important;
+    line-height: 4.5rem !important;
+    /* 80px */
+  }
+}
+
+@media (max-width: 427px) {
+  .ship-canvas {
+    width: 280px !important;
+    height: 164px !important;
+    bottom: 7% !important;
+  }
+}
+
+@media (max-width: 412px) {
+  .ship-canvas {
+    width: 280px !important;
+    height: 164px !important;
+    bottom: 15% !important;
+  }
+
+  .hero-text {
+    font-size: 3rem !important;
+    line-height: 3.5rem !important;
+    /* 80px */
+  }
+}
+
+@media (max-width: 393px) {
+  .ship-canvas {
+    width: 280px !important;
+    height: 164px !important;
+    bottom: 8% !important;
+  }
+
+  .sf-title-line {
+    font-size: 3rem !important;
+    line-height: 3.5rem !important;
+  }
+
+  .hero-text {
+    font-size: 3rem !important;
+    line-height: 3.5rem !important;
+    /* 80px */
+  }
+}
+
+@media (max-width: 375px) {
+  .ship-canvas {
+    width: 280px !important;
+    height: 164px !important;
+    bottom: 5% !important;
+  }
+
+  .sf-title-line {
+    font-size: 2rem !important;
+    line-height: 2.5rem !important;
+  }
+
+  .hero-text {
+    font-size: 2rem !important;
+    line-height: 2.5rem !important;
+    /* 80px */
+  }
+}
+
+@media (max-width: 360px) {
+  .ship-canvas {
+    width: 280px !important;
+    height: 164px !important;
+    bottom: 21% !important;
   }
 }
 
@@ -760,11 +871,14 @@ p.logistics-p {
   }
 
   .hero-text {
-    font-size: 2.5rem;
-    line-height: 3rem;
+    font-size: 2rem;
+    line-height: 2.5rem;
     /* 80px */
   }
 
+  .home-content {
+    padding-top: 8rem !important;
+  }
 }
 
 @media (max-width: 360px) {
@@ -1232,6 +1346,15 @@ code {
     width: 0.95rem;
     height: 0.95rem;
   }
+
+  .slcard-grid {
+    padding: 0px;
+    margin-top: 20px;
+  }
+
+  .navbar-grid {
+    padding: 25px
+  }
 }
 
 /* Service Card Grid Styles */
@@ -1535,6 +1658,12 @@ code {
 @media (orientation: portrait) {
   .newtexttop {
     padding-bottom: 2rem
+  }
+}
+
+@media (max-width: 375px) {
+  .hero-text-container {
+    margin-top: 0px !important;
   }
 }
 

@@ -401,12 +401,12 @@ const Navbar = () => {
                         Our Services
                       </span>
 
-                      <span
+                      {/* <span
                         onClick={toggleServices}
                         className={`px-3 cursor-pointer transition-transform ${servicesOpen ? 'rotate-180' : ''}`}
                       >
                         <FiChevronDown />
-                      </span>
+                      </span> */}
                     </div>
 
                     {servicesOpen && (
